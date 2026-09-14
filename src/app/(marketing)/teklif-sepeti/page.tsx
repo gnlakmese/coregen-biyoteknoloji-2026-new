@@ -69,6 +69,8 @@ export default function TeklifSepetiPage() {
     biyoguvenlikAciklama: "",
     tcVkn: "",
     faturaAdresi: "",
+    amaci: "",       // Eksik olduğu için eklendi
+    aciklama: "",    // Eksik olduğu için eklendi
   });
 
   const [sarfFormData, setSarfFormData] = useState({
@@ -199,7 +201,6 @@ export default function TeklifSepetiPage() {
     <div className="min-h-screen bg-[#f8f9fa] pt-28 pb-24 text-gray-900">
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         
-        {/* KART SEÇİM EKRANI */}
         {aktifForm === null ? (
           <div className="space-y-10">
             <div className="text-center max-w-2xl mx-auto space-y-3">
@@ -486,7 +487,6 @@ export default function TeklifSepetiPage() {
               </div>
             ) : (
 
-              /* B) HİZMET SEPETİ VE 39+1 HİZMET İÇİN EKSİZSİZ TEK TEK AKAN ÖZEL SORULAR */
               <div className="bg-white border border-gray-200 rounded-3xl p-8 lg:p-12 shadow-sm max-w-5xl mx-auto space-y-8">
                 
                 <div className="border-b border-gray-100 pb-4">
@@ -499,7 +499,6 @@ export default function TeklifSepetiPage() {
 
                 <form onSubmit={handleSubmitQuote} className="space-y-8">
                   
-                  {/* 40 HİZMET SEÇİMİ (4'LÜ GRID) */}
                   <div className="space-y-3">
                     <h3 className="font-bold text-xs text-gray-900 flex items-center gap-1.5 uppercase tracking-wider border-b pb-2">
                       <Wrench className="w-4 h-4 text-pink-600" /> Talep Edilen Hizmetler ve Analizler <span className="text-pink-600">*</span>
@@ -533,7 +532,6 @@ export default function TeklifSepetiPage() {
                     </div>
                   </div>
 
-                  {/* SEÇİLEN HER HİZMET İÇİN 1'DEN 39'A KADAR EKSİZSİZ ÖZEL SORULAR */}
                   {selectedServiceIds.length > 0 && (
                     <div className="space-y-4 bg-pink-50/30 border border-pink-100 rounded-2xl p-6">
                       <h3 className="font-bold text-xs text-pink-900 uppercase tracking-wider border-b border-pink-100 pb-2">
@@ -551,7 +549,6 @@ export default function TeklifSepetiPage() {
                                 <span className="w-2 h-2 rounded-full bg-pink-600" /> {srv?.name}
                               </h4>
 
-                              {/* 40. BİLGİ ALMAK İSTİYORUM */}
                               {id === "40" && (
                                 <div className="space-y-4 text-xs">
                                   <div>
@@ -565,7 +562,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 1. Nükleik Asit ve Protein İzolasyonu */}
                               {id === "1" && (
                                 <div className="space-y-4 text-xs">
                                   <div>
@@ -592,7 +588,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 2. Primer Tasarımı */}
                               {id === "2" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Organizma:</label><input type="text" value={d.org || ""} onChange={e => handleDetailChange(id, "org", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -619,7 +614,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 3. Jel Elektroforezi */}
                               {id === "3" && (
                                 <div className="space-y-3 text-xs">
                                   <div>
@@ -644,7 +638,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 4. Nükleik Asitlerde Miktar Tayini */}
                               {id === "4" && (
                                 <div className="space-y-3 text-xs">
                                   <div>
@@ -665,7 +658,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 5. PCR Analizi */}
                               {id === "5" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Organizma:</label><input type="text" value={d.organizma || ""} onChange={e => handleDetailChange(id, "organizma", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -686,7 +678,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 6. Gerçek Zamanlı PCR (RT-PCR / qPCR) */}
                               {id === "6" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Organizma:</label><input type="text" value={d.organizma || ""} onChange={e => handleDetailChange(id, "organizma", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -704,7 +695,7 @@ export default function TeklifSepetiPage() {
                                   <div><label className="block font-bold text-gray-700 mb-1">Referans / Housekeeping Gen (varsa):</label><input type="text" value={d.referansGen || ""} onChange={e => handleDetailChange(id, "referansGen", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
                                   <div>
                                     <label className="block font-bold text-gray-700 mb-1">Çalışma Sistemi:</label>
-                                    <div className="flex gap-4">{["SYBR Green", "TaqMan / Probe", "Belirtilmedi"].map(x => <label key={x} className="flex items-center gap-1"><input type="radio" name={`cs-${id}`} checked={d.calismaSistemi === x} onChange={() => handleDetailChange(id, "calismaSistemi", x)} /> {x}</label>)}</div>
+                                    <div className="flex gap-4">{["SYBR Green", "TaqMan / Prob", "Belirtilmedi"].map(x => <label key={x} className="flex items-center gap-1"><input type="radio" name={`cs-${id}`} checked={d.calismaSistemi === x} onChange={() => handleDetailChange(id, "calismaSistemi", x)} /> {x}</label>)}</div>
                                   </div>
                                   <div>
                                     <label className="block font-bold text-gray-700 mb-1">Çalışma Döngüsü:</label>
@@ -718,7 +709,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 7. Sanger Dizileme */}
                               {id === "7" && (
                                 <div className="space-y-3 text-xs">
                                   <div>
@@ -744,7 +734,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 8. Whole Genome Sequencing (WGS) */}
                               {id === "8" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Organizma:</label><input type="text" value={d.organizma || ""} onChange={e => handleDetailChange(id, "organizma", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -772,7 +761,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 9. Whole Exome Sequencing (WES) */}
                               {id === "9" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Organizma:</label><input type="text" value={d.organizma || ""} onChange={e => handleDetailChange(id, "organizma", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -800,7 +788,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 10. Targeted Sequencing */}
                               {id === "10" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Organizma:</label><input type="text" value={d.organizma || ""} onChange={e => handleDetailChange(id, "organizma", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -824,7 +811,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 11. Transkriptom Analizi (RNA-Seq) */}
                               {id === "11" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Organizma:</label><input type="text" value={d.organizma || ""} onChange={e => handleDetailChange(id, "organizma", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -851,7 +837,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 12. Shotgun Metagenomics */}
                               {id === "12" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Numune Türü:</label><input type="text" value={d.numuneTuru || ""} onChange={e => handleDetailChange(id, "numuneTuru", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -878,7 +863,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 13. 16S rRNA Analizi */}
                               {id === "13" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Numune Türü:</label><input type="text" value={d.numuneTuru || ""} onChange={e => handleDetailChange(id, "numuneTuru", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -905,7 +889,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 14. Western Blot Analizi */}
                               {id === "14" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Numune Türü / Organizma:</label><input type="text" value={d.numuneTuruOrg || ""} onChange={e => handleDetailChange(id, "numuneTuruOrg", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -937,7 +920,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 15. ELISA Analizi */}
                               {id === "15" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Numune Türü / Organizma:</label><input type="text" value={d.numuneTuruOrg || ""} onChange={e => handleDetailChange(id, "numuneTuruOrg", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -964,7 +946,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 16. Rekombinant Protein Analizi */}
                               {id === "16" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Hedef Protein / Gen:</label><input type="text" value={d.hedefProteinGen || ""} onChange={e => handleDetailChange(id, "hedefProteinGen", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -989,7 +970,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 17. NGS Veri Analizi */}
                               {id === "17" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Veri Türü:</label><input type="text" value={d.veriTuru || ""} onChange={e => handleDetailChange(id, "veriTuru", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1015,7 +995,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 18. RNA-Seq Analizi */}
                               {id === "18" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Organizma:</label><input type="text" value={d.organizma || ""} onChange={e => handleDetailChange(id, "organizma", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1038,7 +1017,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 19. Diferansiyel Gen Ekspresyonu */}
                               {id === "19" && (
                                 <div className="space-y-3 text-xs">
                                   <div>
@@ -1061,7 +1039,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 20. Varyant Analizi */}
                               {id === "20" && (
                                 <div className="space-y-3 text-xs">
                                   <div>
@@ -1096,7 +1073,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 21. Filogenetik Analiz */}
                               {id === "21" && (
                                 <div className="space-y-3 text-xs">
                                   <div>
@@ -1122,7 +1098,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 22. Metagenomik Veri Analizi */}
                               {id === "22" && (
                                 <div className="space-y-3 text-xs">
                                   <div>
@@ -1145,7 +1120,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 23. Proje Danışmanlığı */}
                               {id === "23" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Proje Konusu:</label><input type="text" value={d.projeKonusu || ""} onChange={e => handleDetailChange(id, "projeKonusu", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1165,7 +1139,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 24. Yerinde Hizmet Modülü */}
                               {id === "24" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Yapılması İstenen Hizmet / Analiz:</label><input type="text" value={d.yapilmasiIstenen || ""} onChange={e => handleDetailChange(id, "yapilmasiIstenen", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1182,7 +1155,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 25. Kurumsal ve Akademik Eğitimler */}
                               {id === "25" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Eğitim Konusu:</label><input type="text" value={d.egitimKonusu || ""} onChange={e => handleDetailChange(id, "egitimKonusu", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1202,7 +1174,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 26. Deney Tasarımı */}
                               {id === "26" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Araştırma Konusu:</label><input type="text" value={d.arastirmaKonusu || ""} onChange={e => handleDetailChange(id, "arastirmaKonusu", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1216,7 +1187,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 27. İstatistiksel Analiz */}
                               {id === "27" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Veri Dosyası Formatı:</label><input type="text" value={d.veriFormat || ""} onChange={e => handleDetailChange(id, "veriFormat", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1236,7 +1206,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 28. Bilimsel Raporlama */}
                               {id === "28" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Raporlanacak Çalışma / Analiz:</label><input type="text" value={d.raporlanacakCalisma || ""} onChange={e => handleDetailChange(id, "raporlanacakCalisma", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1258,7 +1227,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 29. Yayın Danışmanlığı */}
                               {id === "29" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Çalışma Konusu:</label><input type="text" value={d.calismaKonusu || ""} onChange={e => handleDetailChange(id, "calismaKonusu", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1279,7 +1247,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 30. Oksidatif Stres Analizleri */}
                               {id === "30" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Numune Türü / Organizma:</label><input type="text" value={d.numuneTuruOrg || ""} onChange={e => handleDetailChange(id, "numuneTuruOrg", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1308,7 +1275,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 31. Biyokimya Test Analizleri */}
                               {id === "31" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Numune Türü / Organizma:</label><input type="text" value={d.numuneTuruOrg || ""} onChange={e => handleDetailChange(id, "numuneTuruOrg", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1327,7 +1293,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 32. Spesifik Test Analizleri */}
                               {id === "32" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Numune Türü / Organizma:</label><input type="text" value={d.numuneTuruOrg || ""} onChange={e => handleDetailChange(id, "numuneTuruOrg", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1343,7 +1308,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 33. ELISA Test Analizleri */}
                               {id === "33" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Numune Türü / Organizma:</label><input type="text" value={d.numuneTuruOrg || ""} onChange={e => handleDetailChange(id, "numuneTuruOrg", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1369,7 +1333,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 34. İmmünohistokimya (IHC) Boyama */}
                               {id === "34" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Numune Türü / Organizma:</label><input type="text" value={d.numuneTuruOrg || ""} onChange={e => handleDetailChange(id, "numuneTuruOrg", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1396,7 +1359,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 35. İlaç Geliştirme ve Toksisite Testleri */}
                               {id === "35" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Çalışılacak Hücre Hattı:</label><input type="text" value={d.hucreHatti || ""} onChange={e => handleDetailChange(id, "hucreHatti", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1423,7 +1385,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 36. Hücre Kültürü Tabanlı ELISA Uygulamaları */}
                               {id === "36" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Çalışılacak Hücre Hattı:</label><input type="text" value={d.hucreHatti || ""} onChange={e => handleDetailChange(id, "hucreHatti", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1447,7 +1408,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 37. Proliferasyon ve Migrasyon (Yara İyileşmesi) Deneyleri */}
                               {id === "37" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Çalışılacak Hücre Hattı:</label><input type="text" value={d.hucreHatti || ""} onChange={e => handleDetailChange(id, "hucreHatti", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1467,7 +1427,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 38. Genetik Mühendisliği ve Transfeksiyon Teknolojileri */}
                               {id === "38" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Çalışılacak Hücre Hattı:</label><input type="text" value={d.hucreHatti || ""} onChange={e => handleDetailChange(id, "hucreHatti", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1492,7 +1451,6 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {/* 39. Kök Hücre Teknolojileri */}
                               {id === "39" && (
                                 <div className="space-y-3 text-xs">
                                   <div><label className="block font-bold text-gray-700 mb-1">Kök Hücre / Hücre Tipi:</label><input type="text" value={d.kokHucreTipi || ""} onChange={e => handleDetailChange(id, "kokHucreTipi", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
@@ -1522,7 +1480,6 @@ export default function TeklifSepetiPage() {
                     </div>
                   )}
 
-                  {/* 3. KISIM: KURUMSAL & İLETİŞİM BİLGİLERİ */}
                   <div className="space-y-4 pt-2">
                     <h3 className="font-bold text-xs text-gray-900 flex items-center gap-1.5 uppercase tracking-wider border-b pb-2">
                       <Building className="w-4 h-4 text-pink-600" /> Kurumsal & İletişim Bilgileri
@@ -1610,7 +1567,6 @@ export default function TeklifSepetiPage() {
                     </div>
                   </div>
 
-                  {/* 4. KISIM: BİYOGÜVENLİK RİSKİ VE GENEL BİLGİLER */}
                   <div className="space-y-4 pt-2">
                     <h3 className="font-bold text-xs text-gray-900 flex items-center gap-1.5 uppercase tracking-wider border-b pb-2">
                       <FileText className="w-4 h-4 text-pink-600" /> Biyogüvenlik & Genel Bilgiler
@@ -1691,7 +1647,6 @@ export default function TeklifSepetiPage() {
                     </div>
                   </div>
 
-                  {/* 5. KISIM: FATURA BİLGİLERİ */}
                   <div className="space-y-3 pt-2">
                     <h3 className="font-bold text-xs text-gray-900 flex items-center gap-1.5 uppercase tracking-wider border-b pb-2">
                       <ReceiptText className="w-4 h-4 text-pink-600" /> Fatura Bilgileri
@@ -1722,7 +1677,6 @@ export default function TeklifSepetiPage() {
                     </div>
                   </div>
 
-                  {/* ÖNEMLİ BİLGİLENDİRME VE NOTLAR */}
                   <div className="bg-amber-50/60 border border-amber-200 rounded-2xl p-4 space-y-2 text-xs text-amber-900">
                     <p className="font-bold flex items-center gap-1.5 uppercase text-[11px]">
                       <Info className="w-4 h-4 text-amber-600 shrink-0" /> Önemli Bilgilendirme ve Notlar

@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { Mail, Lock, User, Phone, Building, Briefcase, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export function AdminLoginForm() {
+  const router = useRouter();
   const [isRegister, setIsRegister] = useState(false);
 
   // Form State'leri
@@ -21,8 +23,10 @@ export function AdminLoginForm() {
     setError("");
 
     try {
-      // Eski oturumu tamamen temizle
-      localStorage.removeItem("coregen_user");
+      // Mobil tarayıcılar için localStorage kontrolü ve temizliği
+      if (typeof window !== "undefined" && window.localStorage) {
+        localStorage.removeItem("coregen_user");
+      }
 
       const lowerEmail = email.toLowerCase().trim();
 
@@ -42,13 +46,15 @@ export function AdminLoginForm() {
           createdAt: new Date().toLocaleDateString()
         };
 
-        const existingCustomers = JSON.parse(localStorage.getItem("coregen_customers") || "[]");
-        localStorage.setItem("coregen_customers", JSON.stringify([newCustomer, ...existingCustomers]));
-        localStorage.setItem("coregen_user", JSON.stringify(newCustomer));
+        if (typeof window !== "undefined" && window.localStorage) {
+          const existingCustomers = JSON.parse(localStorage.getItem("coregen_customers") || "[]");
+          localStorage.setItem("coregen_customers", JSON.stringify([newCustomer, ...existingCustomers]));
+          localStorage.setItem("coregen_user", JSON.stringify(newCustomer));
+        }
 
-        setTimeout(() => {
-          window.location.replace("/musteri/profil");
-        }, 50);
+        router.push("/musteri/profil");
+        router.refresh();
+        return;
 
       } else {
         if (!email || !password) {
@@ -70,13 +76,13 @@ export function AdminLoginForm() {
             email: lowerEmail,
             role: "Personel"
           };
-          localStorage.setItem("coregen_user", JSON.stringify(personnelUser));
           
-          // Ara ekran olmadan doğrudan direkt Mesajlar paneline yönlendir
-          setTimeout(() => {
-            window.location.replace("/admin/mesajlar");
-          }, 50);
-
+          if (typeof window !== "undefined" && window.localStorage) {
+            localStorage.setItem("coregen_user", JSON.stringify(personnelUser));
+          }
+          
+          router.push("/admin/mesajlar");
+          router.refresh();
           return;
         }
 
@@ -89,11 +95,14 @@ export function AdminLoginForm() {
             email: lowerEmail,
             role: "Admin / Kurucu"
           };
-          localStorage.setItem("coregen_user", JSON.stringify(adminUser));
           
-          setTimeout(() => {
-            window.location.replace("/admin");
-          }, 50);
+          if (typeof window !== "undefined" && window.localStorage) {
+            localStorage.setItem("coregen_user", JSON.stringify(adminUser));
+          }
+          
+          router.push("/admin");
+          router.refresh();
+          return;
 
         } else {
           const customerUser = {
@@ -104,16 +113,19 @@ export function AdminLoginForm() {
             department,
             role: "Müşteri"
           };
-          localStorage.setItem("coregen_user", JSON.stringify(customerUser));
           
-          setTimeout(() => {
-            window.location.replace("/musteri/profil");
-          }, 50);
+          if (typeof window !== "undefined" && window.localStorage) {
+            localStorage.setItem("coregen_user", JSON.stringify(customerUser));
+          }
+          
+          router.push("/musteri/profil");
+          router.refresh();
+          return;
         }
       }
     } catch (err) {
       console.error("Giriş hatası:", err);
-      setError("Giriş yapılırken bir hata oluştu. Lütfen tekrar deneyin.");
+      setError("Giriş yapılırken bir hata oluştu. Lütfen tarayıcı çerez ayarlarınızı kontrol edin.");
     }
   };
 

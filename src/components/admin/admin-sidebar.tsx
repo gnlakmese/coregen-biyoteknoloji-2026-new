@@ -38,7 +38,7 @@ export function AdminSidebar() {
   ];
 
   return (
-    <aside className="w-64 bg-white border-r border-slate-200 text-slate-700 flex flex-col justify-between p-6 min-h-screen shrink-0 shadow-sm">
+    <aside className="fixed inset-y-0 left-0 z-50 md:static w-64 bg-white border-r border-slate-200 text-slate-700 flex flex-col justify-between p-6 h-full min-h-screen shrink-0 shadow-lg md:shadow-sm">
       <div className="space-y-6">
         <div className="space-y-1">
           <span className="text-[9px] uppercase tracking-wider font-bold text-pink-600 bg-pink-50 px-2.5 py-0.5 rounded-md border border-pink-100">

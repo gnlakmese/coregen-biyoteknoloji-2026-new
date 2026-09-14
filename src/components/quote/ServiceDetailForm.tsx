@@ -15,16 +15,43 @@ export function ServiceDetailForm({ serviceSlug, serviceName }: Props) {
   const dynamicFields = SERVICE_FIELDS[serviceSlug] || [];
   const isBioinformatics = BIOINFORMATICS_SLUGS.includes(serviceSlug);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleUpdate = (name: string, value: string | boolean) => {
     setFormData((prev: any) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Gönderilecek Form Verisi (Hizmet: " + serviceSlug + "):", formData);
-    // API endpoint'i eklendiğinde buraya fetch/axios kodu gelecek.
-    setSubmitted(true);
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "quote",
+          serviceName: serviceName,
+          name: formData.adSoyad,
+          email: formData.email,
+          phone: formData.telefon,
+          message: `Kurum: ${formData.kurum || '-'}\nProje: ${formData.projeBasligi || '-'}\nAmaç: ${formData.amac || '-'}\nNotlar: ${formData.ekNotlar || '-'}\nDrive Link: ${formData.driveLink || '-'}`,
+          details: formData,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        alert("E-posta gönderilemedi, lütfen tekrar deneyin.");
+      }
+    } catch (err) {
+      console.error("Gönderim hatası:", err);
+      alert("Bir hata oluştu.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -201,8 +228,12 @@ export function ServiceDetailForm({ serviceSlug, serviceName }: Props) {
           </span>
         </label>
 
-        <button type="submit" className="w-full md:w-auto bg-slate-900 hover:bg-pink-600 text-white px-10 py-4 rounded-xl font-bold text-sm transition-colors flex items-center justify-center gap-2 shrink-0 shadow-md">
-          Teklif Talebini Gönder <Send className="w-4 h-4" />
+        <button 
+          type="submit" 
+          disabled={loading}
+          className="w-full md:w-auto bg-slate-900 hover:bg-pink-600 text-white px-10 py-4 rounded-xl font-bold text-sm transition-colors flex items-center justify-center gap-2 shrink-0 shadow-md disabled:opacity-50"
+        >
+          {loading ? "Gönderiliyor..." : "Teklif Talebini Gönder"} <Send className="w-4 h-4" />
         </button>
       </div>
 

@@ -72,8 +72,8 @@ enum ApplicationStatus {
 // ============================================================================
 
 model User {
-  id           String     @id @default(cuid())
-  email        String     @unique
+  id           String      @id @default(cuid())
+  email        String      @unique
   passwordHash String?    // Eski uyumluluk için
   password     String?    // Yeni eklenen personel/admin şifresi
   name         String?
@@ -84,7 +84,7 @@ model User {
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
 
-  assignedQuotes Quote[]       @relation("AssignedAdmin")
+  assignedQuotes Quote[]      @relation("AssignedAdmin")
   activityLogs   ActivityLog[]
 
   @@map("users")
@@ -167,18 +167,18 @@ model ServiceCategory {
 }
 
 model Service {
-  id               String        @id @default(cuid())
-  slug             String        @unique
-  name             String
-  heroDescription  String
-  description      String[]
-  applicationAreas String[]
-  subServices      String[]
-  workflowSteps    String[]
-  deliverables     String[]
-  advantages       String[]
-  suitableFor      String[]
-  status           ContentStatus @default(PUBLISHED)
+  id                  String        @id @default(cuid())
+  slug                String        @unique
+  name                String
+  heroDescription     String
+  description         String[]
+  applicationAreas    String[]
+  subServices         String[]
+  workflowSteps       String[]
+  deliverables        String[]
+  advantages          String[]
+  suitableFor         String[]
+  status              ContentStatus @default(PUBLISHED)
 
   categoryId String
   category   ServiceCategory @relation(fields: [categoryId], references: [id])
@@ -189,7 +189,7 @@ model Service {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  quoteItems       QuoteItem[]
+  quoteItems        QuoteItem[]
   relatedBlogPosts BlogPost[]  @relation("BlogRelatedServices")
 
   @@index([categoryId])
@@ -240,7 +240,7 @@ model BlogPost {
   categoryId String
   category   BlogCategory @relation(fields: [categoryId], references: [id])
 
-  faqs            BlogFaq[]
+  faqs             BlogFaq[]
   relatedServices Service[] @relation("BlogRelatedServices")
 
   createdAt DateTime @default(now())
@@ -349,20 +349,20 @@ model JobPosting {
 }
 
 model Applicant {
-  id           String      @id @default(cuid())
+  id           String            @id @default(cuid())
   jobPostingId String?
-  jobPosting   JobPosting? @relation(fields: [jobPostingId], references: [id])
+  jobPosting   JobPosting?       @relation(fields: [jobPostingId], references: [id])
 
-  firstName   String
-  lastName    String
-  email       String
-  phone       String
+  firstName    String
+  lastName     String
+  email        String
+  phone        String
   /// public/uploads/cvs/... altında saklanan dosya yolu (bkz. ürün
   /// görselleriyle aynı dosya-tabanlı kalıcılık deseni)
-  cvFileUrl   String?
-  coverNote   String?
-  kvkkConsent Boolean           @default(false)
-  status      ApplicationStatus @default(YENI)
+  cvFileUrl    String?
+  coverNote    String?
+  kvkkConsent  Boolean           @default(false)
+  status       ApplicationStatus @default(YENI)
 
   createdAt DateTime @default(now())
 

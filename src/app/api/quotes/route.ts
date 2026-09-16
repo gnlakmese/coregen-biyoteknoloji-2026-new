@@ -4,18 +4,17 @@ import { prisma } from "@/lib/prisma";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    // Frontend'den gelen alanları karşılıyoruz
-    const { ad, soyad, kurum, departman, email, telefon, notlar, city, kvkkConsent, items } = body;
+    const { ad, soyad, kurum, departman, email, telefon, city, notlar, kvkkConsent, items } = body;
 
-    // Zorunlu alan kontrolü
-    if (!ad || !soyad || !kurum || !email || !telefon || !items || items.length === 0) {
-      return NextResponse.json({ error: "Zorunlu alanlar eksik." }, { status: 400 });
+    // Detaylı zorunlu alan kontrolü
+    if (!ad || !soyad || !kurum || !email || !telefon || !items || !Array.isArray(items) || items.length === 0) {
+      return NextResponse.json({ error: "Zorunlu alanlar eksik veya hatalı." }, { status: 400 });
     }
 
-    // Benzersiz bir teklif numarası oluşturuyoruz (Örn: Q-1726495...)
-    const quoteNumber = `Q-${Date.now().toString().slice(-8)}`;
+    // Benzersiz teklif numarası
+    const quoteNumber = `CG-${Date.now().toString().slice(-8)}`;
 
-    // Prisma şemana tam uygun model ismi (prisma.quote) ve sütun adlarıyla kayıt
+    // Prisma ile güvenli kayıt
     const newQuote = await prisma.quote.create({
       data: {
         quoteNumber,
@@ -23,19 +22,16 @@ export async function POST(request: Request) {
         lastName: soyad,
         institution: kurum,
         department: departman || null,
-        email,
         phone: telefon,
-        city: city || null,
+        email,
+        city: city || "Mersin",
         note: notlar || null,
-        kvkkConsent: kvkkConsent ?? true, // Formda onaylandıysa
+        kvkkConsent: kvkkConsent ?? true,
         items: {
           create: items.map((item: any) => ({
-            productId: item.productId || null,
-            serviceId: item.serviceId || null,
-            itemNameSnapshot: item.name || item.itemNameSnapshot || "Ürün / Hizmet",
-            categorySnapshot: item.category || item.categorySnapshot || "Genel",
+            itemNameSnapshot: item.itemNameSnapshot || "Analiz Hizmeti",
+            categorySnapshot: item.categorySnapshot || "Genel Laboratuvar",
             quantity: item.quantity || 1,
-            note: item.note || null,
           })),
         },
       },
@@ -46,7 +42,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, data: newQuote }, { status: 201 });
   } catch (error: any) {
-    console.error("Teklif kayıt hatası detayları:", error?.message || error);
-    return NextResponse.json({ error: "Sunucu hatası oluştu: " + (error?.message || "") }, { status: 500 });
+    console.error("TEKLİF KAYIT KRİTİK HATA:", error);
+    return NextResponse.json({ error: "Sunucu hatası: " + (error?.message || "B bilinmeyen hata") }, { status: 500 });
   }
 }

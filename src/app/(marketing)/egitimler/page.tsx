@@ -7,7 +7,7 @@ import { Users, ArrowRight, AlertCircle, PlayCircle, Radio, Megaphone, ShoppingC
 
 const mockDuyurular = [
   "🔥 Bu Ayın Özel Oturumu: Epigenetik Perspektif Eğitimine Kayıtlar Başladı!",
-  "📢 CoreGen Genetik Akademi 2026 Eğitim Takvimi Güncellendi.",
+  "📢 CoreGen Eğitim Takvimi Güncellendi.",
   "💡 Uygulamalı Protein Modelleme ve Yapısal Biyoinformatik Eğitimi için Kayıtlar Açıldı!"
 ];
 
@@ -16,7 +16,7 @@ const mockEgitimler = [
     id: "uygulamali-protein-modelleme",
     title: "Uygulamalı Protein Modelleme ve Yapısal Biyoinformatik Eğitimi",
     description: "Protein dizisinden 3B yapıya: Protein modelleme, Homology Modeling, AlphaFold kullanımı ve yapısal analiz süreçlerini öğrenin.",
-    price: "3.000 ₺",
+    price: "3.500 ₺",
     image: "/images/uygulamali-protein-modelleme.png", 
     category: "Canlı Eğitim",
     isDigital: false,
@@ -24,19 +24,19 @@ const mockEgitimler = [
   },
   {
     id: "sitogenetik",
-    title: "Sitogenetik Eğitimi",
-    description: "Kromozom yapısı, karyotip analizi, sayısal ve yapısal kromozomal anomaliler ile sitogenetik değerlendirme temelleri.",
-    price: "2.553 ₺",
+    title: "Sitogenetik ve Sanal Uygulamalı Karyotipleme Eğitimi",
+    description: "Kromozom yapısı, karyotip analizi, sayısal ve yapısal kromozomal anomaliler ile sanal karyotipleme uygulamaları.",
+    price: "4.500 ₺",
     image: "/images/sitogenetik.jpeg",
-    category: "Dijital Eğitim",
-    isDigital: true,
+    category: "Canlı Eğitim",
+    isDigital: false,
     shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/49958492",
   },
   {
     id: "biyoinformatik-101",
     title: "Biyoinformatik 101 Eğitimi",
     description: "Biyoinformatiğe giriş ve temel veri analizi. NCBI, BLAST ve sekans hizalama yaklaşımlarıyla temel biyoinformatik okuryazarlığı.",
-    price: "2.956 ₺",
+    price: "3.500 ₺",
     image: "/images/biyoinformatik-101.jpeg",
     category: "Dijital Eğitim",
     isDigital: true,
@@ -46,7 +46,7 @@ const mockEgitimler = [
     id: "uygulamali-primer-tasarimi",
     title: "Uygulamalı Primer Tasarımı Eğitimi",
     description: "PCR için doğru ve özgül primer tasarımının temelleri. Tm, GC oranı, özgüllük ve Primer-BLAST kontrolleri.",
-    price: "1.928 ₺",
+    price: "2.500 ₺",
     image: "/images/uygulamali-primer-tasarimi.jpeg",
     category: "Dijital Eğitim",
     isDigital: true,
@@ -127,7 +127,7 @@ export default function EgitimlerPage() {
         </div>
 
         {/* EĞİTİM KARTLARI */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
           {filteredEgitimler.map((egitim) => (
             <div key={egitim.id} className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group">
               

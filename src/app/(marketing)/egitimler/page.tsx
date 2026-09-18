@@ -17,7 +17,7 @@ const mockEgitimler = [
     title: "Uygulamalı Protein Modelleme ve Yapısal Biyoinformatik Eğitimi",
     description: "Protein dizisinden 3B yapıya: Protein modelleme, Homology Modeling, AlphaFold kullanımı ve yapısal analiz süreçlerini öğrenin.",
     price: "3.000 ₺",
-    image: "/images/primer tasarımı eğitimi.jpeg", // Doğru ve güncel görsel yolu
+    image: "/images/uygulamali-protein-modelleme.png", 
     category: "Canlı Eğitim",
     isDigital: false,
     shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/50977471",
@@ -27,7 +27,7 @@ const mockEgitimler = [
     title: "Sitogenetik Eğitimi",
     description: "Kromozom yapısı, karyotip analizi, sayısal ve yapısal kromozomal anomaliler ile sitogenetik değerlendirme temelleri.",
     price: "2.553 ₺",
-    image: "/images/sitogenetik sanal uygulama .png",
+    image: "/images/sitogenetik.jpeg",
     category: "Dijital Eğitim",
     isDigital: true,
     shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/49958492",
@@ -37,7 +37,7 @@ const mockEgitimler = [
     title: "Biyoinformatik 101 Eğitimi",
     description: "Biyoinformatiğe giriş ve temel veri analizi. NCBI, BLAST ve sekans hizalama yaklaşımlarıyla temel biyoinformatik okuryazarlığı.",
     price: "2.956 ₺",
-    image: "/images/biyoinformatik 101.jpeg",
+    image: "/images/biyoinformatik-101.jpeg",
     category: "Dijital Eğitim",
     isDigital: true,
     shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/46890607",
@@ -47,7 +47,7 @@ const mockEgitimler = [
     title: "Uygulamalı Primer Tasarımı Eğitimi",
     description: "PCR için doğru ve özgül primer tasarımının temelleri. Tm, GC oranı, özgüllük ve Primer-BLAST kontrolleri.",
     price: "1.928 ₺",
-    image: "/images/primer tasarımı eğitimi.jpeg",
+    image: "/images/uygulamali-primer-tasarimi.jpeg",
     category: "Dijital Eğitim",
     isDigital: true,
     shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/46890580",
@@ -126,7 +126,7 @@ export default function EgitimlerPage() {
           ))}
         </div>
 
-        {/* EĞİTİM KARTLARI (Görseldeki gibi 3'lü grid yapısı) */}
+        {/* EĞİTİM KARTLARI */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filteredEgitimler.map((egitim) => (
             <div key={egitim.id} className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group">

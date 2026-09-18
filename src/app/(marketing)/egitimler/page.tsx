@@ -126,8 +126,8 @@ export default function EgitimlerPage() {
           ))}
         </div>
 
-        {/* EĞİTİM KARTLARI */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+        {/* EĞİTİM KARTLARI - BİR SATIRDA 3 ADET */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filteredEgitimler.map((egitim) => (
             <div key={egitim.id} className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group">
               

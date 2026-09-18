@@ -8,324 +8,168 @@ import {
 } from "lucide-react";
 
 const egitimDetaylari = {
-  "metagenomik": {
-    title: "Metagenomik Analizlere Giriş Eğitimi",
-    description: "Mikrobiyom dünyasını keşfet, verini anlamlı hale getir. 16S rRNA ve Shotgun metagenomik analiz süreçlerini sıfırdan öğrenin.",
-    rawContent: `🧬 Metagenomik Analizlere Giriş Eğitimi
-
-📅 Tarih: 5–6 Eylül 2026
-🕐 Saat: 12.00–17.00
+  "uygulamali-protein-modelleme": {
+    title: "Uygulamalı Protein Modelleme ve Yapısal Biyoinformatik Eğitimi",
+    description: "Protein dizisinden 3B yapıya: Protein modelleme, Homology Modeling, AlphaFold kullanımı ve yapısal analiz süreçlerini öğrenin.",
+    rawContent: `🧬 Uygulamalı Protein Modelleme ve Yapısal Biyoinformatik Eğitimi
+📅 Tarih: 17–18 Ekim 2026
+🕐 Saat: 12.00–15.00
 💻 Eğitim: Online – Canlı
-⏱️ Süre: 10 saat
+⏱️ Süre: 6 saat
 🎓 Seviye: Başlangıç / Orta
 📜 Katılım: Eğitim sonunda katılım sertifikası
 
 Eğitimde neler öğreneceksiniz?
-
-•⁠  ⁠Metagenomik nedir? Temel kavramlar
-•⁠  ⁠16S rRNA dizileme ve Shotgun Metagenomik arasındaki farklar
-•⁠  ⁠Metagenomik çalışma tasarımı
-•⁠  ⁠Numune seçimi, DNA izolasyonu ve kütüphane hazırlama
-•⁠  ⁠Sekanslama teknolojileri ve NGS veri yapısı
-•⁠  ⁠FASTQ dosyalarının yapısı
-•⁠  ⁠Kalite kontrol ve kalite skorları
-•⁠  ⁠Adapter ve düşük kaliteli dizilerin temizlenmesi
-•⁠  ⁠QIIME 2 ile temel metagenomik analiz
-•⁠  ⁠Taksonomik sınıflandırma
-•⁠  ⁠Alpha ve Beta çeşitlilik analizleri
-•⁠  ⁠Mikrobiyal toplulukların karşılaştırılması
-•⁠  ⁠Filogenetik analizlere giriş
-•⁠  ⁠Diferansiyel bolluk analizlerine giriş
-•⁠  ⁠Shotgun metagenomik verilerinde fonksiyonel analiz mantığı
-•⁠  ⁠Metagenomik sonuçların biyolojik olarak yorumlanması
-•⁠  ⁠Grafik ve sonuçların okunması
-•⁠  ⁠Gerçek veri üzerinden uygulamalı analiz
+• Protein nedir? Proteinlerin biyolojik ve yapısal özellikleri
+• Proteinlerin birincil, ikincil, üçüncül ve dördüncül yapıları
+• Amino asit dizisi ve protein yapısı arasındaki ilişki
+• Protein dizisinin modelleme için hazırlanması
+• Protein sekanslarının araştırılması ve değerlendirilmesi
+• PDB veri tabanı ve PDB dosyalarının temel mantığı
+• Deneysel protein yapılarının araştırılması
+• Uygun protein yapısının seçilmesi
+• Protein yapılarının karşılaştırılması
+• Homology Modeling nedir?
+• Homology modeling yaklaşımının temel prensipleri
+• Template nedir ve nasıl seçilir?
+• Template seçiminde dikkat edilmesi gereken kriterler
+• Sequence identity ve sequence similarity kavramları
+• Protein yapı tahmini yaklaşımları
+• AlphaFold ve benzeri yapı tahmin sistemlerinin kullanımı
+• Tahmin edilen protein modellerinin incelenmesi
+• Model kalite değerlendirme kriterleri
+• Ramachandran Plot analizi
+• Protein yapısının 3B olarak görselleştirilmesi
+• Protein yapısındaki amino asitlerin incelenmesi
+• Yapısal biyoinformatik araçlarına giriş
+• Protein–ligand etkileşimlerine giriş
+• Protein modelleme ve moleküler docking arasındaki ilişki
+• Model → yapı değerlendirme → docking iş akışı
+• Örnek bir protein üzerinden uygulamalı modelleme süreci
 
 🎯 Eğitim sonunda
-
-Katılımcıların bir metagenomik projenin numune aşamasından NGS verisine, kalite kontrolünden taksonomik ve çeşitlilik analizlerine kadar temel analiz sürecini anlayabilmesi ve elde edilen sonuçları bilimsel olarak yorumlayabilmesi hedeflenmektedir.
+Katılımcıların bir protein amino asit dizisinden başlayarak uygun yapısal verileri araştırabilmesi, protein modelleme yaklaşımlarını anlayabilmesi, homology modeling ve yapı tahmini sonuçlarını değerlendirebilmesi, Ramachandran plot gibi temel kalite değerlendirme araçlarını yorumlayabilmesi ve elde edilen protein modelini moleküler docking gibi ileri yapısal biyoinformatik çalışmalarına hazırlayabilmesi hedeflenmektedir.
 
 Kimler katılabilir?
-Biyoloji, moleküler biyoloji ve genetik, biyoteknoloji, biyomühendislik, tıp, veterinerlik, mikrobiyoloji, genetik ve biyoinformatik alanlarında çalışan/öğrenim görenler ile metagenomik alanına giriş yapmak isteyen herkes katılabilir.`,
+Moleküler biyoloji ve genetik, biyoteknoloji, biyokimya, biyoloji, biyomühendislik, eczacılık, tıp, veterinerlik, biyoinformatik ve ilgili alanlarda öğrenim gören veya çalışanlar ile protein yapısı ve yapısal biyoinformatiğe ilgi duyan herkes katılabilir.
+Özellikle moleküler docking öğrenmek isteyen ve docking öncesinde protein yapısını doğru şekilde hazırlamayı öğrenmek isteyen katılımcılar için eğitim tamamlayıcı niteliktedir.`,
     instructorName: "Gönül Akmeşe",
-    price: "5.605 ₺",
-    features: ["10 Saat (5-6 Eylül)", "Online (Canlı) Eğitim", "Başlangıç / Orta Seviye", "Katılım Sertifikası"],
-    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/49254483",
-  },
-  "coregen-genetik-akademisi": {
-    title: "CoreGen Genetik Akademisi: Sertifikalı Genetik Eğitim Serisi",
-    description: "Genetik biliminin 12 farklı alanında uzmanlaşacağınız, uygulamalı ve sertifikalı kapsamlı eğitim serisi.",
-    rawContent: `🧬 CoreGen Genetik Akademisi | Sertifikalı Genetik Eğitim Serisi
-
-Genetik biliminin farklı alanlarında kendinizi geliştirmeye hazır mısınız?
-CoreGen Biyoteknoloji tarafından hazırlanan CoreGen Genetik Akademisi, genetik alanında bilgi ve yetkinlik kazanmak isteyen öğrenciler, akademisyenler, araştırmacılar ve sağlık profesyonelleri için hazırlanmış kapsamlı, sertifikalı ve uygulama odaklı bir eğitim serisidir.
-Her ay düzenlenecek eğitimlerde genetiğin farklı bir alt dalı ele alınacak, katılımcılar teorik bilgilerle birlikte uygulamalı içeriklerle de desteklenecektir.
-
-📅 Eğitim Takvimi
-🧬 1. Genetiğe Giriş
-📅 26 Eylül 2026 Cumartesi- 12.00 - 15.00
-👶 2. Üreme Genetiği
-📅 31 Ekim 2026 Cumartesi- 12.00 - 15.00
-💊 3. Farmakogenetik
-📅 28 Kasım 2026 Cumartesi- 12.00 - 15.00
-🧫 4. Sitogenetik (Uygulamalı)
-Teorik Eğitim
-📅 26 Aralık 2026 Cumartesi- 12.00 - 14.00
-Uygulama Eğitimi
-📅 27 Aralık 2026 Pazar- 12.00 - 14.00
-🧪 5. Moleküler Genetik
-📅 30 Ocak 2027 Cumartesi- 12.00 - 15.00
-🧠 6. Nörogenetik
-📅 27 Şubat 2027 Cumartesi- 12.00 - 15.00
-🩺 7. Kanser Genetiği
-📅 27 Mart 2027- 12.00 - 15.00
-🦠 8. Mikrobiyal Genetik
-📅 24 Nisan 2027- 12.00 - 15.00
-🌱 9. Bitki Genetiği
-📅 29 Mayıs 2027- 12.00 - 15.00
-🐄 10. Veteriner Genetiği
-📅 26 Haziran 2027- 12.00 - 15.00
-🧬 11. Epigenetik
-📅 31 Temmuz 2027- 12.00 - 15.00
-🩻 12. Klinik Genetik
-📅 28 Ağustos 2027- 12.00 - 15.00
-
-🎓 Eğitim Formatı
-✔ Online Canlı Eğitim ✔ Teorik eğitimler 3 saat ✔ Uygulamalı eğitimler 2 Saat
-✔ Eğitim kayıt altına alınmaktadır ve tüm katılımcılar, 2 ay boyunca erişim sağlayabilir.
-
-📜 Sertifika
-Her eğitim sonunda katılımcılara;
-✅ CoreGen Biyoteknoloji Onaylı Katılım Sertifikası verilecektir.
-🏅 10 veya daha fazla eğitimi tamamlayan katılımcılarımıza ayrıca;
-CoreGen Biyoteknoloji Onaylı Genetik Akademisi Uzmanlık Sertifikası düzenlenecektir.
-
-👩‍🔬 Kimler Katılabilir?
-- Moleküler Biyoloji ve Genetik, Biyoloji, Biyoteknoloji, Tıp, Eczacılık, Veterşner Fakültesi, Diş Hekimliği Fakültesi, Sağlık Bilimleri Fakültesi öğrencileri ve mezunları
-- Akademisyenler
-- Araştırmacılar ve
-- Genetik alanına ilgi duyan herkes
-
-💰 Eğitim Ücretleri
-🔹 1.500 TL
-Avantajlı Eğitim Paketleri
-✅ 3 Eğitim Paketi: 3.000 TL
-✅ 5 Eğitim Paketi: 5.000 TL
-✅ 10 veya üzeri eğitim: 10.000 TL
-📌 İndirimli paketlerden yararlanabilmek için WhatsApp üzerinden bizimle iletişime geçerek size özel indirim kodunuzu talep etmeniz gerekmektedir.
-
-💳 Ödeme Seçenekleri
-✔ Kredi Kartı
-✔ Havale / EFT
-✔ Kredi kartına 12 taksit imkânı
-Kayıt Linki: https://lnkd.in/dzegDtbH 
-
-📞 0552 220 7270 | 0538 071 4635
-
-🧬 CoreGen Genetik Akademisi
-Bilimi Öğren • Kendini Geliştir • Yetkinliğini Belgele
-
-* Her ay yeni bir genetik alanını keşfedin, alanında uzmanlaşın ve CoreGen Biyoteknoloji'nin hazırladığı bu kapsamlı eğitim serisiyle kariyerinize değer katın.
-🎥 2 ay kayıt erişimi, 📜 şirket onaylı sertifika, 🔬 uygulamalı eğitimler ve 🎓 uzmanlık sertifikası ile genetik yolculuğunuza güçlü bir başlangıç yapın.`,
-    instructorName: "Gönül Akmeşe",
-    price: "1.500 ₺",
-    features: ["Online Canlı Eğitim", "Her modül 3 saat teorik + 2 saat uygulama", "2 Ay kayıt erişimi", "Genetik Akademisi Uzmanlık Sertifikası (10+ Eğitim)"],
-    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/49388038",
+    price: "3.000 ₺",
+    features: ["6 Saat Canlı Eğitim (17-18 Ekim)", "Online – Canlı", "Başlangıç / Orta Seviye", "Katılım Sertifikası"],
+    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/50977471",
   },
   "sitogenetik": {
-    title: "Sitogenetik ve Sanal Uygulamalı Karyotipleme Eğitimi",
-    description: "Kromozom yapısını öğrenin, gerçek vaka örnekleri üzerinden sanal karyotipleme uygulamaları yaparak becerinizi geliştirin.",
-    rawContent: `Sitogenetik ve Sanal Uygulamalı Karyotipleme Eğitimi
-Kromozom yapısını ve sitogenetik analiz prensiplerini öğrenin, gerçek vaka örnekleri üzerinden sanal karyotipleme uygulamaları yaparak kromozomları değerlendirme becerinizi geliştirin.
-Bu eğitim, sitogenetik ve karyotipleme konusunda temel–orta düzey bilgi edinmek isteyen öğrenciler, araştırmacılar ve biyoloji/genetik alanında çalışanlar için hazırlanmıştır.
+    title: "Sitogenetik Eğitimi",
+    description: "Kromozom yapısı, karyotip analizi, sayısal ve yapısal kromozomal anomaliler ile sitogenetik değerlendirme temelleri.",
+    rawContent: `🧬 Sitogenetik Eğitimi
+📚 Erişim: Satın alma sonrası 7/24
+💻 Eğitim: Online – Dijital
+⏱️ Eğitim: Kendi hızınızda
+🎓 Seviye: Başlangıç / Orta
+📜 Katılım: Eğitim sonunda katılım sertifikası
 
-Eğitim İçeriği
-1. Sitogenetiğe Giriş
-Sitogenetik nedir?
-Kromozomların yapısı ve organizasyonu
-Ökromatin ve heterokromatin
-Sentromer, telomer ve kromozom kolları
-Kromozomların sınıflandırılması
+Eğitimde neler öğreneceksiniz?
+• Sitogenetiğe giriş ve temel kavramlar
+• Kromozom nedir?
+• Kromozomların yapısı ve organizasyonu
+• Kromatin ve kromozom arasındaki ilişki
+• İnsan kromozomlarının genel özellikleri
+• Kromozomların sınıflandırılması
+• Otozomlar ve gonozomlar
+• Metafaz kromozomlarının temel özellikleri
+• Karyotip ve karyogram kavramları
+• Karyotip analizinin temel prensipleri
+• Kromozom elde etme sürecinin temel mantığı
+• Hücre kültürü ve metafaz aşamasına giriş
+• Kromozom preparasyonu
+• Kromozom boyama teknikleri
+• G-banding ve bantlama prensibi
+• Kromozomların mikroskobik değerlendirilmesi
+• Sayısal kromozom anomalileri
+• Trizomi ve monozomiler
+• Yapısal kromozom anomalileri
+• Delesyon, Duplikasyon, İnversiyon, Translokasyon
+• Dengeli ve dengesiz kromozom anomalileri
+• Karyogram üzerinden kromozom analizi
+• Sitogenetik raporlamaya giriş
+• Örnek vakalar üzerinden kromozom değerlendirmesi
 
-2. İnsan Kromozomları
-22 otozom ve cinsiyet kromozomları
-Kromozom grupları
-Kromozomların boyut ve bant özellikleri
-Metasentrik, submetasentrik ve akrosentrik kromozomlar
-Normal erkek ve kadın karyotipi
+🎯 Eğitim sonunda
+Katılımcıların insan kromozomlarının temel yapısını ve sınıflandırılmasını öğrenmesi, karyotip ve karyogram kavramlarını anlaması, kromozom bantlama prensiplerini kavraması, sayısal ve yapısal kromozom anomalilerini tanıyabilmesi ve örnek karyotipler üzerinden temel düzeyde sitogenetik değerlendirme yapabilmesi hedeflenmektedir.
 
-3. Karyotipleme Prensipleri
-Karyotip ve karyogram kavramları
-Hücre kültürü ve metafaz mantığı
-Kromozom görüntüleme
-G-bantlama prensibi
-Kromozomların tanımlanmasında kullanılan temel özellikler
-
-4. Sanal Karyotipleme Uygulaması
-Sanal karyotipleme platformunun kullanımı
-Metafaz görüntülerinin incelenmesi
-Kromozomların morfolojik özelliklerine göre eşleştirilmesi
-1–22 ve X/Y kromozomlarının düzenlenmesi
-Karyogram oluşturma
-Sonuçların kontrol edilmesi
-
-5. Kromozomal Anomaliler
-Sayısal anomaliler: Monozomi, trizomi, poliploidi
-Yapısal anomaliler: Delesyon, duplikasyon, inversiyon, translokasyon
-
-6. Uygulamalı Vaka Analizleri
-Normal kadın karyotipi
-Normal erkek karyotipi
-Trizomi 21
-Trizomi 18
-Trizomi 13
-45,X
-47,XXY
-Örnek vakalar üzerinden karyotipleme ve yorumlama
-
-7. Karyotip Sonucunun Yazılması
-Karyotip gösteriminin temel mantığı
-Kromozom sayısının belirtilmesi
-Cinsiyet kromozomlarının gösterimi
-Sayısal anomalilerin gösterimi
-Örnek sonuçların yorumlanması
-
-Eğitim Sonunda
-Eğitimi tamamlayan katılımcılar;
-- İnsan kromozomlarını temel özellikleriyle tanıyabilecek,
-- Kromozomları morfolojik özelliklerine göre ayırt edebilecek,
-- Karyotip ve karyogram arasındaki farkı anlayabilecek,
-- Sanal ortamda kromozom eşleştirme ve karyotipleme yapabilecek,
-- Normal ve anormal karyotipleri karşılaştırabilecek,
-- Temel sayısal kromozom anomalilerini tanıyabilecek,
-- Karyotip sonuçlarının temel gösterimini okuyup yorumlayabilecektir.
- 
-Eğitim Formatı
-Format: Video Eğitim
-Seviye: Başlangıç – Orta
-Süre: 4–5 saat
-Erişim: 2 ay
-Uygulama: Sanal karyotipleme + vaka örnekleri
-Belgelendirme: Katılım sertifikası
-Eğitim videolarına bilgisayar, tablet veya telefon üzerinden dilediğiniz yerden erişebilirsiniz.
-Not: Eğitim araştırma ve eğitim amaçlıdır; klinik sitogenetik tanı eğitimi veya klinik raporlama yetkinliği kazandırmayı amaçlamaz.
- 
-SINIRLI SÜRE ÖZEL FİYAT
-5.493 TL yerine 2.553 TL
-
-Bu fırsattan yararlanmak ve kayıt hakkında bilgi almak için:
-WhatsApp: 0552 220 7270
-WhatsApp: 0538 071 4635
-CoreGen Biyoteknoloji
-www.coregenbiyoteknoloji.com
-info@coregenbiyoteknoloji.com`,
+Kimler katılabilir?
+Biyoloji, moleküler biyoloji ve genetik, biyoteknoloji, tıp, veterinerlik, sağlık bilimleri, genetik ve ilgili alanlarda öğrenim gören veya çalışanlar ile sitogenetik alanına giriş yapmak isteyen herkes katılabilir.`,
     instructorName: "Gönül Akmeşe",
     price: "2.553 ₺",
-    features: ["Video Eğitim (4-5 Saat)", "Sanal karyotipleme + vaka örnekleri", "2 ay erişim süresi", "Katılım sertifikası"],
+    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Başlangıç / Orta Seviye", "Katılım Sertifikası"],
     shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/49958492",
   },
   "biyoinformatik-101": {
-    title: "Biyoinformatik 101: Temel Biyoinformatik ve Veri Tabanları",
-    description: "Biyoinformatik okuryazarlığı ve dijital veri mimarisine sağlam bir giriş yapın. Veritabanları ve algoritmik mantık.",
-    rawContent: `Biyoinformatik 101: Temel Biyoinformatik ve Veri Tabanları Eğitimi
-1. Modül: Biyoinformatik Okuryazarlığı ve Dijital Veri Mimarisi
-2. Modül: Küresel Kütüphaneler (Biyolojik Veritabanları)
-3. Modül: Algoritmik Mantık - Hizalamanın Doğası
-4. Modül: BLAST ve Heuristik (Sezgisel) Arama
-5. Modül: Çoklu Dizi Hizalama (MSA) ve Evrimsel Bakış
-6. Modül: Veriden Yoruma`,
+    title: "Biyoinformatik 101 Eğitimi",
+    description: "Biyoinformatiğe giriş ve temel veri analizi. NCBI, BLAST ve sekans hizalama yaklaşımlarıyla temel biyoinformatik okuryazarlığı.",
+    rawContent: `🧬 Biyoinformatik 101 Eğitimi
+📚 Erişim: Satın alma sonrası 7/24
+💻 Eğitim: Online – Dijital
+⏱️ Eğitim: Kendi hızınızda
+🎓 Seviye: Başlangıç
+📜 Katılım: Eğitim sonunda katılım sertifikası
+
+Eğitimde neler öğreneceksiniz?
+• Biyoinformatiğe giriş ve temel kavramlar
+• Biyolojik verilerin bilgisayar ortamında analiz edilmesi
+• DNA, RNA ve protein dizilerinin temel özellikleri
+• Nükleotid ve amino asit dizilerinin okunması
+• Sekans verilerinin temel dosya formatları (FASTA vb.)
+• Biyolojik veri tabanlarının temel mantığı ve NCBI kullanımı
+• Gen ve protein bilgilerinin araştırılması (NCBI Gene & Protein)
+• BLAST nedir ve ne amaçla kullanılır? BLAST analizi yorumlama
+• Sequence Alignment (sekans hizalama) mantığı (Pairwise & MSA)
+• Sekans benzerliği ve biyolojik anlamı
+• Protein dizilerinin temel biyoinformatik analizi
+• Filogenetik analiz mantığına giriş
+• Biyoinformatik analizlerde veri kalitesinin önemi
+
+🎯 Eğitim sonunda
+Katılımcıların biyoinformatiğin temel çalışma prensiplerini anlaması, DNA, RNA ve protein sekans verilerini temel düzeyde inceleyebilmesi, NCBI ve BLAST gibi temel biyoinformatik kaynakları etkin şekilde kullanabilmesi hedeflenmektedir.
+
+Kimler katılabilir?
+Biyoloji, moleküler biyoloji ve genetik, biyoteknoloji, biyomühendislik, tıp, veterinerlik, biyokimya, mikrobiyoloji ve ilgili alanlarda öğrenim gören veya çalışanlar ile biyoinformatiğe giriş yapmak isteyen herkes katılabilir.`,
     instructorName: "Gönül Akmeşe",
     price: "2.956 ₺",
-    features: ["Kapsamlı Video Eğitim", "Biyolojik Veritabanları Pratiği", "Evrimsel Analiz Temelleri", "Sertifikalı"],
+    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Başlangıç Seviyesi", "Katılım Sertifikası"],
     shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/46890607",
   },
   "uygulamali-primer-tasarimi": {
     title: "Uygulamalı Primer Tasarımı Eğitimi",
-    description: "PCR ve qPCR çalışmaları için in-silico araçlar kullanarak spesifik ve verimli primer tasarımı eğitimi.",
-    rawContent: `Uygulamalı Primer Tasarımı Eğitimi
+    description: "PCR için doğru ve özgül primer tasarımının temelleri. Tm, GC oranı, özgüllük ve Primer-BLAST kontrolleri.",
+    rawContent: `🧬 Uygulamalı Primer Tasarımı Eğitimi
+📚 Erişim: Satın alma sonrası 7/24
+💻 Eğitim: Online – Dijital
+⏱️ Eğitim: Kendi hızınızda
+🎓 Seviye: Başlangıç / Orta
+📜 Katılım: Eğitim sonunda katılım sertifikası
 
-- Primer Nedir? Neden Gereklidir?
-- Primer Tasarımında Teknik Noktalar Nelerdir?
-- Primer uzunluğu ve spesifiklik ayarları.
-- Primer Tasarlama Araçları ve Kullanımı.
-- Sipariş Sürecinde Kritik Kontroller.
-- Uygulama Örneği.
-- Sertifika Projesi: Hedef gen sekansı tasarımı ve raporlama.
+Eğitimde neler öğreneceksiniz?
+• PCR'ın temel prensibi ve primerin rolü
+• Forward ve Reverse primer kavramları
+• Hedef gen ve hedef bölgenin belirlenmesi
+• Primer uzunluğu, GC oranı ve Tm değeri optimizasyonu
+• Primer özgüllüğü (specificity) ve amplicon uzunluğu
+• Primer-dimer ve hairpin (ikincil yapı) oluşumunun engellenmesi
+• NCBI üzerinden hedef sekansın bulunması
+• Primer tasarım araçlarının kullanılması
+• Primer-BLAST kullanımı ve özgüllük kontrolü
+• Örnek gen sekansları üzerinden uygulamalı primer tasarımı
 
-* Sertifika için ödev başarısı en az %70 olmalıdır.`,
+🎯 Eğitim sonunda
+Katılımcıların bir hedef gen veya DNA bölgesi için PCR'a uygun primer çiftlerini tasarlayabilmesi, temel parametreleri değerlendirebilmesi ve Primer-BLAST üzerinden özgüllük kontrolünü gerçekleştirebilmesi hedeflenmektedir.
+
+Kimler katılabilir?
+Moleküler biyoloji ve genetik, biyoloji, biyoteknoloji, biyokimya, tıp, veterinerlik, biyomühendislik ve ilgili alanlarda öğrenim gören veya çalışanlar ile PCR ve moleküler genetik çalışmalarında primer tasarımını öğrenmek isteyen herkes katılabilir.`,
     instructorName: "Gönül Akmeşe",
     price: "1.928 ₺",
-    features: ["Digital Araç Kullanımı", "Uygulama Örneği", "Sertifika Projesi", "Ömür Boyu Erişim"],
+    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Başlangıç / Orta Seviye", "Katılım Sertifikası"],
     shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/46890580",
-  },
-  "biyoinformatik-bootcamp": {
-    title: "Sıfırdan Biyoinformatik Bootcamp",
-    description: "Biyoinformatiğe sağlam bir başlangıç artık çok daha kolay! Galaxy platformundan IGV'ye, RNA-Seq'ten metagenomik analize kadar temel konular.",
-    rawContent: `🧬 Bilgi herkese açık olmalı.
-
-Bilim, yalnızca belirli kişilerin ulaşabildiği bir ayrıcalık olmamalı.
-
-Biz CoreGen Akademi olarak inanıyoruz ki; bir öğrencinin, araştırmacının ya da genç bir bilim insanının biyoinformatiğe başlamak için maddi engellerle karşılaşmaması gerekir.
-
-Bu nedenle sizlere bir Yaz Tatili Hediyesi hazırladık. 🎁
-
-🎓 CoreGen Yaz Akademisi
-Sıfırdan Biyoinformatik Bootcamp
-
-📅 29-30 Ağustos 2026
-⏰ 2 Gün | Toplam 10 Saat
-💻 Canlı Online Eğitim
-
-🟢 Canlı Katılım Tamamen Ücretsiz!
-
-Eğitime katılmak isteyen herkes herhangi bir ücret ödemeden canlı olarak eğitime katılabilecek.
-
-Bootcamp boyunca;
-
-🧬 Biyoinformatiğe giriş
-🧬 Galaxy Platformu ile analiz mantığı
-🧬 IGV (Integrative Genomics Viewer)
-🧬 Klinik veritabanları
-🧬 DNA ve RNA veritabanları
-🧬 RNA-Seq analizine giriş
-🧬 Metagenomik analizine giriş
-🧬 Klinik veri analizine giriş
-🧬 Omics dünyasına genel bakış
-
-gibi konular üzerinden biyoinformatik dünyasına güçlü bir başlangıç yapacağız.
-
-⭐ CoreGen Premium Katılım Paketi – 990 TL
-
-Premium Katılım Paketi ile;
-
-✅ Katılım Sertifikası
-✅ Eğitim kayıtlarına sınırsız erişim
-✅ Eğitim materyalleri
-✅ Kullanılan kaynaklar ve dosyalar
-
-sizlerle paylaşılacaktır.
-
-🎁 Bir sürprizimiz daha var!
-
-İki gün boyunca canlı eğitime eksiksiz katılan tüm katılımcılarımıza, CoreGen Akademi tarafından düzenlenecek tüm ücretli eğitimlerde geçerli 1.500 TL değerinde indirim kodu hediye edeceğiz.
-
-Çünkü biz, emek veren insanların ödüllendirilmesi gerektiğine inanıyoruz.
-
-Bu bootcamp yalnızca bir eğitim değil;
-
-Biyoinformatiğe ilgi duyan öğrencileri, araştırmacıları ve akademisyenleri aynı çatı altında buluşturacak bir bilim topluluğunun ilk adımı olacak.
-
-Eğer siz de biyoinformatiğe sağlam bir başlangıç yapmak istiyorsanız, aramıza katılın.
-
-📲 Canlı katılım için WhatsApp grubuna dahil oolabilirsiniz Sertifika ve eğitim kaydı avantajlarıyla Premium kayıt için 0552 220 7270’e mesaj gönderebilirsiniz. 
-
-📞 https://chat.whatsapp.com/Ls8nHQ7KAUZH6iFSVNZNXN?mode=gi_t 
-
-📌 Kontenjan sınırlıdır.`,
-    instructorName: "Gönül Akmeşe",
-    price: "Ücretsiz / 990 ₺",
-    features: ["2 Gün / Toplam 10 Saat", "Canlı Online Eğitim", "1 Yıl Kayıt Erişimi (Premium)", "Eğitim Materyalleri"],
-    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/48968346",
   }
 };
 
@@ -333,7 +177,7 @@ export default function EgitimDetayPage() {
   const params = useParams();
   const id = params.id as string;
   
-  const egitim = egitimDetaylari[id as keyof typeof egitimDetaylari] || egitimDetaylari["metagenomik"];
+  const egitim = egitimDetaylari[id as keyof typeof egitimDetaylari] || egitimDetaylari["uygulamali-protein-modelleme"];
 
   return (
     <div className="min-h-screen bg-slate-50 pt-28 pb-24 text-slate-800">

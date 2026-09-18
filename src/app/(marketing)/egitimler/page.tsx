@@ -1,10 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Users, ArrowRight, BookOpen, AlertCircle, PlayCircle, Radio, Megaphone, ShoppingCart } from "lucide-react";
+import { Users, ArrowRight, AlertCircle, PlayCircle, Radio, Megaphone, ShoppingCart } from "lucide-react";
 
-// Admin panelinden gelecek duyuruların listesi
 const mockDuyurular = [
   "🔥 Bu Ayın Özel Oturumu: Epigenetik Perspektif Eğitimine Kayıtlar Başladı!",
   "📢 CoreGen Genetik Akademi 2026 Eğitim Takvimi Güncellendi.",
@@ -17,7 +17,8 @@ const mockEgitimler = [
     title: "Uygulamalı Protein Modelleme ve Yapısal Biyoinformatik Eğitimi",
     description: "Protein dizisinden 3B yapıya: Protein modelleme, Homology Modeling, AlphaFold kullanımı ve yapısal analiz süreçlerini öğrenin.",
     price: "3.000 ₺",
-    image: "/images/coregen genetik akademisi.png", 
+    image: "/images/primer tasarımı eğitimi.jpeg", // Doğru ve güncel görsel yolu
+    category: "Canlı Eğitim",
     isDigital: false,
     shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/50977471",
   },
@@ -27,6 +28,7 @@ const mockEgitimler = [
     description: "Kromozom yapısı, karyotip analizi, sayısal ve yapısal kromozomal anomaliler ile sitogenetik değerlendirme temelleri.",
     price: "2.553 ₺",
     image: "/images/sitogenetik sanal uygulama .png",
+    category: "Dijital Eğitim",
     isDigital: true,
     shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/49958492",
   },
@@ -36,6 +38,7 @@ const mockEgitimler = [
     description: "Biyoinformatiğe giriş ve temel veri analizi. NCBI, BLAST ve sekans hizalama yaklaşımlarıyla temel biyoinformatik okuryazarlığı.",
     price: "2.956 ₺",
     image: "/images/biyoinformatik 101.jpeg",
+    category: "Dijital Eğitim",
     isDigital: true,
     shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/46890607",
   },
@@ -45,16 +48,22 @@ const mockEgitimler = [
     description: "PCR için doğru ve özgül primer tasarımının temelleri. Tm, GC oranı, özgüllük ve Primer-BLAST kontrolleri.",
     price: "1.928 ₺",
     image: "/images/primer tasarımı eğitimi.jpeg",
+    category: "Dijital Eğitim",
     isDigital: true,
     shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/46890580",
   }
 ];
 
 export default function EgitimlerPage() {
+  const [selectedCategory, setSelectedCategory] = useState("Tümü");
+
+  const filteredEgitimler = selectedCategory === "Tümü" 
+    ? mockEgitimler 
+    : mockEgitimler.filter(e => e.category === selectedCategory);
+
   return (
     <div className="min-h-screen bg-slate-50 pt-20 pb-24 text-slate-800 overflow-hidden">
       
-      {/* CSS Animasyonu (Kayan Yazı İçin) */}
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes scroll {
           0% { transform: translateX(0); }
@@ -70,17 +79,13 @@ export default function EgitimlerPage() {
         }
       `}} />
 
-      {/* BÜYÜK VE PREMİUM DUYURU BANDI (MARQUEE) */}
+      {/* DUYURU BANDI */}
       <div className="relative w-full bg-slate-900 border-y border-pink-500/20 py-5 mt-8 flex items-center shadow-2xl">
-        
-        {/* Sol Taraftaki Sabit 'Duyurular' Etiketi (Fade Efektli) */}
         <div className="absolute left-0 z-10 bg-gradient-to-r from-slate-900 via-slate-900 to-transparent w-64 h-full flex items-center pl-6 pointer-events-none">
           <span className="flex items-center gap-2 text-pink-500 font-extrabold uppercase tracking-widest text-sm bg-pink-500/10 px-4 py-2 rounded-full border border-pink-500/20 backdrop-blur-md">
             <Megaphone className="w-5 h-5 animate-pulse" /> DUYURULAR
           </span>
         </div>
-
-        {/* Kayan Yazılar */}
         <div className="w-full overflow-hidden pl-64">
           <div className="animate-scroll flex items-center gap-16 text-lg font-medium tracking-wide text-slate-200 cursor-default">
             {[...mockDuyurular, ...mockDuyurular].map((duyuru, index) => (
@@ -93,7 +98,7 @@ export default function EgitimlerPage() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 space-y-12 mt-16">
+      <div className="max-w-6xl mx-auto px-6 space-y-10 mt-12">
         
         <div className="text-center">
           <span className="inline-block text-xs font-bold tracking-widest uppercase text-pink-600 bg-pink-50 px-3.5 py-1.5 rounded-full mb-4">
@@ -104,11 +109,29 @@ export default function EgitimlerPage() {
           </h1>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
-          {mockEgitimler.map((egitim) => (
+        {/* KATEGORİ FİLTRELEME BUTONLARI */}
+        <div className="flex justify-center items-center gap-2 flex-wrap">
+          {["Tümü", "Dijital Eğitim", "Canlı Eğitim"].map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-5 py-2.5 rounded-2xl text-xs font-bold transition-all border ${
+                selectedCategory === cat 
+                  ? "bg-slate-900 text-white border-slate-900 shadow-md" 
+                  : "bg-white text-slate-600 border-slate-200 hover:border-slate-300"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* EĞİTİM KARTLARI (Görseldeki gibi 3'lü grid yapısı) */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {filteredEgitimler.map((egitim) => (
             <div key={egitim.id} className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group">
               
-              <div className="relative h-56 bg-slate-100 overflow-hidden">
+              <div className="relative h-48 bg-slate-100 overflow-hidden">
                 <Image src={egitim.image} alt={egitim.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-slate-900 text-xs font-extrabold px-3 py-1.5 rounded-xl shadow-sm z-10">
                   {egitim.price}
@@ -142,7 +165,6 @@ export default function EgitimlerPage() {
                     </div>
                   </div>
 
-                  {/* Butonlar: Detay ve Shopier Satın Al */}
                   <div className="grid grid-cols-2 gap-2">
                     <Link 
                       href={`/egitimler/${egitim.id}`} 

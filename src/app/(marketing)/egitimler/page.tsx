@@ -8,33 +8,23 @@ import { Users, ArrowRight, BookOpen, AlertCircle, PlayCircle, Radio, Megaphone,
 const mockDuyurular = [
   "🔥 Bu Ayın Özel Oturumu: Epigenetik Perspektif Eğitimine Kayıtlar Başladı!",
   "📢 CoreGen Genetik Akademi 2026 Eğitim Takvimi Güncellendi.",
-  "💡 Sıfırdan Biyoinformatik Bootcamp İçin Son Şans!",
-  "🚀 Metagenomik Analizlere Giriş Eğitimi Erken Kayıt Fırsatı Devam Ediyor."
+  "💡 Uygulamalı Protein Modelleme ve Yapısal Biyoinformatik Eğitimi için Kayıtlar Açıldı!"
 ];
 
 const mockEgitimler = [
   {
-    id: "metagenomik",
-    title: "Metagenomik Analizlere Giriş Eğitimi",
-    description: "Mikrobiyom dünyasını keşfet, verini anlamlı hale getir. 16S rRNA ve Shotgun metagenomik analiz süreçlerini sıfırdan öğrenin.",
-    price: "5.600 ₺",
-    image: "/images/metagenomik analizler .png", 
+    id: "uygulamali-protein-modelleme",
+    title: "Uygulamalı Protein Modelleme ve Yapısal Biyoinformatik Eğitimi",
+    description: "Protein dizisinden 3B yapıya: Protein modelleme, Homology Modeling, AlphaFold kullanımı ve yapısal analiz süreçlerini öğrenin.",
+    price: "3.000 ₺",
+    image: "/images/coregen genetik akademisi.png", 
     isDigital: false,
-    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/49254483",
-  },
-  {
-    id: "coregen-genetik-akademisi",
-    title: "CoreGen Genetik Akademisi: Sertifikalı Genetik Eğitim Serisi",
-    description: "Genetik biliminin 12 farklı alanında uzmanlaşacağınız, uygulamalı ve sertifikalı kapsamlı eğitim serisi.",
-    price: "1.500 ₺ / Ay",
-    image: "/images/coregen genetik akademisi.png",
-    isDigital: false,
-    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/49388038",
+    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/50977471",
   },
   {
     id: "sitogenetik",
-    title: "Sitogenetik ve Sanal Uygulamalı Karyotipleme Eğitimi",
-    description: "Kromozom yapısını öğrenin, gerçek vaka örnekleri üzerinden sanal karyotipleme uygulamaları yaparak becerinizi geliştirin.",
+    title: "Sitogenetik Eğitimi",
+    description: "Kromozom yapısı, karyotip analizi, sayısal ve yapısal kromozomal anomaliler ile sitogenetik değerlendirme temelleri.",
     price: "2.553 ₺",
     image: "/images/sitogenetik sanal uygulama .png",
     isDigital: true,
@@ -42,8 +32,8 @@ const mockEgitimler = [
   },
   {
     id: "biyoinformatik-101",
-    title: "Biyoinformatik 101: Temel Biyoinformatik ve Veri Tabanları",
-    description: "Biyoinformatik okuryazarlığı ve dijital veri mimarisine sağlam bir giriş yapın. Veritabanları ve algoritmik mantık.",
+    title: "Biyoinformatik 101 Eğitimi",
+    description: "Biyoinformatiğe giriş ve temel veri analizi. NCBI, BLAST ve sekans hizalama yaklaşımlarıyla temel biyoinformatik okuryazarlığı.",
     price: "2.956 ₺",
     image: "/images/biyoinformatik 101.jpeg",
     isDigital: true,
@@ -52,20 +42,11 @@ const mockEgitimler = [
   {
     id: "uygulamali-primer-tasarimi",
     title: "Uygulamalı Primer Tasarımı Eğitimi",
-    description: "PCR ve Real-Time PCR (qPCR) çalışmaları için in-silico araçlar kullanarak spesifik ve verimli primer tasarımı eğitimi.",
+    description: "PCR için doğru ve özgül primer tasarımının temelleri. Tm, GC oranı, özgüllük ve Primer-BLAST kontrolleri.",
     price: "1.928 ₺",
     image: "/images/primer tasarımı eğitimi.jpeg",
     isDigital: true,
     shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/46890580",
-  },
-  {
-    id: "biyoinformatik-bootcamp",
-    title: "Sıfırdan Biyoinformatik Bootcamp",
-    description: "Biyoinformatiğe sağlam bir başlangıç! Galaxy platformundan IGV'ye, RNA-Seq'ten metagenomik analize temel konular.",
-    price: "Ücretsiz / 990 ₺",
-    image: "/images/biyoinformatik bootcamp .png",
-    isDigital: false,
-    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/48968346",
   }
 ];
 
@@ -102,7 +83,6 @@ export default function EgitimlerPage() {
         {/* Kayan Yazılar */}
         <div className="w-full overflow-hidden pl-64">
           <div className="animate-scroll flex items-center gap-16 text-lg font-medium tracking-wide text-slate-200 cursor-default">
-            {/* Diziyi iki kez yazdırıyoruz ki animasyon kesintisiz (sonsuz) dönsün */}
             {[...mockDuyurular, ...mockDuyurular].map((duyuru, index) => (
               <span key={index} className="flex items-center gap-6 whitespace-nowrap hover:text-white transition-colors">
                  {duyuru}
@@ -124,7 +104,7 @@ export default function EgitimlerPage() {
           </h1>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
           {mockEgitimler.map((egitim) => (
             <div key={egitim.id} className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group">
               

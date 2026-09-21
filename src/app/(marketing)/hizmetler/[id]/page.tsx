@@ -88,7 +88,8 @@ export default function HizmetDetayPage() {
   }
 
   const exactImageName = imageMap[hizmet.slug] || `${hizmet.slug}.jpeg`;
-  const imagePath = `/images/${exactImageName}`;
+  // Kullanıcının eklediği hizmet-görselleri klasörüne yönlendirme
+  const imagePath = `/images/hizmet-görselleri/${exactImageName}`;
   const related = getRelatedServices(hizmet) || [];
 
   return (
@@ -137,7 +138,8 @@ export default function HizmetDetayPage() {
                 <h2 className="text-2xl font-bold text-pink-600 mb-4 flex items-center justify-center md:justify-start gap-2 border-b border-pink-100 pb-3">
                   <Beaker className="w-6 h-6" /> Hizmete Genel Bakış
                 </h2>
-                <p className="text-base md:text-lg text-slate-700 leading-relaxed whitespace-pre-wrap text-center md:text-left">
+                {/* Metin iki yana yaslandı (text-justify) ve boşluklar giderildi */}
+                <p className="text-base md:text-lg text-slate-700 leading-relaxed whitespace-pre-wrap text-justify">
                   {hizmet.description}
                 </p>
                 
@@ -187,7 +189,7 @@ export default function HizmetDetayPage() {
                 <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
                   <AlertCircle className="w-4 h-4 text-blue-600" /> Bu Hizmet Neden Önemli?
                 </h4>
-                <p className="text-sm text-slate-700 whitespace-pre-wrap">{hizmet.importance}</p>
+                <p className="text-sm text-slate-700 whitespace-pre-wrap text-justify">{hizmet.importance}</p>
               </div>
             )}
 
@@ -281,11 +283,11 @@ export default function HizmetDetayPage() {
             <section className="pt-6 border-t border-slate-100">
               <h3 className="text-xl font-bold text-slate-900 mb-4">→ Neden CoreGen?</h3>
               {hizmet.whyCoreGen ? (
-                 <p className="text-slate-700 bg-pink-50 p-6 rounded-2xl border border-pink-100 text-sm leading-relaxed mb-6 shadow-sm">
+                 <p className="text-slate-700 bg-pink-50 p-6 rounded-2xl border border-pink-100 text-sm leading-relaxed mb-6 shadow-sm text-justify">
                    {hizmet.whyCoreGen}
                  </p>
               ) : (
-                 <p className="text-slate-700 bg-pink-50 p-6 rounded-2xl border border-pink-100 text-sm leading-relaxed mb-6 shadow-sm">
+                 <p className="text-slate-700 bg-pink-50 p-6 rounded-2xl border border-pink-100 text-sm leading-relaxed mb-6 shadow-sm text-justify">
                    Proje bazlı çalışma anlayışımızla akademik araştırmacıların vizyonunu, teknik laboratuvar deneyimimizle birleştiriyoruz.
                  </p>
               )}

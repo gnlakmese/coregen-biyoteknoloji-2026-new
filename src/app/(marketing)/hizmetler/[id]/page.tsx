@@ -7,7 +7,6 @@ import { useParams } from "next/navigation";
 import { ChevronLeft, ArrowRight, MessageCircle, ClipboardList, Beaker, Check, AlertCircle, CheckCircle2, ChevronDown, Mail } from "lucide-react";
 
 import { getServiceBySlug, getRelatedServices } from "@/content/services";
-import { ServiceDetailForm } from "@/components/quote/ServiceDetailForm";
 
 const imageMap: Record<string, string> = {
   // Moleküler Biyoloji
@@ -61,7 +60,6 @@ const imageMap: Record<string, string> = {
 };
 
 export default function HizmetDetayPage() {
-  const [showForm, setShowForm] = useState(false);
   const [imgError, setImgError] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -93,13 +91,6 @@ export default function HizmetDetayPage() {
   const imagePath = `/images/${exactImageName}`;
   const related = getRelatedServices(hizmet) || [];
 
-  const scrollToForm = () => {
-    setShowForm(true);
-    setTimeout(() => {
-      document.getElementById("quote-form-section")?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
-  };
-
   return (
     <div className="min-h-screen bg-slate-50 pt-28 pb-24 text-slate-800">
       <div className="max-w-4xl mx-auto px-6 space-y-8">
@@ -126,7 +117,7 @@ export default function HizmetDetayPage() {
               />
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
-            <div className="absolute bottom-8 left-8 right-8">
+            <div className="absolute bottom-8 left-8 right-8 text-center md:text-left">
               <span className="inline-block text-[11px] font-bold tracking-widest uppercase text-pink-100 bg-pink-600/80 backdrop-blur-md px-3 py-1.5 rounded-full mb-3 border border-pink-400/30">
                 {hizmet.category}
               </span>
@@ -143,21 +134,21 @@ export default function HizmetDetayPage() {
             
             <section className="grid md:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-2xl font-bold text-pink-600 mb-4 flex items-center gap-2 border-b border-pink-100 pb-3">
+                <h2 className="text-2xl font-bold text-pink-600 mb-4 flex items-center justify-center md:justify-start gap-2 border-b border-pink-100 pb-3">
                   <Beaker className="w-6 h-6" /> Hizmete Genel Bakış
                 </h2>
-                <p className="text-lg text-slate-700 leading-relaxed whitespace-pre-wrap">
+                <p className="text-base md:text-lg text-slate-700 leading-relaxed whitespace-pre-wrap text-center md:text-left">
                   {hizmet.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-3 mt-6">
-                  <button 
-                    onClick={scrollToForm}
+                <div className="flex flex-wrap gap-3 mt-6 justify-center md:justify-start">
+                  <Link 
+                    href="/iletisim"
                     className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-xl font-bold text-sm transition-colors flex items-center justify-center gap-2 shadow-md"
                   >
                     <ClipboardList className="w-4 h-4" />
-                    {showForm ? "Form Aşağıda Açıldı" : "Teklif İste"}
-                  </button>
+                    Teklif İste / İletişime Geç
+                  </Link>
                   
                   <a 
                     href={`https://wa.me/905522207270?text=Merhaba,%20${hizmet.name}%20hizmeti%20hakkında%20bilgi%20almak%20istiyorum.`} 
@@ -330,26 +321,16 @@ export default function HizmetDetayPage() {
                 Çalışmanızın amacı, numune türü ve örnek sayısı gibi temel bilgileri bizimle paylaşarak araştırma projenize özel teklif alabilirsiniz.
               </p>
               
-              {!showForm && (
-                <div className="flex justify-center gap-3">
-                  <button 
-                    onClick={scrollToForm}
-                    className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-xl font-bold text-sm transition-colors flex items-center justify-center gap-2 shadow-lg shadow-pink-600/30"
-                  >
-                    <ClipboardList className="w-5 h-5" />
-                    Bu Hizmet İçin Teklif Alın
-                  </button>
-                </div>
-              )}
+              <div className="flex justify-center gap-3">
+                <Link 
+                  href="/iletisim"
+                  className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-xl font-bold text-sm transition-colors flex items-center justify-center gap-2 shadow-lg shadow-pink-600/30"
+                >
+                  <ClipboardList className="w-5 h-5" />
+                  İletişime Geçin / Teklif Alın
+                </Link>
+              </div>
             </section>
-
-            <div id="quote-form-section">
-              {showForm && (
-                <section className="animate-in fade-in slide-in-from-bottom-8 duration-500">
-                  <ServiceDetailForm serviceSlug={hizmet.slug} serviceName={hizmet.name} />
-                </section>
-              )}
-            </div>
 
             {related && related.length > 0 && (
                <section className="pt-12 border-t border-slate-100">

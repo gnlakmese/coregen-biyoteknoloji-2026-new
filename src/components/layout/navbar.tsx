@@ -4,11 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Menu, Search, ShoppingCart, Dna, PlusCircle, User, LogOut } from "lucide-react";
+import { ChevronDown, Menu, Search, Dna, PlusCircle, User, MessageCircle } from "lucide-react";
 
 import { MobileMenu } from "@/components/layout/mobile-menu";
-import { QuoteCartDrawer } from "@/components/quote/quote-cart-drawer";
-import { useQuoteCart } from "@/components/quote/quote-cart-context";
 import { Button } from "@/components/ui/button";
 import { primaryNav } from "@/lib/nav-config";
 import { serviceCategoryOutline } from "@/content/services";
@@ -17,14 +15,12 @@ import { transitionBase } from "@/lib/motion";
 export function Navbar() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [cartOpen, setCartOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [userRole, setUserRole] = useState<string>("guest"); // "admin", "personel", "musteri"
+  const [userRole, setUserRole] = useState<string>("guest");
   const [currentUser, setCurrentUser] = useState<any | null>(null);
   
   const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
-  const { itemCount } = useQuoteCart();
 
   const isHome = pathname === "/";
 
@@ -52,7 +48,6 @@ export function Navbar() {
         const emailLower = (user.email || "").toLowerCase();
         const roleStr = (user.role || "").toLowerCase();
 
-        // Rol ve e-posta uzantısına göre hedef belirleme
         if (emailLower.includes("gonul") || roleStr.includes("admin")) {
           setUserRole("admin");
         } else if (emailLower.includes("tolga") || emailLower.includes("@coregenbiyoteknoloji.com") || roleStr.includes("personel")) {
@@ -90,11 +85,10 @@ export function Navbar() {
     if (closeTimeout.current) clearTimeout(closeTimeout.current);
   }
 
-  // Kullanıcı tipine göre yönlendirilecek hedef URL
   const getDashboardLink = () => {
     if (userRole === "admin") return "/admin/urunler";
-    if (userRole === "personel") return "/personel"; // veya personel panel rotası
-    return "/musteri/profil"; // Müşteri için siparişler ve eğitimler paneli
+    if (userRole === "personel") return "/personel";
+    return "/musteri/profil";
   };
 
   const headerStyle = isHome && !scrolled
@@ -267,23 +261,7 @@ export function Navbar() {
             </Link>
           </Button>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="Teklif sepeti"
-            className={`relative ${isHome && !scrolled ? "hover:bg-white/10 text-white" : "hover:bg-gray-100 text-gray-700"}`}
-            style={{ boxShadow: "none" }}
-            onClick={() => setCartOpen(true)}
-          >
-            <ShoppingCart className="h-5 w-5" />
-            {itemCount > 0 && (
-              <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-pink-600 text-[10px] font-bold text-white shadow-none">
-                {itemCount > 9 ? "9+" : itemCount}
-              </span>
-            )}
-          </Button>
-
-          {/* KULLANICI PROFİL / PANEL YÖNLENDİRME BUTONU */}
+          {/* GİRİŞ YAP / İKAS BAĞLANTISI */}
           {currentUser ? (
             <Button
               variant="outline"
@@ -301,34 +279,36 @@ export function Navbar() {
               </Link>
             </Button>
           ) : (
-            <Button
-              variant="outline"
-              size="sm"
-              asChild
-              className={`hidden md:inline-flex items-center gap-1.5 font-bold text-xs px-4 py-5 rounded-xl transition-all ${
+            <a
+              href="https://magazanin-adi.myikas.com/account/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`hidden md:inline-flex items-center gap-1.5 font-bold text-xs px-4 py-2.5 rounded-xl transition-all border ${
                 isHome && !scrolled
                   ? "bg-white/10 border-white/20 text-white hover:bg-white/20"
                   : "bg-slate-100 border-slate-200 text-slate-800 hover:bg-slate-200"
               }`}
             >
-              <Link href="/admin/giris">
-                <User className="w-4 h-4" />
-                <span>Giriş Yap / Üye Ol</span>
-              </Link>
-            </Button>
+              <User className="w-4 h-4" />
+              <span>Giriş Yap / Üye Ol</span>
+            </a>
           )}
 
-          <Button 
-            className={`ml-1 hidden lg:inline-flex border-none font-bold text-base px-6 py-5 transition-all hover:scale-105 shadow-lg ${
+          {/* TEKLİF İSTE -> WHATSAPP HATTINA YÖNLENDİRİLDİ */}
+          <a 
+            href="https://wa.me/905522207270?text=Merhaba,%20web%20sitenizden%20hizmetleriniz%20hakkında%20bilgi%20ve%20teklif%20almak%20istiyorum."
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`ml-1 hidden lg:inline-flex items-center gap-2 font-bold text-base px-6 py-3 rounded-xl transition-all hover:scale-105 shadow-lg ${
               isHome && !scrolled 
                 ? "bg-white text-slate-900 hover:bg-slate-100" 
-                : "bg-pink-600 text-white hover:bg-pink-700 shadow-pink-600/30"
-            }`} 
+                : "bg-emerald-600 text-white hover:bg-emerald-700 shadow-emerald-600/30"
+            }`}
             style={{ boxShadow: "none", textShadow: "none", filter: "none" }}
-            asChild
           >
-            <Link href="/teklif-sepeti">Teklif İste</Link>
-          </Button>
+            <MessageCircle className="w-5 h-5" />
+            <span>Teklif İste</span>
+          </a>
 
           <Button
             variant="ghost"
@@ -345,7 +325,6 @@ export function Navbar() {
       </div>
 
       <MobileMenu open={mobileOpen} onOpenChange={setMobileOpen} />
-      <QuoteCartDrawer open={cartOpen} onOpenChange={setCartOpen} />
     </header>
   );
 }

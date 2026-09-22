@@ -88,7 +88,6 @@ export default function HizmetDetayPage() {
   }
 
   const exactImageName = imageMap[hizmet.slug] || `${hizmet.slug}.jpeg`;
-  // Kullanıcının eklediği hizmet-görselleri klasörüne yönlendirme
   const imagePath = `/images/hizmet-görselleri/${exactImageName}`;
   const related = getRelatedServices(hizmet) || [];
 
@@ -138,28 +137,20 @@ export default function HizmetDetayPage() {
                 <h2 className="text-2xl font-bold text-pink-600 mb-4 flex items-center justify-center md:justify-start gap-2 border-b border-pink-100 pb-3">
                   <Beaker className="w-6 h-6" /> Hizmete Genel Bakış
                 </h2>
-                {/* Metin iki yana yaslandı (text-justify) ve boşluklar giderildi */}
                 <p className="text-base md:text-lg text-slate-700 leading-relaxed whitespace-pre-wrap text-justify">
                   {hizmet.description}
                 </p>
                 
                 <div className="flex flex-wrap gap-3 mt-6 justify-center md:justify-start">
-                  <Link 
-                    href="/iletisim"
-                    className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-xl font-bold text-sm transition-colors flex items-center justify-center gap-2 shadow-md"
-                  >
-                    <ClipboardList className="w-4 h-4" />
-                    Teklif İste / İletişime Geç
-                  </Link>
-                  
+                  {/* TEKLİF İSTE -> WHATSAPP HATTINA BAĞLANDI */}
                   <a 
-                    href={`https://wa.me/905522207270?text=Merhaba,%20${hizmet.name}%20hizmeti%20hakkında%20bilgi%20almak%20istiyorum.`} 
-                    target="_blank" 
+                    href={`https://wa.me/905522207270?text=Merhaba,%20${hizmet.name}%20hizmeti%20için%20bilgi%20ve%20teklif%20almak%20istiyorum.`}
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-emerald-50 hover:bg-emerald-100 text-emerald-600 border border-emerald-200 w-12 h-12 rounded-xl flex items-center justify-center transition-colors shadow-sm"
-                    title="WhatsApp'tan Ulaşın"
+                    className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold text-sm transition-colors flex items-center justify-center gap-2 shadow-md"
                   >
-                    <MessageCircle className="w-5 h-5" />
+                    <MessageCircle className="w-4 h-4" />
+                    Teklif İste (WhatsApp)
                   </a>
 
                   <a 
@@ -324,13 +315,15 @@ export default function HizmetDetayPage() {
               </p>
               
               <div className="flex justify-center gap-3">
-                <Link 
-                  href="/iletisim"
-                  className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-xl font-bold text-sm transition-colors flex items-center justify-center gap-2 shadow-lg shadow-pink-600/30"
+                <a 
+                  href={`https://wa.me/905522207270?text=Merhaba,%20${hizmet.name}%20hizmeti%20için%20özel%20teklif%20almak%20istiyorum.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold text-sm transition-colors flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30"
                 >
-                  <ClipboardList className="w-5 h-5" />
-                  İletişime Geçin / Teklif Alın
-                </Link>
+                  <MessageCircle className="w-5 h-5" />
+                  WhatsApp ile Teklif İste
+                </a>
               </div>
             </section>
 

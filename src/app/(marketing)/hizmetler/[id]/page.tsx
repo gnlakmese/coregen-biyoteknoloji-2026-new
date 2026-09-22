@@ -132,17 +132,17 @@ export default function HizmetDetayPage() {
 
           <div className="p-8 md:p-12 space-y-12">
             
-            <section className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Tek Sütun Tam Genişlik ve İki Yana Yaslı Açıklama Alanı */}
+            <section className="space-y-6">
               <div>
-                <h2 className="text-2xl font-bold text-pink-600 mb-4 flex items-center justify-center md:justify-start gap-2 border-b border-pink-100 pb-3">
+                <h2 className="text-2xl font-bold text-pink-600 mb-4 flex items-center gap-2 border-b border-pink-100 pb-3">
                   <Beaker className="w-6 h-6" /> Hizmete Genel Bakış
                 </h2>
                 <p className="text-base md:text-lg text-slate-700 leading-relaxed whitespace-pre-wrap text-justify">
                   {hizmet.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-3 mt-6 justify-center md:justify-start">
-                  {/* TEKLİF İSTE -> WHATSAPP HATTINA BAĞLANDI */}
+                <div className="flex flex-wrap gap-3 mt-6">
                   <a 
                     href={`https://wa.me/905522207270?text=Merhaba,%20${hizmet.name}%20hizmeti%20için%20bilgi%20ve%20teklif%20almak%20istiyorum.`}
                     target="_blank"
@@ -162,17 +162,6 @@ export default function HizmetDetayPage() {
                   </a>
                 </div>
               </div>
-
-              {!imgError && (
-                <div className="relative h-64 md:h-72 rounded-3xl overflow-hidden shadow-md border border-slate-100 bg-slate-100">
-                  <Image 
-                    src={imagePath}
-                    alt={`${hizmet.name} detay görseli`}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              )}
             </section>
 
             {hizmet.importance && (

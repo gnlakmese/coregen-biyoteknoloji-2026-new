@@ -13,6 +13,26 @@ const mockDuyurular = [
 
 const mockEgitimler = [
   {
+    id: "yeni-egitim-1",
+    title: "Yeni Nesil Biyoteknoloji ve Uygulamalı Eğitim Serisi 1",
+    description: "Güncel biyoteknolojik yaklaşımlar, laboratuvar uygulamaları ve modern analiz yöntemleri hakkında kapsamlı eğitim.",
+    price: "3.500 ₺",
+    image: "/images/uygulamali-protein-modelleme.png", 
+    category: "Canlı Eğitim",
+    isDigital: false,
+    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/52003995",
+  },
+  {
+    id: "yeni-egitim-2",
+    title: "İleri Seviye Genetik ve Veri Analizi Eğitimi",
+    description: "Genetik verilerin yorumlanması, ileri düzey analiz araçları ve pratik uygulama yöntemleri.",
+    price: "4.000 ₺",
+    image: "/images/sitogenetik.jpeg",
+    category: "Canlı Eğitim",
+    isDigital: false,
+    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/52000746",
+  },
+  {
     id: "uygulamali-protein-modelleme",
     title: "Uygulamalı Protein Modelleme ve Yapısal Biyoinformatik Eğitimi",
     description: "Protein dizisinden 3B yapıya: Protein modelleme, Homology Modeling, AlphaFold kullanımı ve yapısal analiz süreçlerini öğrenin.",

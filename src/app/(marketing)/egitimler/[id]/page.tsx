@@ -8,130 +8,104 @@ import {
 } from "lucide-react";
 
 const egitimDetaylari = {
-  "yeni-egitim-1": {
-    title: "Yeni Nesil Biyoteknoloji ve Uygulamalı Eğitim Serisi 1",
-    description: "Güncel biyoteknolojik yaklaşımlar, laboratuvar uygulamaları ve modern analiz yöntemleri hakkında kapsamlı eğitim.",
-    rawContent: `🧬 Yeni Nesil Biyoteknoloji ve Uygulamalı Eğitim Serisi 1
-💻 Eğitim: Online – Canlı
-🎓 Seviye: Başlangıç / Orta
-📜 Katılım: Eğitim sonunda katılım sertifikası
+  "epigenetik-ve-epigenomik": {
+    title: "Epigenetik ve Epigenomik: Teoriden Laboratuvar Analizlerine",
+    description: "Epigenetik mekanizmaları keşfedin, epigenomik yaklaşımları tanıyın ve modern moleküler araştırmalarda kullanılan analiz yöntemlerinin mantığını öğrenin!",
+    rawContent: `🧬 Epigenetik ve Epigenomik: Teoriden Laboratuvar Analizlerine
+📅 Eğitim tarihi: 28–29 Ekim, Saat 20:00-21:00 
+⏱️ Toplam süre: 4 saat
+💻 Format: Canlı çevrim içi eğitim
+📜 Program: 4 modül
 
-Eğitimde neler öğreneceksiniz?
-- Güncel biyoteknolojik yaklaşımlar ve endüstriyel uygulamalar
-- Modern laboratuvar teknikleri ve analiz yöntemleri
-- Veri yorumlama ve pratik vaka analizleri
-- Sektörel gelişmeler ve Ar-Ge süreçleri
+CoreGen Biyoteknoloji tarafından düzenlenen bu eğitimde epigenetiğin moleküler temellerinden başlayarak epigenomik araştırmalarda kullanılan laboratuvar yöntemlerini, genom çapında analiz yaklaşımlarını ve bu yöntemlerin bilimsel araştırmalardaki kullanım amaçlarını ele alacağız.
+DNA metilasyonu, histon modifikasyonları, kromatin erişilebilirliği ve gen ifadesi gibi temel konuları; MSP, ChIP-seq, ATAC-seq ve RNA-seq gibi yöntemlerle ilişkilendirerek inceleyeceğiz.
 
-🎯 Eğitim sonunda
-Katılımcıların yeni nesil biyoteknoloji alanındaki temel ve orta seviye uygulamaları kavraması ve laboratuvar süreçlerine hakim olması hedeflenmektedir.
+Eğitim İçeriği:
+Modül 1 | Epigenetiğin Moleküler Temelleri
+- Epigenetik kavramı ve genetikten farkı
+- DNA metilasyonu ve demetilasyon
+- Histon modifikasyonları ve kromatin organizasyonu
+- Kodlamayan RNA'lar ve gen ifadesinin düzenlenmesi
+- Epigenetik mekanizmaların hücresel farklılaşma ve hastalıklarla ilişkisi
 
-Kimler katılabilir?
-Biyoloji, moleküler biyoloji ve genetik, biyoteknoloji, tıp, veterinerlik, eczacılık ve ilgili alanlarda öğrenim gören veya çalışanlar katılabilir.`,
+Modül 2 | Epigenomik ve Genom Çapında Araştırmalar
+- Epigenetik ve epigenomik arasındaki fark
+- Epigenomun hücre tipi ve biyolojik koşullara göre değişimi
+- DNA metilasyon profillemesi, ChIP-seq, ATAC-seq ve RNA-seq'e giriş
+- Hedefli analizler ile genom çapında yaklaşımların karşılaştırılması
+- Epigenomik yöntemlerin araştırma sorularına göre kullanım alanları
+
+Modül 3 | Epigenetik Araştırmalarda Laboratuvar Yöntemleri
+- DNA ve RNA izolasyonu ile örnek kalitesinin önemi
+- DNA metilasyon analizleri: MSP ve bisülfit temelli yöntemler
+- Histon modifikasyonlarının incelenmesi: ChIP-qPCR ve ChIP-seq
+- Gen ifadesi analizi: RT-PCR ve RT-qPCR
+- Deneysel kontroller, kalite kontrolü ve yöntemlerin sınırlılıkları
+
+Modül 4 | Epigenomik Yaklaşımlar: Ne Ölçeriz, Neden Kullanırız?
+- DNA metilasyon analizlerinin kullanım amaçları
+- ChIP-seq ile histon işaretlerinin ve DNA ile ilişkili proteinlerin genom üzerindeki dağılımının incelenmesi
+- ATAC-seq ile kromatin erişilebilirliğinin değerlendirilmesi
+- RNA-seq ile genom çapında gen ifadesi analizi
+- Yöntemlerden elde edilen çıktıların temel mantığı
+- Araştırma sorusuna uygun yöntem seçimi ve biyolojik sonuçların yorumlanması
+
+Kimler Katılabilir?
+Moleküler biyoloji ve genetik, biyoteknoloji, biyoloji ve sağlık bilimleri alanlarında öğrenim gören öğrenciler; lisansüstü araştırmacılar ve epigenetik ile epigenomik araştırmalara ilgi duyan bilim insanları.
+
+Not: Eğitim, epigenetik ve epigenomik yöntemlerin temel prensiplerini ve kullanım amaçlarını tanıtmaya yöneliktir. Kapsamlı biyoinformatik analiz uygulaması veya laboratuvarda deney gerçekleştirilmesi içermez.`,
+    price: "2.500 ₺",
+    features: ["4 Saat Canlı Çevrim İçi Eğitim", "28–29 Ekim (20:00-21:00)", "4 Kapsamlı Modül", "Katılım / Başarı Odaklı İçerik"],
+    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/epigenetik",
+  },
+  "akademik-yazim-ve-yayin-hazirligi": {
+    title: "Akademik Yazım ve Yayın Hazırlığı Eğitimi",
+    description: "Bilimsel fikrinizi akademik metne dönüştürün, makale yazımını öğrenin ve TÜBİTAK proje hazırlama sürecini keşfedin!",
+    rawContent: `🧬 Akademik Yazım ve Yayın Hazırlığı Eğitimi | 12 Saat
+📅 Eğitim Takvimi:
+- 24 Ekim 2026: Akademik Yazıma Giriş
+- 31 Ekim 2026: Literatür Taraması ve Yapay Zekâ
+- 7 Kasım 2026: Makale, Yayın ve TÜBİTAK Proje Yazımı
+- 14 Kasım 2026: Uygulamalı Makale Atölyesi
+🕐 Saat: Cumartesi günleri, 12.00–15.00
+⏱️ Toplam süre: 12 saat
+💻 Format: Canlı çevrim içi eğitim
+
+CoreGen Biyoteknoloji tarafından düzenlenen bu uygulamalı eğitimde akademik yazım, literatür taraması, yapay zekânın akademik süreçlerde etik kullanımı, bilimsel makale hazırlama ve TÜBİTAK proje yazımının temel ilkelerini öğreneceksiniz.
+
+Eğitim İçeriği:
+Modül 1 | Akademik Yazıma Giriş
+- Akademik dil, bilimsel anlatım ve metin oluşturma
+- Araştırma sorusu, amaç ve hipotez geliştirme
+- Paragraf yapısı, bilimsel argüman ve akademik etik
+
+Modül 2 | Literatür Taraması ve Yapay Zekâ
+- PubMed ve Google Scholar ile literatür taraması
+- Anahtar kelimeler ve Boolean operatörleri
+- Bilimsel kaynakları değerlendirme ve literatür sentezi
+- Zotero ile kaynak yönetimi
+- Yapay zekânın akademik yazımda etik ve doğru kullanımı
+
+Modül 3 | Makale, Yayın ve TÜBİTAK Proje Yazımı
+- Bilimsel makalenin IMRaD yapısı ve temel bölümleri
+- Özet, giriş, yöntem, bulgular ve tartışma yazımı
+- Dergi seçimi, yayın başvurusu ve hakem değerlendirmesi
+- TÜBİTAK projelerinde amaç, özgün değer, yöntem, iş paketleri, zaman planı ve bütçe
+
+Modül 4 | Uygulamalı Makale Atölyesi
+- Makale konusu ve taslağının oluşturulması
+- Literatürün değerlendirilmesi ve kaynakların kullanılması
+- Kısa bilimsel makale yazımı
+- Akademik dil, kaynak kontrolü ve geliştirme önerileri
+Eğitimin son modülünde katılımcılar, öğrendiklerini uygulayarak kendi kısa bilimsel makale taslaklarını hazırlayacaklardır.
+
+Kimler Katılabilir?
+Lisans ve lisansüstü öğrencileri, akademik kariyer hedefleyenler, araştırmacılar ve bilimsel makale ya da TÜBİTAK projesi hazırlama becerilerini geliştirmek isteyen tüm katılımcılar.
+
+Not: Eğitim, akademik yazım ve proje hazırlama becerilerini geliştirmeye yöneliktir; yayın veya proje kabulü garantisi içermez.`,
     price: "3.500 ₺",
-    features: ["Canlı Eğitim Oturumları", "Online – Canlı", "Başlangıç / Orta Seviye", "Katılım Sertifikası"],
-    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/52003995",
-  },
-  "yeni-egitim-2": {
-    title: "İleri Seviye Genetik ve Veri Analizi Eğitimi",
-    description: "Genetik verilerin yorumlanması, ileri düzey analiz araçları ve pratik uygulama yöntemleri.",
-    rawContent: `🧬 İleri Seviye Genetik ve Veri Analizi Eğitimi
-💻 Eğitim: Online – Canlı
-🎓 Seviye: İleri Seviye
-📜 Katılım: Eğitim sonunda katılım sertifikası
-
-Eğitimde neler öğreneceksiniz?
-- Genetik veri analitiğinde ileri düzey yaklaşımlar
-- Omics verilerinin entegrasyonu ve yorumlanması
-- Biyoinformatik boru hatları (pipelines) ve kullanım alanları
-- Vaka çalışmaları ve özel analiz senaryoları
-
-🎯 Eğitim sonunda
-Katılımcıların karmaşık genetik verileri analiz edebilmesi, modern biyoinformatik araçlarını etkin bir şekilde kullanabilmesi ve sonuçları yorumlayabilmesi hedeflenmektedir.
-
-Kimler katılabilir?
-Genetik, moleküler biyoloji, biyoinformatik, tıp ve ilgili alanlarda temel bilgisi olan ve kendini geliştirmek isteyen araştırmacılar ve öğrenciler katılabilir.`,
-    price: "4.000 ₺",
-    features: ["Canlı Eğitim Oturumları", "Online – Canlı", "İleri Seviye", "Katılım Sertifikası"],
-    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/52000746",
-  },
-  "uygulamali-protein-modelleme": {
-    title: "Uygulamalı Protein Modelleme ve Yapısal Biyoinformatik Eğitimi",
-    description: "Protein dizisinden 3B yapıya: Protein modelleme, Homology Modeling, AlphaFold kullanımı ve yapısal analiz süreçlerini öğrenin.",
-    rawContent: `🧬 Uygulamalı Protein Modelleme ve Yapısal Biyoinformatik Eğitimi
-📅 Tarih: 17–18 Ekim 2026
-🕐 Saat: 12.00–15.00
-💻 Eğitim: Online – Canlı
-⏱️ Süre: 6 saat
-🎓 Seviye: Başlangıç / Orta
-📜 Katılım: Eğitim sonunda katılım sertifikası
-
-Eğitimde neler öğreneceksiniz?
-- Protein nedir? Proteinlerin biyolojik ve yapısal özellikleri
-- Proteinlerin birincil, ikincil, üçüncül ve dördüncül yapıları
-- Amino asit dizisi ve protein yapısı arasındaki ilişki
-- Protein dizisinin modelleme için hazırlanması
-- Protein sekanslarının araştırılması ve değerlendirilmesi
-- PDB veri tabanı ve PDB dosyalarının temel mantığı
-- Deneysel protein yapılarının araştırılması
-- Uygun protein yapısının seçilmesi
-- Protein yapılarının karşılaştırılması
-- Homology Modeling nedir?
-- Homology modeling yaklaşımının temel prensipleri
-- Template nedir ve nasıl seçilir?
-- Template seçiminde dikkat edilmesi gereken kriterler
-- Sequence identity ve sequence similarity kavramları
-- Protein yapı tahmini yaklaşımları
-- AlphaFold ve benzeri yapı tahmin sistemlerinin kullanımı
-- Tahmin edilen protein modellerinin incelenmesi
-- Model kalite değerlendirme kriterleri
-- Ramachandran Plot analizi
-- Protein yapısının 3B olarak görselleştirilmesi
-- Protein yapısındaki amino asitlerin incelenmesi
-- Yapısal biyoinformatik araçlarına giriş
-- Protein–ligand etkileşimlerine giriş
-- Protein modelleme ve moleküler docking arasındaki ilişki
-- Model → yapı değerlendirme → docking iş akışı
-- Örnek bir protein üzerinden uygulamalı modelleme süreci
-
-🎯 Eğitim sonunda
-Katılımcıların bir protein amino asit dizisinden başlayarak uygun yapısal verileri araştırabilmesi, protein modelleme yaklaşımlarını anlayabilmesi, homology modeling ve yapı tahmini sonuçlarını değerlendirebilmesi, Ramachandran plot gibi temel kalite değerlendirme araçlarını yorumlayabilmesi ve elde edilen protein modelini moleküler docking gibi ileri yapısal biyoinformatik çalışmalarına hazırlayabilmesi hedeflenmektedir.
-
-Kimler katılabilir?
-Moleküler biyoloji ve genetik, biyoteknoloji, biyokimya, biyoloji, biyomühendislik, eczacılık, tıp, veterinerlik, biyoinformatik ve ilgili alanlarda öğrenim gören veya çalışanlar ile protein yapısı ve yapısal biyoinformatiğe ilgi duyan herkes katılabilir.`,
-    price: "3.500 ₺",
-    features: ["6 Saat Canlı Eğitim (17-18 Ekim)", "Online – Canlı", "Başlangıç / Orta Seviye", "Katılım Sertifikası"],
-    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/50977471",
-  },
-  "sitogenetik": {
-    title: "Sitogenetik ve Sanal Uygulamalı Karyotipleme Eğitimi",
-    description: "Kromozom yapısı, karyotip analizi, sayısal ve yapısal kromozomal anomaliler ile sanal karyotipleme uygulamaları.",
-    rawContent: `🧬 Sitogenetik ve Sanal Uygulamalı Karyotipleme Eğitimi
-💻 Eğitim: Online – Canlı
-🎓 Seviye: Başlangıç / Orta
-📜 Katılım: Eğitim sonunda katılım sertifikası
-
-Eğitimde neler öğreneceksiniz?
-- Sitogenetiğe giriş ve temel kavramlar
-- Kromozom nedir? Yapısı ve organizasyonu
-- Kromatin ve kromozom arasındaki ilişki
-- İnsan kromozomlarının genel özellikleri ve sınıflandırılması
-- Otozomlar ve gonozomlar
-- Karyotip ve karyogram kavramları
-- Hücre kültürü ve metafaz aşamasına giriş
-- Kromozom preparasyonu ve boyama teknikleri (G-banding)
-- Sayısal kromozom anomalileri (Monozomi, Trizomi, Poliploidi)
-- Yapısal kromozom anomalileri (Delesyon, Duplikasyon, İnversiyon, Translokasyon)
-- Karyogram üzerinden kromozom analizi
-- Örnek vakalar üzerinden karyotipleme ve yorumlama
-
-🎯 Eğitim sonunda
-Katılımcıların insan kromozomlarının temel yapısını ve sınıflandırılmasını öğrenmesi, karyotip ve karyogram kavramlarını anlaması, sayısal ve yapısal kromozomal anomalileri tanıyabilmesi hedeflenmektedir.
-
-Kimler katılabilir?
-Biyoloji, moleküler biyoloji ve genetik, biyoteknoloji, tıp, veterinerlik, sağlık bilimleri ve ilgili alanlarda öğrenim gören veya çalışanlar katılabilir.`,
-    price: "4.500 ₺",
-    features: ["Online – Canlı Eğitim", "Sanal Karyotipleme Pratiği", "Başlangıç / Orta Seviye", "Katılım Sertifikası"],
-    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/49958492",
+    features: ["12 Saat Uygulamalı Canlı Eğitim", "Cumartesi Günleri (12.00–15.00)", "Uygulamalı Makale Atölyesi", "TÜBİTAK Proje Hazırlama Rehberliği"],
+    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/akademik-yazim",
   },
   "biyoinformatik-101": {
     title: "Biyoinformatik 101 Eğitimi",
@@ -204,7 +178,7 @@ export default function EgitimDetayPage() {
   const params = useParams();
   const id = params.id as string;
   
-  const egitim = egitimDetaylari[id as keyof typeof egitimDetaylari] || egitimDetaylari["uygulamali-protein-modelleme"];
+  const egitim = egitimDetaylari[id as keyof typeof egitimDetaylari] || egitimDetaylari["epigenetik-ve-epigenomik"];
 
   return (
     <div className="min-h-screen bg-slate-50 pt-28 pb-24 text-slate-800">

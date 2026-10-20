@@ -8,49 +8,29 @@ import { Users, ArrowRight, AlertCircle, PlayCircle, Radio, Megaphone, ShoppingC
 const mockDuyurular = [
   "🔥 Bu Ayın Özel Oturumu: Epigenetik Perspektif Eğitimine Kayıtlar Başladı!",
   "📢 CoreGen Eğitim Takvimi Güncellendi.",
-  "💡 Uygulamalı Protein Modelleme ve Yapısal Biyoinformatik Eğitimi için Kayıtlar Açıldı!"
+  "💡 Akademik Yazım ve Yayın Hazırlığı Eğitimi için Kayıtlar Açıldı!"
 ];
 
 const mockEgitimler = [
   {
-    id: "yeni-egitim-1",
-    title: "Yeni Nesil Biyoteknoloji ve Uygulamalı Eğitim Serisi 1",
-    description: "Güncel biyoteknolojik yaklaşımlar, laboratuvar uygulamaları ve modern analiz yöntemleri hakkında kapsamlı eğitim.",
-    price: "3.500 ₺",
-    image: "/images/uygulamali-protein-modelleme.png", 
+    id: "epigenetik-ve-epigenomik",
+    title: "Epigenetik ve Epigenomik: Teoriden Laboratuvar Analizlerine",
+    description: "Epigenetik mekanizmaları keşfedin, epigenomik yaklaşımları tanıyın ve modern moleküler araştırmalarda kullanılan analiz yöntemlerinin mantığını öğrenin!",
+    price: "2.500 ₺",
+    image: "/images/epigenetik.jpg", // Görsel 1 / Eğitim 1 
     category: "Canlı Eğitim",
     isDigital: false,
-    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/52003995",
+    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/epigenetik", // Örnek Shopier Linki
   },
   {
-    id: "yeni-egitim-2",
-    title: "İleri Seviye Genetik ve Veri Analizi Eğitimi",
-    description: "Genetik verilerin yorumlanması, ileri düzey analiz araçları ve pratik uygulama yöntemleri.",
-    price: "4.000 ₺",
-    image: "/images/sitogenetik.jpeg",
+    id: "akademik-yazim-ve-yayin-hazirligi",
+    title: "Akademik Yazım ve Yayın Hazırlığı Eğitimi",
+    description: "Bilimsel fikrinizi akademik metne dönüştürün, makale yazımını öğrenin ve TÜBİTAK proje hazırlama sürecini keşfedin!",
+    price: "3.500 ₺", // Belirtilmediği takdirde standart veya güncellenebilir ücret
+    image: "/images/akademik-yazim.jpg", // Görsel 2 / Eğitim 2
     category: "Canlı Eğitim",
     isDigital: false,
-    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/52000746",
-  },
-  {
-    id: "uygulamali-protein-modelleme",
-    title: "Uygulamalı Protein Modelleme ve Yapısal Biyoinformatik Eğitimi",
-    description: "Protein dizisinden 3B yapıya: Protein modelleme, Homology Modeling, AlphaFold kullanımı ve yapısal analiz süreçlerini öğrenin.",
-    price: "3.500 ₺",
-    image: "/images/uygulamali-protein-modelleme.png", 
-    category: "Canlı Eğitim",
-    isDigital: false,
-    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/50977471",
-  },
-  {
-    id: "sitogenetik",
-    title: "Sitogenetik ve Sanal Uygulamalı Karyotipleme Eğitimi",
-    description: "Kromozom yapısı, karyotip analizi, sayısal ve yapısal kromozomal anomaliler ile sanal karyotipleme uygulamaları.",
-    price: "4.500 ₺",
-    image: "/images/sitogenetik.jpeg",
-    category: "Canlı Eğitim",
-    isDigital: false,
-    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/49958492",
+    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/akademik-yazim", // Örnek Shopier Linki
   },
   {
     id: "biyoinformatik-101",
@@ -146,7 +126,7 @@ export default function EgitimlerPage() {
           ))}
         </div>
 
-        {/* EĞİTİM KARTLARI - BİR SATIRDA 3 ADET */}
+        {/* EĞİTİM KARTLARI */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {filteredEgitimler.map((egitim) => (
             <div key={egitim.id} className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group">

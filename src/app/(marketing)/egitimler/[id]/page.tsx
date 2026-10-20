@@ -8,6 +8,52 @@ import {
 } from "lucide-react";
 
 const egitimDetaylari = {
+  "yeni-egitim-1": {
+    title: "Yeni Nesil Biyoteknoloji ve Uygulamalı Eğitim Serisi 1",
+    description: "Güncel biyoteknolojik yaklaşımlar, laboratuvar uygulamaları ve modern analiz yöntemleri hakkında kapsamlı eğitim.",
+    rawContent: `🧬 Yeni Nesil Biyoteknoloji ve Uygulamalı Eğitim Serisi 1
+💻 Eğitim: Online – Canlı
+🎓 Seviye: Başlangıç / Orta
+📜 Katılım: Eğitim sonunda katılım sertifikası
+
+Eğitimde neler öğreneceksiniz?
+- Güncel biyoteknolojik yaklaşımlar ve endüstriyel uygulamalar
+- Modern laboratuvar teknikleri ve analiz yöntemleri
+- Veri yorumlama ve pratik vaka analizleri
+- Sektörel gelişmeler ve Ar-Ge süreçleri
+
+🎯 Eğitim sonunda
+Katılımcıların yeni nesil biyoteknoloji alanındaki temel ve orta seviye uygulamaları kavraması ve laboratuvar süreçlerine hakim olması hedeflenmektedir.
+
+Kimler katılabilir?
+Biyoloji, moleküler biyoloji ve genetik, biyoteknoloji, tıp, veterinerlik, eczacılık ve ilgili alanlarda öğrenim gören veya çalışanlar katılabilir.`,
+    price: "3.500 ₺",
+    features: ["Canlı Eğitim Oturumları", "Online – Canlı", "Başlangıç / Orta Seviye", "Katılım Sertifikası"],
+    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/52003995",
+  },
+  "yeni-egitim-2": {
+    title: "İleri Seviye Genetik ve Veri Analizi Eğitimi",
+    description: "Genetik verilerin yorumlanması, ileri düzey analiz araçları ve pratik uygulama yöntemleri.",
+    rawContent: `🧬 İleri Seviye Genetik ve Veri Analizi Eğitimi
+💻 Eğitim: Online – Canlı
+🎓 Seviye: İleri Seviye
+📜 Katılım: Eğitim sonunda katılım sertifikası
+
+Eğitimde neler öğreneceksiniz?
+- Genetik veri analitiğinde ileri düzey yaklaşımlar
+- Omics verilerinin entegrasyonu ve yorumlanması
+- Biyoinformatik boru hatları (pipelines) ve kullanım alanları
+- Vaka çalışmaları ve özel analiz senaryoları
+
+🎯 Eğitim sonunda
+Katılımcıların karmaşık genetik verileri analiz edebilmesi, modern biyoinformatik araçlarını etkin bir şekilde kullanabilmesi ve sonuçları yorumlayabilmesi hedeflenmektedir.
+
+Kimler katılabilir?
+Genetik, moleküler biyoloji, biyoinformatik, tıp ve ilgili alanlarda temel bilgisi olan ve kendini geliştirmek isteyen araştırmacılar ve öğrenciler katılabilir.`,
+    price: "4.000 ₺",
+    features: ["Canlı Eğitim Oturumları", "Online – Canlı", "İleri Seviye", "Katılım Sertifikası"],
+    shopierUrl: "https://www.shopier.com/CoreGenBiyoteknoloji/52000746",
+  },
   "uygulamali-protein-modelleme": {
     title: "Uygulamalı Protein Modelleme ve Yapısal Biyoinformatik Eğitimi",
     description: "Protein dizisinden 3B yapıya: Protein modelleme, Homology Modeling, AlphaFold kullanımı ve yapısal analiz süreçlerini öğrenin.",
@@ -20,32 +66,32 @@ const egitimDetaylari = {
 📜 Katılım: Eğitim sonunda katılım sertifikası
 
 Eğitimde neler öğreneceksiniz?
-• Protein nedir? Proteinlerin biyolojik ve yapısal özellikleri
-• Proteinlerin birincil, ikincil, üçüncül ve dördüncül yapıları
-• Amino asit dizisi ve protein yapısı arasındaki ilişki
-• Protein dizisinin modelleme için hazırlanması
-• Protein sekanslarının araştırılması ve değerlendirilmesi
-• PDB veri tabanı ve PDB dosyalarının temel mantığı
-• Deneysel protein yapılarının araştırılması
-• Uygun protein yapısının seçilmesi
-• Protein yapılarının karşılaştırılması
-• Homology Modeling nedir?
-• Homology modeling yaklaşımının temel prensipleri
-• Template nedir ve nasıl seçilir?
-• Template seçiminde dikkat edilmesi gereken kriterler
-• Sequence identity ve sequence similarity kavramları
-• Protein yapı tahmini yaklaşımları
-• AlphaFold ve benzeri yapı tahmin sistemlerinin kullanımı
-• Tahmin edilen protein modellerinin incelenmesi
-• Model kalite değerlendirme kriterleri
-• Ramachandran Plot analizi
-• Protein yapısının 3B olarak görselleştirilmesi
-• Protein yapısındaki amino asitlerin incelenmesi
-• Yapısal biyoinformatik araçlarına giriş
-• Protein–ligand etkileşimlerine giriş
-• Protein modelleme ve moleküler docking arasındaki ilişki
-• Model → yapı değerlendirme → docking iş akışı
-• Örnek bir protein üzerinden uygulamalı modelleme süreci
+- Protein nedir? Proteinlerin biyolojik ve yapısal özellikleri
+- Proteinlerin birincil, ikincil, üçüncül ve dördüncül yapıları
+- Amino asit dizisi ve protein yapısı arasındaki ilişki
+- Protein dizisinin modelleme için hazırlanması
+- Protein sekanslarının araştırılması ve değerlendirilmesi
+- PDB veri tabanı ve PDB dosyalarının temel mantığı
+- Deneysel protein yapılarının araştırılması
+- Uygun protein yapısının seçilmesi
+- Protein yapılarının karşılaştırılması
+- Homology Modeling nedir?
+- Homology modeling yaklaşımının temel prensipleri
+- Template nedir ve nasıl seçilir?
+- Template seçiminde dikkat edilmesi gereken kriterler
+- Sequence identity ve sequence similarity kavramları
+- Protein yapı tahmini yaklaşımları
+- AlphaFold ve benzeri yapı tahmin sistemlerinin kullanımı
+- Tahmin edilen protein modellerinin incelenmesi
+- Model kalite değerlendirme kriterleri
+- Ramachandran Plot analizi
+- Protein yapısının 3B olarak görselleştirilmesi
+- Protein yapısındaki amino asitlerin incelenmesi
+- Yapısal biyoinformatik araçlarına giriş
+- Protein–ligand etkileşimlerine giriş
+- Protein modelleme ve moleküler docking arasındaki ilişki
+- Model → yapı değerlendirme → docking iş akışı
+- Örnek bir protein üzerinden uygulamalı modelleme süreci
 
 🎯 Eğitim sonunda
 Katılımcıların bir protein amino asit dizisinden başlayarak uygun yapısal verileri araştırabilmesi, protein modelleme yaklaşımlarını anlayabilmesi, homology modeling ve yapı tahmini sonuçlarını değerlendirebilmesi, Ramachandran plot gibi temel kalite değerlendirme araçlarını yorumlayabilmesi ve elde edilen protein modelini moleküler docking gibi ileri yapısal biyoinformatik çalışmalarına hazırlayabilmesi hedeflenmektedir.
@@ -65,18 +111,18 @@ Moleküler biyoloji ve genetik, biyoteknoloji, biyokimya, biyoloji, biyomühendi
 📜 Katılım: Eğitim sonunda katılım sertifikası
 
 Eğitimde neler öğreneceksiniz?
-• Sitogenetiğe giriş ve temel kavramlar
-• Kromozom nedir? Yapısı ve organizasyonu
-• Kromatin ve kromozom arasındaki ilişki
-• İnsan kromozomlarının genel özellikleri ve sınıflandırılması
-• Otozomlar ve gonozomlar
-• Karyotip ve karyogram kavramları
-• Hücre kültürü ve metafaz aşamasına giriş
-• Kromozom preparasyonu ve boyama teknikleri (G-banding)
-• Sayısal kromozom anomalileri (Monozomi, Trizomi, Poliploidi)
-• Yapısal kromozom anomalileri (Delesyon, Duplikasyon, İnversiyon, Translokasyon)
-• Karyogram üzerinden kromozom analizi
-• Örnek vakalar üzerinden karyotipleme ve yorumlama
+- Sitogenetiğe giriş ve temel kavramlar
+- Kromozom nedir? Yapısı ve organizasyonu
+- Kromatin ve kromozom arasındaki ilişki
+- İnsan kromozomlarının genel özellikleri ve sınıflandırılması
+- Otozomlar ve gonozomlar
+- Karyotip ve karyogram kavramları
+- Hücre kültürü ve metafaz aşamasına giriş
+- Kromozom preparasyonu ve boyama teknikleri (G-banding)
+- Sayısal kromozom anomalileri (Monozomi, Trizomi, Poliploidi)
+- Yapısal kromozom anomalileri (Delesyon, Duplikasyon, İnversiyon, Translokasyon)
+- Karyogram üzerinden kromozom analizi
+- Örnek vakalar üzerinden karyotipleme ve yorumlama
 
 🎯 Eğitim sonunda
 Katılımcıların insan kromozomlarının temel yapısını ve sınıflandırılmasını öğrenmesi, karyotip ve karyogram kavramlarını anlaması, sayısal ve yapısal kromozomal anomalileri tanıyabilmesi hedeflenmektedir.
@@ -98,19 +144,19 @@ Biyoloji, moleküler biyoloji ve genetik, biyoteknoloji, tıp, veterinerlik, sa�
 📜 Katılım: Eğitim sonunda katılım sertifikası
 
 Eğitimde neler öğreneceksiniz?
-• Biyoinformatiğe giriş ve temel kavramlar
-• Biyolojik verilerin bilgisayar ortamında analiz edilmesi
-• DNA, RNA ve protein dizilerinin temel özellikleri
-• Nükleotid ve amino asit dizilerinin okunması
-• Sekans verilerinin temel dosya formatları (FASTA vb.)
-• Biyolojik veri tabanlarının temel mantığı ve NCBI kullanımı
-• Gen ve protein bilgilerinin araştırılması
-• BLAST nedir ve ne amaçla kullanılır? BLAST analizi yorumlama
-• Sequence Alignment (sekans hizalama) mantığı (Pairwise & MSA)
-• Sekans benzerliği ve biyolojik anlamı
-• Protein dizilerinin temel biyoinformatik analizi
-• Filogenetik analiz mantığına giriş
-• Biyoinformatik analizlerde veri kalitesinin önemi
+- Biyoinformatiğe giriş ve temel kavramlar
+- Biyolojik verilerin bilgisayar ortamında analiz edilmesi
+- DNA, RNA ve protein dizilerinin temel özellikleri
+- Nükleotid ve amino asit dizilerinin okunması
+- Sekans verilerinin temel dosya formatları (FASTA vb.)
+- Biyolojik veri tabanlarının temel mantığı ve NCBI kullanımı
+- Gen ve protein bilgilerinin araştırılması
+- BLAST nedir ve ne amaçla kullanılır? BLAST analizi yorumlama
+- Sequence Alignment (sekans hizalama) mantığı (Pairwise & MSA)
+- Sekans benzerliği ve biyolojik anlamı
+- Protein dizilerinin temel biyoinformatik analizi
+- Filogenetik analiz mantığına giriş
+- Biyoinformatik analizlerde veri kalitesinin önemi
 
 🎯 Eğitim sonunda
 Katılımcıların biyoinformatiğin temel çalışma prensiplerini anlaması, DNA, RNA ve protein sekans verilerini temel düzeyde inceleyebilmesi hedeflenmektedir.
@@ -132,16 +178,16 @@ Biyoloji, moleküler biyoloji ve genetik, biyoteknoloji, biyomühendislik, tıp,
 📜 Katılım: Eğitim sonunda katılım sertifikası
 
 Eğitimde neler öğreneceksiniz?
-• PCR'ın temel prensibi ve primerin rolü
-• Forward ve Reverse primer kavramları
-• Hedef gen ve hedef bölgenin belirlenmesi
-• Primer uzunluğu, GC oranı ve Tm değeri optimizasyonu
-• Primer özgüllüğü (specificity) ve amplicon uzunluğu
-• Primer-dimer ve hairpin (ikincil yapı) oluşumunun engellenmesi
-• NCBI üzerinden hedef sekansın bulunması
-• Primer tasarım araçlarının kullanılması
-• Primer-BLAST kullanımı ve özgüllük kontrolü
-• Örnek gen sekansları üzerinden uygulamalı primer tasarımı
+- PCR'ın temel prensibi ve primerin rolü
+- Forward ve Reverse primer kavramları
+- Hedef gen ve hedef bölgenin belirlenmesi
+- Primer uzunluğu, GC oranı ve Tm değeri optimizasyonu
+- Primer özgüllüğü (specificity) ve amplicon uzunluğu
+- Primer-dimer ve hairpin (ikincil yapı) oluşumunun engellenmesi
+- NCBI üzerinden hedef sekansın bulunması
+- Primer tasarım araçlarının kullanılması
+- Primer-BLAST kullanımı ve özgüllük kontrolü
+- Örnek gen sekansları üzerinden uygulamalı primer tasarımı
 
 🎯 Eğitim sonunda
 Katılımcıların bir hedef gen veya DNA bölgesi için PCR'a uygun primer çiftlerini tasarlayabilmesi hedeflenmektedir.

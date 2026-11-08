@@ -9,7 +9,7 @@ const blogPosts = [
     excerpt: "Sanger dizilemeden farkından iş akışına, uygulama alanlarından biyoinformatik analize kadar Yeni Nesil Dizileme'nin kapsamlı bir anlatımı.",
     date: "1 Temmuz 2026",
     category: "Dizileme",
-    image: "/images/ngs - kapak.jpg"
+    image: "/images/ngs-kapak.jpeg"
   },
   {
     slug: "dna-izolasyonu-nasil-yapilir",
@@ -17,7 +17,7 @@ const blogPosts = [
     excerpt: "Hücre lizizinden saflaştırmaya, izolasyon yöntemlerinden kalite kontrolüne kadar genomik DNA izolasyonunun temel adımları.",
     date: "18 Haziran 2026",
     category: "Moleküler Biyoloji",
-    image: "/images/dna izolasyonu-kapak.jpg"
+    image: "/images/dna-izolasyonu-kapak.jpeg"
   },
   {
     slug: "pcr-nedir",
@@ -25,7 +25,7 @@ const blogPosts = [
     excerpt: "PCR'ın temel prensibinden döngü aşamalarına, PCR çeşitlerinden kullanım alanlarına kadar moleküler biyolojinin temel yönteminin kapsamlı bir anlatımı.",
     date: "2 Haziran 2026",
     category: "PCR",
-    image: "/images/pcr - kapak.jpg"
+    image: "/images/pcr-kapak.jpg"
   }
 ];
 

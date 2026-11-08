@@ -30,7 +30,7 @@ Eğitimde neler öğreneceksiniz?
 - Protein dizilerinin temel biyoinformatik analizi
 - Filogenetik analiz mantığına giriş
 - Biyoinformatik analizlerde veri kalitesinin önemi`,
-    price: "3.500 ₺",
+    price: "4.000 ₺",
     features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Başlangıç Seviyesi", "Katılım Sertifikası"],
     paytrUrl: "https://www.paytr.com/link/ppBeqgg",
   },

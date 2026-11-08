@@ -6,79 +6,58 @@ import { useParams } from "next/navigation";
 import { ShoppingCart, MessageCircle, Users, Calendar, CheckCircle2, CreditCard, ChevronLeft } from "lucide-react";
 
 const egitimDetaylari = {
-  "epigenetik-ve-epigenomik": {
-    title: "Epigenetik ve Epigenomik: Teoriden Laboratuvar Analizlerine",
-    image: "/images/egitimler/epigenetik.jpg",
-    description: "Epigenetik mekanizmaları keşfedin, epigenomik yaklaşımları tanıyın ve modern moleküler araştırmalarda kullanılan analiz yöntemlerinin mantığını öğrenin!",
-    rawContent: `Epigenetik ve Epigenomik: Teoriden Laboratuvar Analizlerine
-Eğitim tarihi: 28–29 Ekim, Saat 20:00-21:00
-Toplam süre: 4 saat
-Format: Canlı çevrim içi eğitim
-
-CoreGen Biyoteknoloji tarafından düzenlenen bu eğitimde epigenetiğin moleküler temellerinden başlayarak epigenomik araştırmalarda kullanılan laboratuvar yöntemlerini, genom çapında analiz yaklaşımlarını ve bu yöntemlerin bilimsel araştırmalardaki kullanım amaçlarını ele alacağız.`,
-    price: "2.500 ₺",
-    features: ["4 Saat Canlı Çevrim İçi Eğitim", "28–29 Ekim (20:00-21:00)", "4 Kapsamlı Modül", "Katılım / Başarı Odaklı İçerik"],
-    paytrUrl: "https://www.paytr.com/link/8A4zgHl",
-  },
-  "akademik-yazim-ve-yayin-hazirligi": {
-    title: "Akademik Yazım ve Yayın Hazırlığı Eğitimi",
-    image: "/images/egitimler/akademik-yazim.jpg",
-    description: "Bilimsel fikrinizi akademik metne dönüştürün, makale yazımını öğrenin ve TÜBİTAK proje hazırlama sürecini keşfedin!",
-    rawContent: `Akademik Yazım ve Yayın Hazırlığı Eğitimi | 12 Saat
-Eğitim Takvimi: Cumartesi günleri, 12.00–15.00
-Format: Canlı çevrim içi eğitim
-
-CoreGen Biyoteknoloji tarafından düzenlenen bu uygulamalı eğitimde akademik yazım, literatür taraması, yapay zekânın akademik süreçlerde etik kullanımı, bilimsel makale hazırlama ve TÜBİTAK proje yazımının temel ilkelerini öğreneceksiniz.`,
-    price: "3.500 ₺",
-    features: ["12 Saat Uygulamalı Canlı Eğitim", "Cumartesi Günleri (12.00–15.00)", "Uygulamalı Makale Atölyesi", "TÜBİTAK Proje Hazırlama Rehberliği"],
-    paytrUrl: "https://www.paytr.com/link/gJXUlYO",
-  },
-  "biyoinformatik-101": {
-    title: "Biyoinformatik 101 Eğitimi",
-    image: "/images/egitimler/biyoinformatik-101.jpeg",
-    description: "Biyoinformatiğe giriş ve temel veri analizi. NCBI, BLAST ve sekans hizalama yaklaşımlarıyla temel biyoinformatik okuryazarlığı.",
-    rawContent: `Biyoinformatik 101 Eğitimi
-Erişim: Satın alma sonrası 7/24
-Eğitim: Online – Dijital & Kendi hızınızda
-Seviye: Başlangıç
-
-Katılımcıların biyoinformatiğin temel çalışma prensiplerini anlaması, DNA, RNA ve protein sekans verilerini temel düzeyde inceleyebilmesi hedeflenmektedir.`,
+  "bif-101": {
+    title: "BIF 101 Eğitimi",
+    image: "/images/egitimler/bif-101.jpeg",
+    description: "Temel Biyoinformatik ve Veri Tabanları eğitimi ile veri analizi dünyasına ilk adımınızı atın.",
+    rawContent: `BIF 101 Eğitimi\nErişim: Satın alma sonrası 7/24\nEğitim: Online – Dijital & Kendi hızınızda`,
     price: "3.500 ₺",
     features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Başlangıç Seviyesi", "Katılım Sertifikası"],
-    paytrUrl: "https://www.paytr.com/link/DOtkLu9",
+    paytrUrl: "https://www.paytr.com/link/ppBeqgg",
   },
   "uygulamali-primer-tasarimi": {
     title: "Uygulamalı Primer Tasarımı Eğitimi",
     image: "/images/egitimler/uygulamali-primer-tasarimi.jpeg",
     description: "PCR için doğru ve özgül primer tasarımının temelleri. Tm, GC oranı, özgüllük ve Primer-BLAST kontrolleri.",
-    rawContent: `Uygulamalı Primer Tasarımı Eğitimi
-Erişim: Satın alma sonrası 7/24
-Eğitim: Online – Dijital
-Seviye: Başlangıç / Orta
-
-Katılımcıların bir hedef gen veya DNA bölgesi için PCR'a uygun primer çiftlerini tasarlayabilmesi hedeflenmektedir.`,
+    rawContent: `Uygulamalı Primer Tasarımı Eğitimi\nErişim: Satın alma sonrası 7/24`,
     price: "2.500 ₺",
-    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Başlangıç / Orta Seviye", "Katılım Sertifikası"],
-    paytrUrl: "https://www.paytr.com/link/ppBeqgg",
+    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Katılım Sertifikası"],
+    paytrUrl: "https://www.paytr.com/link/gJXUlYO",
+  },
+  "biyoinformatik-101": {
+    title: "Biyoinformatik 101: Temel Biyoinformatik ve Veri Tabanları",
+    image: "/images/egitimler/biyoinformatik-101.jpeg",
+    description: "Biyoinformatiğe giriş ve temel veri analizi. NCBI, BLAST ve sekans hizalama yaklaşımlarıyla temel biyoinformatik okuryazarlığı.",
+    rawContent: `Biyoinformatik 101 Eğitimi\nErişim: Satın alma sonrası 7/24`,
+    price: "3.500 ₺",
+    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Katılım Sertifikası"],
+    paytrUrl: "https://www.paytr.com/link/DOtkLu9",
+  },
+  "rekombinant-protein-ve-plazmit-tasarimi": {
+    title: "Rekombinant Protein ve Plazmit Tasarımı Eğitimi",
+    image: "/images/egitimler/rekombinant-protein.png",
+    description: "Bir proteinin üretimi, doğru genetik tasarımla başlar. Rekombinant protein üretimi ve plazmit tasarımının temelleri.",
+    rawContent: `Rekombinant Protein ve Plazmit Tasarımı Eğitimi\nErişim: Satın alma sonrası 7/24`,
+    price: "3.500 ₺",
+    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Katılım Sertifikası"],
+    paytrUrl: "https://www.paytr.com/link/8A4zgHl",
   },
   "proje-ve-egitim-danismanligi": {
     title: "Proje ve Eğitim Danışmanlığı",
     image: "/images/egitimler/proje-danismanlik.jpg",
     description: "Akademik ve bilimsel projeleriniz, TÜBİTAK başvurularınız ve özel eğitim yol haritalarınız için birebir profesyonel danışmanlık.",
-    rawContent: `Proje ve Eğitim Danışmanlığı
-Birebir görüşmeler ve özelleştirilmiş proje rehberliği. TÜBİTAK ve KOSGEB süreçlerinde profesyonel destek.`,
+    rawContent: `Proje ve Eğitim Danışmanlığı\nBirebir görüşmeler ve özelleştirilmiş proje rehberliği.`,
     price: "5.000 ₺",
-    features: ["Birebir Görüşme", "Proje Danışmanlığı", "TÜBİTAK Yol Haritası", "Uzman Desteği"],
+    features: ["Birebir Görüşme", "Proje Danışmanlığı", "TÜBİTAK Yol Haritası"],
     paytrUrl: "https://www.paytr.com/link/j7ivdkf",
   },
   "kariyer-ve-egitim-danismanligi": {
     title: "Kariyer ve Eğitim Danışmanlığı",
     image: "/images/egitimler/kariyer-danismanlik.jpg",
     description: "Biyoteknoloji, moleküler biyoloji ve genetik alanlarında kariyer planlaması, lisansüstü hedef belirleme ve mentorluk desteği.",
-    rawContent: `Kariyer ve Eğitim Danışmanlığı
-Genetik ve biyoteknoloji alanında akademik ve endüstriyel kariyer planlaması.`,
+    rawContent: `Kariyer ve Eğitim Danışmanlığı\nGenetik ve biyoteknoloji alanında akademik ve endüstriyel kariyer planlaması.`,
     price: "4.000 ₺",
-    features: ["Kariyer Planlaması", "Mentorluk", "Akademik Yönlendirme", "Özgeçmiş İncelemesi"],
+    features: ["Kariyer Planlaması", "Mentorluk", "Özgeçmiş İncelemesi"],
     paytrUrl: "https://www.paytr.com/link/Dpw812Z",
   }
 };
@@ -86,7 +65,7 @@ Genetik ve biyoteknoloji alanında akademik ve endüstriyel kariyer planlaması.
 export default function EgitimDetayPage() {
   const params = useParams();
   const id = params.id as string;
-  const egitim = egitimDetaylari[id as keyof typeof egitimDetaylari] || egitimDetaylari["epigenetik-ve-epigenomik"];
+  const egitim = egitimDetaylari[id as keyof typeof egitimDetaylari] || egitimDetaylari["bif-101"];
 
   return (
     <div className="min-h-screen bg-slate-50 pt-28 pb-24 text-slate-800">

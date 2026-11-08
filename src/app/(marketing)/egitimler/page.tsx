@@ -8,39 +8,19 @@ import { Users, ArrowRight, AlertCircle, PlayCircle, Radio, Megaphone, ShoppingC
 const mockDuyurular = [
   "✦ Bu Ayın Özel Oturumu: Epigenetik Perspektif Eğitimine Kayıtlar Başladı!",
   "✦ CoreGen Eğitim Takvimi Güncellendi.",
-  "✦ Akademik Yazım ve Yayın Hazırlığı Eğitimi için Kayıtlar Açıldı!"
+  "✦ BIF 101 ve Rekombinant Protein Eğitimleri Aktif!"
 ];
 
 const mockEgitimler = [
   {
-    id: "epigenetik-ve-epigenomik",
-    title: "Epigenetik ve Epigenomik: Teoriden Laboratuvar Analizlerine",
-    description: "Epigenetik mekanizmaları keşfedin, epigenomik yaklaşımları tanıyın ve modern moleküler araştırmalarda kullanılan analiz yöntemlerinin mantığını öğrenin!",
-    price: "2.500 ₺",
-    image: "/images/egitimler/epigenetik.jpg",
-    category: "Canlı Eğitim",
-    isDigital: false,
-    paytrUrl: "https://www.paytr.com/link/8A4zgHl", 
-  },
-  {
-    id: "akademik-yazim-ve-yayin-hazirligi",
-    title: "Akademik Yazım ve Yayın Hazırlığı Eğitimi",
-    description: "Bilimsel fikrinizi akademik metne dönüştürün, makale yazımını öğrenin ve TÜBİTAK proje hazırlama sürecini keşfedin!",
+    id: "bif-101",
+    title: "BIF 101 Eğitimi",
+    description: "Temel Biyoinformatik ve Veri Tabanları eğitimi ile veri analizi dünyasına ilk adımınızı atın.",
     price: "3.500 ₺",
-    image: "/images/egitimler/akademik-yazim.jpg",
-    category: "Canlı Eğitim",
-    isDigital: false,
-    paytrUrl: "https://www.paytr.com/link/gJXUlYO", 
-  },
-  {
-    id: "biyoinformatik-101",
-    title: "Biyoinformatik 101 Eğitimi",
-    description: "Biyoinformatiğe giriş ve temel veri analizi. NCBI, BLAST ve sekans hizalama yaklaşımlarıyla temel biyoinformatik okuryazarlığı.",
-    price: "3.500 ₺",
-    image: "/images/egitimler/biyoinformatik-101.jpeg",
+    image: "/images/egitimler/bif-101.jpeg",
     category: "Dijital Eğitim",
     isDigital: true,
-    paytrUrl: "https://www.paytr.com/link/DOtkLu9",
+    paytrUrl: "https://www.paytr.com/link/ppBeqgg",
   },
   {
     id: "uygulamali-primer-tasarimi",
@@ -50,7 +30,27 @@ const mockEgitimler = [
     image: "/images/egitimler/uygulamali-primer-tasarimi.jpeg",
     category: "Dijital Eğitim",
     isDigital: true,
-    paytrUrl: "https://www.paytr.com/link/ppBeqgg",
+    paytrUrl: "https://www.paytr.com/link/gJXUlYO", 
+  },
+  {
+    id: "biyoinformatik-101",
+    title: "Biyoinformatik 101: Temel Biyoinformatik ve Veri Tabanları",
+    description: "Biyoinformatiğe giriş ve temel veri analizi. NCBI, BLAST ve sekans hizalama yaklaşımlarıyla temel biyoinformatik okuryazarlığı.",
+    price: "3.500 ₺",
+    image: "/images/egitimler/biyoinformatik-101.jpeg",
+    category: "Dijital Eğitim",
+    isDigital: true,
+    paytrUrl: "https://www.paytr.com/link/DOtkLu9",
+  },
+  {
+    id: "rekombinant-protein-ve-plazmit-tasarimi",
+    title: "Rekombinant Protein ve Plazmit Tasarımı Eğitimi",
+    description: "Bir proteinin üretimi, doğru genetik tasarımla başlar. Rekombinant protein üretimi ve plazmit tasarımının temelleri.",
+    price: "3.500 ₺",
+    image: "/images/egitimler/rekombinant-protein.png",
+    category: "Dijital Eğitim",
+    isDigital: true,
+    paytrUrl: "https://www.paytr.com/link/8A4zgHl", 
   },
   {
     id: "proje-ve-egitim-danismanligi",
@@ -208,7 +208,7 @@ export default function EgitimlerPage() {
           </h1>
         </div>
 
-        {/* KATEGORİ FİLTRELEME BUTONLARI */}
+        {/* KATEGORİ FİLTRELEME */}
         <div className="flex justify-center items-center gap-2 flex-wrap">
           {["Tümü", "Dijital Eğitim", "Canlı Eğitim", "Danışmanlık"].map((cat) => (
             <button
@@ -230,7 +230,7 @@ export default function EgitimlerPage() {
           {filteredEgitimler.map((egitim) => (
             <div key={egitim.id} className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group">
               
-              {/* Kare Görsel Alanı ve Başlık Üzerinde */}
+              {/* Kare Görsel Alanı (1x1) & Başlık Üzerinde */}
               <div className="relative aspect-square bg-slate-100 overflow-hidden">
                 <Image 
                   src={egitim.image} 
@@ -249,19 +249,9 @@ export default function EgitimlerPage() {
               </div>
 
               <div className="p-6 flex flex-col flex-grow relative z-10 bg-white">
-                {egitim.category === "Canlı Eğitim" ? (
-                  <div className="flex items-center gap-1.5 text-[10px] font-extrabold tracking-wider uppercase text-emerald-700 bg-emerald-50 px-2.5 py-1.5 rounded-lg mb-3 w-max border border-emerald-100">
-                    <Radio className="w-3.5 h-3.5 animate-pulse" /> Canlı Eğitim
-                  </div>
-                ) : egitim.category === "Dijital Eğitim" ? (
-                  <div className="flex items-center gap-1.5 text-[10px] font-extrabold tracking-wider uppercase text-purple-700 bg-purple-50 px-2.5 py-1.5 rounded-lg mb-3 w-max border border-purple-100">
-                    <PlayCircle className="w-3.5 h-3.5" /> Dijital Eğitim (Video)
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-1.5 text-[10px] font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-2.5 py-1.5 rounded-lg mb-3 w-max border border-blue-100">
-                    <Users className="w-3.5 h-3.5" /> Danışmanlık
-                  </div>
-                )}
+                <div className="flex items-center gap-1.5 text-[10px] font-extrabold tracking-wider uppercase text-purple-700 bg-purple-50 px-2.5 py-1.5 rounded-lg mb-3 w-max border border-purple-100">
+                  <PlayCircle className="w-3.5 h-3.5" /> Dijital Eğitim (Video)
+                </div>
 
                 <p className="text-sm text-slate-600 mb-6 line-clamp-3">
                   {egitim.description}

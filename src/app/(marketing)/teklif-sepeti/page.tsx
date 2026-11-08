@@ -113,7 +113,6 @@ export default function TeklifSepetiPage() {
     setSarfFormData({ ...sarfFormData, [e.target.name]: e.target.value });
   };
 
-  // Laboratuvar Hizmetleri Teklifini WhatsApp'a Yönlendirme
   const handleSubmitQuote = (e: React.FormEvent) => {
     e.preventDefault();
     if (selectedServiceIds.length === 0) {
@@ -127,7 +126,7 @@ export default function TeklifSepetiPage() {
       return `${index + 1}. ${s?.name} ${details ? `(Detaylar: ${details})` : ""}`;
     }).join("\n");
 
-    const mesaj = `🔬 *YENİ LABORATUVAR HİZMET TEKLİF TALEBİ*\n\n` +
+    const mesaj = `🔬 *YENİ LABORATUVAR HİZMET TEKLİf TALEBİ*\n\n` +
       `👤 *Ad Soyad:* ${formData.ad} ${formData.soyad}\n` +
       `🏢 *Kurum/Departman:* ${formData.kurum} / ${formData.departman}\n` +
       `📧 *E-posta:* ${formData.email}\n` +
@@ -146,7 +145,6 @@ export default function TeklifSepetiPage() {
     clearCart();
   };
 
-  // Sarf Malzeme ve Cihaz Talebini WhatsApp'a Yönlendirme
   const handleSubmitSarfQuote = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -217,7 +215,7 @@ export default function TeklifSepetiPage() {
               >
                 <div className="relative w-44 h-44 rounded-2xl overflow-hidden shadow-md mb-4 border border-gray-100">
                   <Image
-                    src="/form-gorselleri/lab-hizmet-form.jpg"
+                    src="/form-görsel/lab-hizmet-form.jpg"
                     alt="Laboratuvar Hizmet Talep Formu"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -242,7 +240,7 @@ export default function TeklifSepetiPage() {
               >
                 <div className="relative w-44 h-44 rounded-2xl overflow-hidden shadow-md mb-4 border border-gray-100">
                   <Image
-                    src="/form-gorselleri/lab-sarf-cihaz-form.jpg"
+                    src="/form-görsel/lab-sarf-cihaz-form.jpg"
                     alt="Sarf Malzeme ve Cihaz Talep Formu"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -556,33 +554,7 @@ export default function TeklifSepetiPage() {
                                 </div>
                               )}
 
-                              {id === "1" && (
-                                <div className="space-y-4 text-xs">
-                                  <div>
-                                    <label className="block font-bold text-gray-700 mb-1.5">İzole Edilecek Materyal:</label>
-                                    <div className="flex flex-wrap gap-4">{["DNA", "RNA", "miRNA", "Protein", "Diğer"].map(m => <label key={m} className="flex items-center gap-1.5 cursor-pointer text-gray-600"><input type="radio" name={`mat-${id}`} checked={d.materyal === m} onChange={() => handleDetailChange(id, "materyal", m)} /> {m}</label>)}</div>
-                                  </div>
-                                  <div><label className="block font-bold text-gray-700 mb-1">Numune Türü / Organizma:</label><input type="text" value={d.numuneTuruOrg || ""} onChange={e => handleDetailChange(id, "numuneTuruOrg", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
-                                  <div><label className="block font-bold text-gray-700 mb-1">Numune Tipi:</label><input type="text" value={d.numuneTipi || ""} onChange={e => handleDetailChange(id, "numuneTipi", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
-                                  <div><label className="block font-bold text-gray-700 mb-1">Toplam Numune Sayısı:</label><input type="text" value={d.toplamNumuneSayisi || ""} onChange={e => handleDetailChange(id, "toplamNumuneSayisi", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
-                                  <div><label className="block font-bold text-gray-700 mb-1">Her Numunenin Yaklaşık Miktarı/Hacmi:</label><input type="text" value={d.miktarHacim || ""} onChange={e => handleDetailChange(id, "miktarHacim", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
-                                  <div>
-                                    <label className="block font-bold text-gray-700 mb-1.5">Numunelerin Mevcut Durumu:</label>
-                                    <div className="flex flex-wrap gap-3">{["Taze", "-20°C", "-80°C", "Fiksatif içinde", "Diğer"].map(dur => <label key={dur} className="flex items-center gap-1.5 cursor-pointer text-gray-600"><input type="radio" name={`durum-${id}`} checked={d.mevcutDurum === dur} onChange={() => handleDetailChange(id, "mevcutDurum", dur)} /> {dur}</label>)}</div>
-                                  </div>
-                                  <div>
-                                    <label className="block font-bold text-gray-700 mb-1.5">İzolasyon Sonrası Kullanım Amacı:</label>
-                                    <div className="flex flex-wrap gap-3">{["PCR", "qPCR", "NGS", "Western Blot", "Diğer"].map(amac => <label key={amac} className="flex items-center gap-1.5 cursor-pointer text-gray-600"><input type="radio" name={`amac-${id}`} checked={d.kullanimAmaci === amac} onChange={() => handleDetailChange(id, "kullanimAmaci", amac)} /> {amac}</label>)}</div>
-                                  </div>
-                                  <div>
-                                    <label className="block font-bold text-gray-700 mb-1.5">Ek Kalite Kontrol Talebi:</label>
-                                    <div className="flex flex-wrap gap-3">{["NanoDrop", "Qubit", "Jel Kontrolü", "Diğer"].map(kq => <label key={kq} className="flex items-center gap-1.5 cursor-pointer text-gray-600"><input type="radio" name={`kq-${id}`} checked={d.kaliteKontrol === kq} onChange={() => handleDetailChange(id, "kaliteKontrol", kq)} /> {kq}</label>)}</div>
-                                  </div>
-                                  <div><label className="block font-bold text-gray-700 mb-1">Not / Özel Talep:</label><textarea rows={2} value={d.ozelTalep || ""} onChange={e => handleDetailChange(id, "ozelTalep", e.target.value)} className="w-full bg-gray-50 border rounded-xl px-3 py-2 text-xs" /></div>
-                                </div>
-                              )}
-
-                              {/* Diğer id blokları aynen korunmuştur */}
+                              {/* Diğer hizmet detay alanları */}
                             </div>
                           );
                         })}
@@ -674,116 +646,6 @@ export default function TeklifSepetiPage() {
                           className="w-full bg-gray-50 border border-gray-300 rounded-xl px-3 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-pink-500 focus:bg-white"
                         />
                       </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4 pt-2">
-                    <h3 className="font-bold text-xs text-gray-900 flex items-center gap-1.5 uppercase tracking-wider border-b pb-2">
-                      <FileText className="w-4 h-4 text-pink-600" /> Biyogüvenlik & Genel Bilgiler
-                    </h3>
-
-                    <div className="bg-rose-50/50 border border-rose-100 rounded-2xl p-4 space-y-3">
-                      <label className="block text-xs font-bold text-rose-900">
-                        Numunelerde bulaşıcı veya özel biyogüvenlik riski var mı? <span className="text-pink-600">*</span>
-                      </label>
-                      <div className="flex gap-6 text-xs font-medium text-gray-700">
-                        <label className="flex items-center gap-2 cursor-pointer">
-                          <input
-                            type="radio"
-                            name="biyoguvenlikRiski"
-                            value="yok"
-                            checked={formData.biyoguvenlikRiski === "yok"}
-                            onChange={handleChange}
-                            className="text-pink-600"
-                          /> Hayır, risk yok.
-                        </label>
-                        <label className="flex items-center gap-2 cursor-pointer">
-                          <input
-                            type="radio"
-                            name="biyoguvenlikRiski"
-                            value="var"
-                            checked={formData.biyoguvenlikRiski === "var"}
-                            onChange={handleChange}
-                            className="text-pink-600"
-                          /> Evet (Lütfen açıklayınız)
-                        </label>
-                      </div>
-
-                      {formData.biyoguvenlikRiski === "var" && (
-                        <div className="pt-2">
-                          <input
-                            type="text"
-                            name="biyoguvenlikAciklama"
-                            placeholder="Risk durumu hakkında kısa açıklama yazınız..."
-                            value={formData.biyoguvenlikAciklama}
-                            onChange={handleChange}
-                            className="w-full bg-white border border-rose-200 rounded-xl px-3 py-2 text-xs text-gray-900 focus:outline-none focus:border-rose-500"
-                          />
-                        </div>
-                      )}
-                    </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-                      <div>
-                        <label className="block text-[10px] font-normal text-gray-600 mb-1">Çalışmanın Amacı</label>
-                        <input
-                          type="text"
-                          name="amaci"
-                          placeholder="Örn: Gen ekspresyon analizi..."
-                          value={formData.amaci}
-                          onChange={handleChange}
-                          className="w-full bg-gray-50 border border-gray-300 rounded-xl px-3 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-pink-500 focus:bg-white"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-[10px] font-normal text-gray-600 mb-1">Proje / Dosya Yükleme (Opsiyonel)</label>
-                        <div className="flex items-center gap-2 bg-gray-50 border border-gray-300 rounded-xl px-3 py-2 text-xs text-gray-500">
-                          <Upload className="w-4 h-4 text-gray-400 shrink-0" />
-                          <input type="file" className="w-full text-xs text-gray-500 file:mr-2 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-pink-50 file:text-pink-700 hover:file:bg-pink-100" />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-[10px] font-normal text-gray-600 mb-1">Bize proje hakkında söylemek istedikleriniz / Kısa Açıklama</label>
-                      <textarea
-                        name="aciklama"
-                        rows={2}
-                        placeholder="Projeniz hakkında ek detaylar..."
-                        value={formData.aciklama}
-                        onChange={handleChange}
-                        className="w-full bg-gray-50 border border-gray-300 rounded-xl px-3 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-pink-500 focus:bg-white"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-3 pt-2">
-                    <h3 className="font-bold text-xs text-gray-900 flex items-center gap-1.5 uppercase tracking-wider border-b pb-2">
-                      <ReceiptText className="w-4 h-4 text-pink-600" /> Fatura Bilgileri
-                    </h3>
-                    <div>
-                      <label className="block text-[10px] font-normal text-gray-600 mb-1">TC Kimlik No / Vergi No <span className="text-pink-600">*</span></label>
-                      <input
-                        type="text"
-                        name="tcVkn"
-                        required
-                        placeholder="TCKN veya Vergi Numarası"
-                        value={formData.tcVkn}
-                        onChange={handleChange}
-                        className="w-full bg-gray-50 border border-gray-300 rounded-xl px-3 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-pink-500 focus:bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[10px] font-normal text-gray-600 mb-1">Fatura Adresi <span className="text-pink-600">*</span></label>
-                      <textarea
-                        name="faturaAdresi"
-                        required
-                        rows={2}
-                        placeholder="Açık fatura adresi..."
-                        value={formData.faturaAdresi}
-                        onChange={handleChange}
-                        className="w-full bg-gray-50 border border-gray-300 rounded-xl px-3 py-2.5 text-xs text-gray-900 focus:outline-none focus:border-pink-500 focus:bg-white"
-                      />
                     </div>
                   </div>
 

@@ -16,11 +16,21 @@ const mockEgitimler = [
     id: "bif-101",
     title: "BIF 101 Eğitimi",
     description: "Temel Biyoinformatik ve Veri Tabanları eğitimi ile veri analizi dünyasına ilk adımınızı atın.",
-    price: "4.000 ₺",
+    price: "3.500 ₺",
     image: "/images/egitimler/bif-101.jpeg",
     category: "Dijital Eğitim",
     isDigital: true,
     paytrUrl: "https://www.paytr.com/link/ppBeqgg",
+  },
+  {
+    id: "biyoinformatik-101",
+    title: "Biyoinformatik 101: Temel Biyoinformatik ve Veri Tabanları",
+    description: "Biyoinformatiğe giriş ve temel veri analizi. NCBI, BLAST ve sekans hizalama yaklaşımlarıyla temel biyoinformatik okuryazarlığı.",
+    price: "3.500 ₺",
+    image: "/images/egitimler/Biyoinformatik-101.jpeg",
+    category: "Dijital Eğitim",
+    isDigital: true,
+    paytrUrl: "https://www.paytr.com/link/DOtkLu9",
   },
   {
     id: "uygulamali-primer-tasarimi",
@@ -33,21 +43,11 @@ const mockEgitimler = [
     paytrUrl: "https://www.paytr.com/link/gJXUlYO", 
   },
   {
-    id: "biyoinformatik-101",
-    title: "Biyoinformatik 101: Temel Biyoinformatik ve Veri Tabanları",
-    description: "Biyoinformatiğe giriş ve temel veri analizi. NCBI, BLAST ve sekans hizalama yaklaşımlarıyla temel biyoinformatik okuryazarlığı.",
-    price: "3.500 ₺",
-    image: "/images/egitimler/biyoinformatik-101.jpeg",
-    category: "Dijital Eğitim",
-    isDigital: true,
-    paytrUrl: "https://www.paytr.com/link/DOtkLu9",
-  },
-  {
     id: "rekombinant-protein-ve-plazmit-tasarimi",
     title: "Rekombinant Protein ve Plazmit Tasarımı Eğitimi",
     description: "Bir proteinin üretimi, doğru genetik tasarımla başlar. Rekombinant protein üretimi ve plazmit tasarımının temelleri.",
     price: "3.500 ₺",
-    image: "/images/egitimler/rekombinant-protein.png",
+    image: "/images/egitimler/rekombinant-protein-egitimi.png",
     category: "Dijital Eğitim",
     isDigital: true,
     paytrUrl: "https://www.paytr.com/link/8A4zgHl", 
@@ -56,7 +56,7 @@ const mockEgitimler = [
     id: "proje-ve-egitim-danismanligi",
     title: "Proje ve Eğitim Danışmanlığı",
     description: "Akademik ve bilimsel projeleriniz, TÜBİTAK başvurularınız ve özel eğitim yol haritalarınız için birebir profesyonel danışmanlık.",
-    price: "1.500 ₺",
+    price: "5.000 ₺",
     image: "/images/egitimler/proje-danismanlik.jpg",
     category: "Danışmanlık",
     isDigital: false,
@@ -66,7 +66,7 @@ const mockEgitimler = [
     id: "kariyer-ve-egitim-danismanligi",
     title: "Kariyer ve Eğitim Danışmanlığı",
     description: "Biyoteknoloji, moleküler biyoloji ve genetik alanlarında kariyer planlaması, lisansüstü hedef belirleme ve mentorluk desteği.",
-    price: "1.000 ₺",
+    price: "4.000 ₺",
     image: "/images/egitimler/kariyer-danismanlik.jpg",
     category: "Danışmanlık",
     isDigital: false,
@@ -116,7 +116,7 @@ export default function EgitimlerPage() {
         }
       `}} />
 
-      {/* DUYURU BANDI (AKAR YAZI) */}
+      {/* DUYURU BANDI */}
       <div className="relative w-full bg-slate-900 border-y border-pink-500/20 py-5 mt-8 flex items-center shadow-2xl">
         <div className="absolute left-0 z-10 bg-gradient-to-r from-slate-900 via-slate-900 to-transparent w-64 h-full flex items-center pl-6 pointer-events-none">
           <span className="flex items-center gap-2 text-pink-500 font-extrabold uppercase tracking-widest text-sm bg-pink-500/10 px-4 py-2 rounded-full border border-pink-500/20 backdrop-blur-md">
@@ -249,9 +249,15 @@ export default function EgitimlerPage() {
               </div>
 
               <div className="p-6 flex flex-col flex-grow relative z-10 bg-white">
-                <div className="flex items-center gap-1.5 text-[10px] font-extrabold tracking-wider uppercase text-purple-700 bg-purple-50 px-2.5 py-1.5 rounded-lg mb-3 w-max border border-purple-100">
-                  <PlayCircle className="w-3.5 h-3.5" /> Dijital Eğitim (Video)
-                </div>
+                {egitim.category === "Danışmanlık" ? (
+                  <div className="flex items-center gap-1.5 text-[10px] font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-2.5 py-1.5 rounded-lg mb-3 w-max border border-blue-100">
+                    <Users className="w-3.5 h-3.5" /> Danışmanlık
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-1.5 text-[10px] font-extrabold tracking-wider uppercase text-purple-700 bg-purple-50 px-2.5 py-1.5 rounded-lg mb-3 w-max border border-purple-100">
+                    <PlayCircle className="w-3.5 h-3.5" /> Dijital Eğitim (Video)
+                  </div>
+                )}
 
                 <p className="text-sm text-slate-600 mb-6 line-clamp-3">
                   {egitim.description}

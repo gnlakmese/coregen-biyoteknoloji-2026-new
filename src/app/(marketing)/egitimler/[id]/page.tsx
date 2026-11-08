@@ -101,7 +101,7 @@ CoreGen Biyoteknoloji güvencesiyle rekombinant protein üretimi, genetik yapı 
 Format: Birebir Çevrim İçi Görüşme ve Yol Haritası Planlaması
 
 Akademik ve bilimsel araştırma projeleriniz, TÜBİTAK/KOSGEB başvuru süreçleriniz, laboratuvar kurulum ve optimizasyon çalışmalarınız için birebir uzman danışmanlık desteği alabilirsiniz.`,
-    price: "5.000 ₺",
+    price: "1.500 ₺",
     features: ["Birebir Görüşme", "Proje Danışmanlığı", "TÜBİTAK Yol Haritası", "Uzman Desteği"],
     paytrUrl: "https://www.paytr.com/link/j7ivdkf",
   },
@@ -113,7 +113,7 @@ Akademik ve bilimsel araştırma projeleriniz, TÜBİTAK/KOSGEB başvuru süreç
 Format: Birebir Mentörlük ve Kariyer Planlama Oturumu
 
 Biyoteknoloji, genetik ve yaşam bilimleri sektöründe kariyer hedefleyenler; lisansüstü eğitim (Yüksek Lisans / Doktora) planlaması yapanlar ve akademik yol haritasını çizenler için kişiselleştirilmiş mentorluk hizmetidir.`,
-    price: "4.000 ₺",
+    price: "1.000 ₺",
     features: ["Kariyer Planlaması", "Mentorluk", "Akademik Yönlendirme", "Özgeçmiş İncelemesi"],
     paytrUrl: "https://www.paytr.com/link/Dpw812Z",
   }

@@ -9,7 +9,7 @@ const blogPosts = [
     title: "NGS (Yeni Nesil Dizileme Teknolojisi) Nedir?",
     date: "1 Temmuz 2026",
     category: "Dizileme",
-    image: "/images/ngs - kapak.jpg",
+    image: "/images/ngs-kapak.jpeg",
     content: (
       <div className="text-lg text-slate-700 leading-relaxed space-y-6">
         <p>Yeni Nesil Dizileme (Next Generation Sequencing - NGS), milyonlarca DNA veya RNA parçasının aynı anda, paralel olarak ve büyük bir hızla dizilenmesini sağlayan ileri teknoloji bir yaklaşımdır.</p>
@@ -26,7 +26,7 @@ const blogPosts = [
 
         {/* ARA GÖRSEL */}
         <figure className="my-12 relative w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden shadow-md border border-slate-200">
-          <Image src="/images/ngs- yazı içine.png" alt="NGS Analizi" fill className="object-cover" />
+          <Image src="/images/ngs-yazi i̇cine.png" alt="NGS Analizi" fill className="object-cover" />
         </figure>
 
         <ul className="list-disc pl-6 space-y-3">
@@ -74,7 +74,7 @@ const blogPosts = [
     title: "DNA İzolasyonu Nasıl Yapılır?",
     date: "18 Haziran 2026",
     category: "Moleküler Biyoloji",
-    image: "/images/dna izolasyonu-kapak.jpg",
+    image: "/images/dna-izolasyonu-kapak.jpeg",
     content: (
       <div className="text-lg text-slate-700 leading-relaxed space-y-6">
         <p>Başarılı bir moleküler analizin temeli, yüksek kaliteli bir başlangıç materyaline dayanır. Bu nedenle DNA izolasyonu, moleküler biyolojinin en kritik ilk adımıdır. Kısaca DNA izolasyonu, genetik materyalin içinde bulunduğu hücreden veya dokudan çıkarılarak diğer tüm hücresel bileşenlerden (proteinler, lipitler, RNA ve diğer metabolitler) arındırılması işlemidir.</p>
@@ -90,7 +90,7 @@ const blogPosts = [
 
         {/* ARA GÖRSEL */}
         <figure className="my-12 relative w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden shadow-md border border-slate-200">
-          <Image src="/images/dna-yazı içine.png" alt="DNA İzolasyon Aşamaları" fill className="object-cover" />
+          <Image src="/images/dna-yazi i̇cine.png" alt="DNA İzolasyon Aşamaları" fill className="object-cover" />
         </figure>
 
         <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mt-12 mb-6">Kullanılan Temel Yöntemler</h2>
@@ -129,7 +129,7 @@ const blogPosts = [
     title: "PCR (Polimeraz Zincir Reaksiyonu) Nedir?",
     date: "2 Haziran 2026",
     category: "PCR",
-    image: "/images/pcr - kapak.jpg",
+    image: "/images/pcr-kapak.jpg",
     content: (
       <div className="text-lg text-slate-700 leading-relaxed space-y-6">
         <p>Polimeraz Zincir Reaksiyonu (Polymerase Chain Reaction - PCR), moleküler biyolojinin en devrimsel icatlarından biridir. Basit bir benzetmeyle PCR, hücrenin içine girmeden laboratuvar tüpü içerisinde çalışan bir "moleküler fotokopi makinesi"dir. Amacı, başlangıçta çok az miktarda bulunan spesifik bir DNA bölgesini milyarlarca kopyaya ulaşana kadar çoğaltmaktır.</p>
@@ -154,7 +154,7 @@ const blogPosts = [
 
         {/* ARA GÖRSEL */}
         <figure className="my-12 relative w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden shadow-md border border-slate-200">
-          <Image src="/images/pcr-yazı içine.webp" alt="PCR Döngüsü" fill className="object-cover" />
+          <Image src="/images/pcr-yazi i̇cine.webp" alt="PCR Döngüsü" fill className="object-cover" />
         </figure>
 
         <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 mt-12 mb-6">PCR Çeşitleri Arasındaki Farklar</h2>
@@ -238,13 +238,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               <Calendar className="w-4 h-4" />
               {post.date}
             </span>
+
           </div>
           <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-8">
             {post.title}
           </h1>
         </header>
 
-        {/* Makale Kapak Görseli */}
         {post.image && (
           <div className="relative w-full aspect-[21/9] md:aspect-[2.5/1] rounded-3xl overflow-hidden mb-12 shadow-lg border border-slate-200">
             <Image 
@@ -257,7 +257,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </div>
         )}
 
-        {/* İÇERİK KARTI GENİŞLETİLDİ (w-full yapıldı) */}
         <div className="bg-white p-6 md:p-14 rounded-3xl shadow-sm border border-slate-200 w-full">
           {post.content}
         </div>

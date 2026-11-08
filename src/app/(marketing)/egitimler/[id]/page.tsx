@@ -10,54 +10,111 @@ const egitimDetaylari = {
     title: "BIF 101 Eğitimi",
     image: "/images/egitimler/bif-101.jpeg",
     description: "Temel Biyoinformatik ve Veri Tabanları eğitimi ile veri analizi dünyasına ilk adımınızı atın.",
-    rawContent: `BIF 101 Eğitimi\nErişim: Satın alma sonrası 7/24\nEğitim: Online – Dijital & Kendi hızınızda`,
-    price: "4.000 ₺",
+    rawContent: `BIF 101 Eğitimi
+Erişim: Satın alma sonrası 7/24
+Eğitim: Online – Dijital & Kendi hızınızda
+Seviye: Başlangıç
+Katılım: Eğitim sonunda katılım sertifikası
+
+Eğitimde neler öğreneceksiniz?
+- Biyoinformatiğe giriş ve temel kavramlar
+- Biyolojik verilerin bilgisayar ortamında analiz edilmesi
+- DNA, RNA ve protein dizilerinin temel özellikleri
+- Nükleotid ve amino asit dizilerinin okunması
+- Sekans verilerinin temel dosya formatları (FASTA vb.)
+- Biyolojik veri tabanlarının temel mantığı ve NCBI kullanımı
+- Gen ve protein bilgilerinin araştırılması
+- BLAST nedir ve ne amaçla kullanılır? BLAST analizi yorumlama
+- Sequence Alignment (sekans hizalama) mantığı (Pairwise & MSA)
+- Sekans benzerliği ve biyolojik anlamı
+- Protein dizilerinin temel biyoinformatik analizi
+- Filogenetik analiz mantığına giriş
+- Biyoinformatik analizlerde veri kalitesinin önemi`,
+    price: "3.500 ₺",
     features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Başlangıç Seviyesi", "Katılım Sertifikası"],
     paytrUrl: "https://www.paytr.com/link/ppBeqgg",
+  },
+  "biyoinformatik-101": {
+    title: "Biyoinformatik 101: Temel Biyoinformatik ve Veri Tabanları",
+    image: "/images/egitimler/Biyoinformatik-101.jpeg",
+    description: "Biyoinformatiğe giriş ve temel veri analizi. NCBI, BLAST ve sekans hizalama yaklaşımlarıyla temel biyoinformatik okuryazarlığı.",
+    rawContent: `Biyoinformatik 101 Eğitimi
+Erişim: Satın alma sonrası 7/24
+Eğitim: Online – Dijital & Kendi hızınızda
+Seviye: Başlangıç
+Katılım: Eğitim sonunda katılım sertifikası
+
+Eğitimde neler öğreneceksiniz?
+- Biyoinformatiğe giriş ve temel kavramlar
+- Biyolojik verilerin bilgisayar ortamında analiz edilmesi
+- NCBI, BLAST ve sekans hizalama yaklaşımları
+- Gen ve protein bilgilerinin araştırılması`,
+    price: "3.500 ₺",
+    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Başlangıç Seviyesi", "Katılım Sertifikası"],
+    paytrUrl: "https://www.paytr.com/link/DOtkLu9",
   },
   "uygulamali-primer-tasarimi": {
     title: "Uygulamalı Primer Tasarımı Eğitimi",
     image: "/images/egitimler/uygulamali-primer-tasarimi.jpeg",
     description: "PCR için doğru ve özgül primer tasarımının temelleri. Tm, GC oranı, özgüllük ve Primer-BLAST kontrolleri.",
-    rawContent: `Uygulamalı Primer Tasarımı Eğitimi\nErişim: Satın alma sonrası 7/24`,
+    rawContent: `Uygulamalı Primer Tasarımı Eğitimi
+Erişim: Satın alma sonrası 7/24
+Eğitim: Online – Dijital
+Seviye: Başlangıç / Orta
+Katılım: Eğitim sonunda katılım sertifikası
+
+Eğitimde neler öğreneceksiniz?
+- PCR'ın temel prensibi ve primerin rolü
+- Forward ve Reverse primer kavramları
+- Hedef gen ve hedef bölgenin belirlenmesi
+- Primer uzunluğu, GC oranı ve Tm değeri optimizasyonu
+- Primer özgüllüğü (specificity) ve amplicon uzunluğu
+- Primer-dimer ve hairpin (ikincil yapı) oluşumunun engellenmesi
+- NCBI üzerinden hedef sekansın bulunması
+- Primer tasarım araçlarının kullanılması
+- Primer-BLAST kullanımı ve özgüllük kontrolü
+- Örnek gen sekansları üzerinden uygulamalı primer tasarımı`,
     price: "2.500 ₺",
-    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Katılım Sertifikası"],
+    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Başlangıç / Orta Seviye", "Katılım Sertifikası"],
     paytrUrl: "https://www.paytr.com/link/gJXUlYO",
-  },
-  "biyoinformatik-101": {
-    title: "Biyoinformatik 101: Temel Biyoinformatik ve Veri Tabanları",
-    image: "/images/egitimler/biyoinformatik-101.jpeg",
-    description: "Biyoinformatiğe giriş ve temel veri analizi. NCBI, BLAST ve sekans hizalama yaklaşımlarıyla temel biyoinformatik okuryazarlığı.",
-    rawContent: `Biyoinformatik 101 Eğitimi\nErişim: Satın alma sonrası 7/24`,
-    price: "3.500 ₺",
-    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Katılım Sertifikası"],
-    paytrUrl: "https://www.paytr.com/link/DOtkLu9",
   },
   "rekombinant-protein-ve-plazmit-tasarimi": {
     title: "Rekombinant Protein ve Plazmit Tasarımı Eğitimi",
-    image: "/images/egitimler/rekombinant-protein.png",
+    image: "/images/egitimler/rekombinant-protein-egitimi.png",
     description: "Bir proteinin üretimi, doğru genetik tasarımla başlar. Rekombinant protein üretimi ve plazmit tasarımının temelleri.",
-    rawContent: `Rekombinant Protein ve Plazmit Tasarımı Eğitimi\nErişim: Satın alma sonrası 7/24`,
+    rawContent: `Rekombinant Protein ve Plazmit Tasarımı Eğitimi
+Erişim: Satın alma sonrası 7/24
+Eğitim: Online – Dijital
+Seviye: Başlangıç / Orta
+Katılım: Eğitim sonunda katılım sertifikası
+
+CoreGen Biyoteknoloji güvencesiyle rekombinant protein üretimi, genetik yapı tasarımı ve plazmit optimizasyonu süreçlerini bu eğitimde detaylıca öğreneceksiniz.`,
     price: "3.500 ₺",
-    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Katılım Sertifikası"],
+    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Plazmit Tasarım Temelleri", "Katılım Sertifikası"],
     paytrUrl: "https://www.paytr.com/link/8A4zgHl",
   },
   "proje-ve-egitim-danismanligi": {
     title: "Proje ve Eğitim Danışmanlığı",
     image: "/images/egitimler/proje-danismanlik.jpg",
     description: "Akademik ve bilimsel projeleriniz, TÜBİTAK başvurularınız ve özel eğitim yol haritalarınız için birebir profesyonel danışmanlık.",
-    rawContent: `Proje ve Eğitim Danışmanlığı\nBirebir görüşmeler ve özelleştirilmiş proje rehberliği.`,
-    price: "1.500 ₺",
-    features: ["Birebir Görüşme", "Proje Danışmanlığı", "TÜBİTAK Yol Haritası"],
+    rawContent: `Proje ve Eğitim Danışmanlığı
+Format: Birebir Çevrim İçi Görüşme ve Yol Haritası Planlaması
+
+Akademik ve bilimsel araştırma projeleriniz, TÜBİTAK/KOSGEB başvuru süreçleriniz, laboratuvar kurulum ve optimizasyon çalışmalarınız için birebir uzman danışmanlık desteği alabilirsiniz.`,
+    price: "5.000 ₺",
+    features: ["Birebir Görüşme", "Proje Danışmanlığı", "TÜBİTAK Yol Haritası", "Uzman Desteği"],
     paytrUrl: "https://www.paytr.com/link/j7ivdkf",
   },
   "kariyer-ve-egitim-danismanligi": {
     title: "Kariyer ve Eğitim Danışmanlığı",
     image: "/images/egitimler/kariyer-danismanlik.jpg",
     description: "Biyoteknoloji, moleküler biyoloji ve genetik alanlarında kariyer planlaması, lisansüstü hedef belirleme ve mentorluk desteği.",
-    rawContent: `Kariyer ve Eğitim Danışmanlığı\nGenetik ve biyoteknoloji alanında akademik ve endüstriyel kariyer planlaması.`,
-    price: "1.000 ₺",
-    features: ["Kariyer Planlaması", "Mentorluk", "Özgeçmiş İncelemesi"],
+    rawContent: `Kariyer ve Eğitim Danışmanlığı
+Format: Birebir Mentörlük ve Kariyer Planlama Oturumu
+
+Biyoteknoloji, genetik ve yaşam bilimleri sektöründe kariyer hedefleyenler; lisansüstü eğitim (Yüksek Lisans / Doktora) planlaması yapanlar ve akademik yol haritasını çizenler için kişiselleştirilmiş mentorluk hizmetidir.`,
+    price: "4.000 ₺",
+    features: ["Kariyer Planlaması", "Mentorluk", "Akademik Yönlendirme", "Özgeçmiş İncelemesi"],
     paytrUrl: "https://www.paytr.com/link/Dpw812Z",
   }
 };
@@ -89,7 +146,7 @@ export default function EgitimDetayPage() {
               </div>
 
               <span className="inline-block text-[11px] font-bold tracking-widest uppercase text-cyan-600 bg-cyan-50 px-3 py-1.5 rounded-full">
-                Sertifikalı Program
+                Sertifikalı Program / Danışmanlık
               </span>
 
               <div className="flex flex-wrap gap-4 border-b border-slate-100 pb-6">
@@ -97,12 +154,12 @@ export default function EgitimDetayPage() {
                   <Users className="w-4 h-4" /> Kontenjan Dolmak Üzere!
                 </div>
                 <div className="flex items-center gap-2 text-sm text-slate-600 bg-slate-50 px-4 py-2 rounded-xl font-semibold">
-                  <Calendar className="w-4 h-4 text-blue-500" /> Sertifikalı Program
+                  <Calendar className="w-4 h-4 text-blue-500" /> Profesyonel İçerik
                 </div>
               </div>
 
               <div className="prose prose-slate max-w-none">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">Eğitim Detayları</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Eğitim Detayları & İçerik</h3>
                 <div className="text-slate-700 leading-relaxed text-sm bg-slate-50 p-6 rounded-2xl border border-slate-100 whitespace-pre-wrap font-medium">
                   {egitim.rawContent}
                 </div>

@@ -5,116 +5,175 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { ShoppingCart, MessageCircle, Users, Calendar, CheckCircle2, CreditCard, ChevronLeft } from "lucide-react";
 
+const noticeText = "Merhaba. Eğitim detaylarımız, WhatsApp grubu linki ve eğitim sınıfı linki 24 saat içerisinde mail adresinizde olacak. Mail ulaşmadığı takdirde spam klasörünüzü kontrol etmeyi ve bizlere mesaj atmanızı rica ederiz. Wp: 0552 220 7270\n\n";
+
+const consultationNotice = "Merhaba, kayıttan sonra randevu gün ve saatini belirlemek için sizlere mesaj gönderilecektir.\n\n";
+
 const egitimDetaylari = {
   "bif-101": {
-    title: "BIF 101 Eğitimi",
-    image: "/images/egitimler/bif-101.jpeg",
-    description: "Temel Biyoinformatik ve Veri Tabanları eğitimi ile veri analizi dünyasına ilk adımınızı atın.",
-    rawContent: `BIF 101 Eğitimi
-Erişim: Satın alma sonrası 7/24
-Eğitim: Online – Dijital & Kendi hızınızda
-Seviye: Başlangıç
-Katılım: Eğitim sonunda katılım sertifikası
+    title: "BIF101: NGS ve RNA-seq Veri Analizi Eğitim Programı",
+    image: "/images/egitimler/bif-101.jpg",
+    description: "Ham dizileme verisinden biyolojik yoruma uzanan analiz süreçlerini öğrenin!",
+    dateInfo: "25-26-27 Kasım 2026 | 20.00-23.00 (3 gün, 9 saat, uygulamalı eğitim)",
+    rawContent: noticeText + `BIF101 | NGS ve RNA-seq Veri Analizi Eğitim Programı
+Ham dizileme verisinden biyolojik yoruma uzanan analiz süreçlerini öğrenin!
 
-Eğitimde neler öğreneceksiniz?
-- Biyoinformatiğe giriş ve temel kavramlar
-- Biyolojik verilerin bilgisayar ortamında analiz edilmesi
-- DNA, RNA ve protein dizilerinin temel özellikleri
-- Nükleotid ve amino asit dizilerinin okunması
-- Sekans verilerinin temel dosya formatları (FASTA vb.)
-- Biyolojik veri tabanlarının temel mantığı ve NCBI kullanımı
-- Gen ve protein bilgilerinin araştırılması
-- BLAST nedir ve ne amaçla kullanılır? BLAST analizi yorumlama
-- Sequence Alignment (sekans hizalama) mantığı (Pairwise & MSA)
-- Sekans benzerliği ve biyolojik anlamı
-- Protein dizilerinin temel biyoinformatik analizi
-- Filogenetik analiz mantığına giriş
-- Biyoinformatik analizlerde veri kalitesinin önemi`,
+Eğitim Tarihi: 25-26-27 Kasım 2026 | Saat: 20.00-23.00
+Eğitmen: Alperen Göçmen
+Süre: 3 gün / toplam 9 saat (Günlük 3 saat, 50 dk ders + 10 dk ara)
+
+1. GÜN | GENETİK VE NGS TEMELLERİ
+- Biyoinformatik ve moleküler biyoloji
+- DNA, RNA, protein ve gen ekspresyonu
+- Sanger ve NGS teknolojileri (Illumina, Nanopore, PacBio)
+- Single-end ve paired-end sequencing
+- FASTA, FASTQ, SAM, BAM ve VCF formatları
+- Phred kalite skoru, Q20 ve Q30
+
+2. GÜN | NGS VERİ ANALİZİ VE KALİTE KONTROL
+- FastQC ve kalite kontrol parametreleri
+- GC content, adapter contamination ve sequence duplication
+- Trimming ve fastp
+- MultiQC ile raporlama
+- Alignment ve read mapping (STAR ve HISAT2)
+- SAM/BAM çıktılarının değerlendirilmesi
+
+3. GÜN | RNA-seq VE GEN EKSPRESYONU
+- Bulk RNA-seq ve deneysel tasarım
+- Biyolojik replikat ve batch effect
+- Count matrix ve featureCounts
+- TPM ve DESeq2 normalizasyonu
+- PCA analizi, DESeq2 ve edgeR
+- log2FC ve adjusted p-value, Volcano plot yorumlama
+- GO ve KEGG enrichment
+
+Uygulamalı Çalışmalar: Gerçek FastQC ve MultiQC raporları, diferansiyel ekspresyon tabloları ve volcano plot çıktıları üzerinden değerlendirme ve biyolojik yorumlama çalışmaları yapılacaktır.
+
+CoreGen Biyoteknoloji
+Bilimin Işığında, Geleceğin İzindeyiz!`,
     price: "4.000 ₺",
-    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Başlangıç Seviyesi", "Katılım Sertifikası"],
+    features: ["25-26-27 Kasım 2026 (20.00-23.00)", "3 Gün / Toplam 9 Saat", "Eğitmen: Alperen Göçmen", "Uygulamalı Canlı Eğitim"],
     paytrUrl: "https://www.paytr.com/link/ppBeqgg",
   },
   "biyoinformatik-101": {
-    title: "Biyoinformatik 101: Temel Biyoinformatik ve Veri Tabanları",
+    title: "Biyoinformatik 101: Temel Biyoinformatik ve Veri Tabanları Video Eğitimi",
     image: "/images/egitimler/Biyoinformatik-101.jpeg",
     description: "Biyoinformatiğe giriş ve temel veri analizi. NCBI, BLAST ve sekans hizalama yaklaşımlarıyla temel biyoinformatik okuryazarlığı.",
-    rawContent: `Biyoinformatik 101 Eğitimi
-Erişim: Satın alma sonrası 7/24
-Eğitim: Online – Dijital & Kendi hızınızda
-Seviye: Başlangıç
-Katılım: Eğitim sonunda katılım sertifikası
+    dateInfo: "Ömür Boyu 7/24 Dijital Erişim",
+    rawContent: noticeText + `Biyoinformatik 101: Temel Biyoinformatik ve Veri Tabanları Eğitimi
+Biyoinformatiğe nereden başlayacağınızı bilmiyor musunuz? Diziler nasıl hizalanır? BLAST sonuçları nasıl okunur?
 
-Eğitimde neler öğreneceksiniz?
-- Biyoinformatiğe giriş ve temel kavramlar
-- Biyolojik verilerin bilgisayar ortamında analiz edilmesi
-- NCBI, BLAST ve sekans hizalama yaklaşımları
-- Gen ve protein bilgilerinin araştırılması`,
+Eğitim Kapsamı:
+01 | Biyoinformatik Okuryazarlığı ve Dijital Veri Mimarisi
+02 | Küresel Kütüphaneler – Biyolojik Veritabanları
+03 | Algoritmik Mantık – Hizalamanın Doğası (Global, Local, Dinamik programlama)
+04 | BLAST ve Heuristik Arama (Nucleotide, Protein, Global Align)
+05 | Çoklu Dizi Hizalama (MSA) (FASTA, Clustal Omega, MUSCLE, T-Coffee)
+06 | Filogenetik Analiz (NGPhylogeny, PhyML uygulamaları)
+
+Elde ettiğiniz biyoinformatik sonuçları yalnızca görmek değil, biyolojik açıdan değerlendirmek ve yorumlamak üzerine odaklanıyoruz.
+
+Dijital Eğitim: Video dersler + uygulama videoları, ömür boyu erişim, kendi hızınızda öğrenme.
+
+CoreGen Biyoteknoloji
+Bilimin Işığında, Geleceğin İzindeyiz!`,
     price: "3.500 ₺",
-    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Başlangıç Seviyesi", "Katılım Sertifikası"],
+    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Video Eğitim", "Teorik + Uygulamalı Analizler", "Katılım Sertifikası"],
     paytrUrl: "https://www.paytr.com/link/DOtkLu9",
   },
   "uygulamali-primer-tasarimi": {
     title: "Uygulamalı Primer Tasarımı Eğitimi",
     image: "/images/egitimler/uygulamali-primer-tasarimi.jpeg",
     description: "PCR için doğru ve özgül primer tasarımının temelleri. Tm, GC oranı, özgüllük ve Primer-BLAST kontrolleri.",
-    rawContent: `Uygulamalı Primer Tasarımı Eğitimi
-Erişim: Satın alma sonrası 7/24
-Eğitim: Online – Dijital
-Seviye: Başlangıç / Orta
-Katılım: Eğitim sonunda katılım sertifikası
+    dateInfo: "Ömür Boyu 7/24 Dijital Erişim",
+    rawContent: noticeText + `Uygulamalı Primer Tasarımı Eğitimi
+- Primer Nedir? Neden Gereklidir?
+- Primer Tasarımında Teknik Noktalar Nelerdir?
+- Primer uzunluğu ve spesifiklik ayarları.
+- Primer Tasarlama Araçları ve Kullanımı.
+- Sipariş Sürecinde Kritik Kontroller.
+- Uygulama Örneği.
+- Sertifika Projesi: Hedef gen sekansı tasarımı ve raporlama.
 
-Eğitimde neler öğreneceksiniz?
-- PCR'ın temel prensibi ve primerin rolü
-- Forward ve Reverse primer kavramları
-- Hedef gen ve hedef bölgenin belirlenmesi
-- Primer uzunluğu, GC oranı ve Tm değeri optimizasyonu
-- Primer özgüllüğü (specificity) ve amplicon uzunluğu
-- Primer-dimer ve hairpin (ikincil yapı) oluşumunun engellenmesi
-- NCBI üzerinden hedef sekansın bulunması
-- Primer tasarım araçlarının kullanılması
-- Primer-BLAST kullanımı ve özgüllük kontrolü
-- Örnek gen sekansları üzerinden uygulamalı primer tasarımı`,
+CoreGen Biyoteknoloji
+Bilimin Işığında, Geleceğin İzindeyiz!`,
     price: "2.500 ₺",
-    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Başlangıç / Orta Seviye", "Katılım Sertifikası"],
+    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Sertifika Projesi Dahil", "Katılım Belgesi"],
     paytrUrl: "https://www.paytr.com/link/gJXUlYO",
   },
   "rekombinant-protein-ve-plazmit-tasarimi": {
     title: "Rekombinant Protein ve Plazmit Tasarımı Eğitimi",
-    image: "/images/egitimler/rekombinant-protein-egitimi.png",
+    image: "/images/egitimler/rekombinant-protein-egitimi.jpg",
     description: "Bir proteinin üretimi, doğru genetik tasarımla başlar. Rekombinant protein üretimi ve plazmit tasarımının temelleri.",
-    rawContent: `Rekombinant Protein ve Plazmit Tasarımı Eğitimi
-Erişim: Satın alma sonrası 7/24
-Eğitim: Online – Dijital
-Seviye: Başlangıç / Orta
-Katılım: Eğitim sonunda katılım sertifikası
+    dateInfo: "19-20 Kasım 2026 | 20.00-23.00 (6 saat)",
+    rawContent: noticeText + `Rekombinant Protein ve Plazmit Tasarımı Eğitimi
+Eğitim Tarihi: 19-20 Kasım 2026 | Saat: 20:00-23:00 (Toplam 6 Saat)
 
-CoreGen Biyoteknoloji güvencesiyle rekombinant protein üretimi, genetik yapı tasarımı ve plazmit optimizasyonu süreçlerini bu eğitimde detaylıca öğreneceksiniz.`,
+Bir proteinin biyoteknolojik üretimi, doğru genetik tasarımla başlar. Rekombinant DNA teknolojisinin temel prensiplerinden plazmit tasarımına, klonlama stratejilerinden ekspresyon sistemlerine uzanan bu eğitimde, rekombinant protein üretiminin moleküler temellerini öğreneceksiniz.
+
+Eğitim İçeriği:
+1. Rekombinant DNA Teknolojisinin Temelleri
+2. Plazmit Yapısı ve Tasarımı (Promotör, terminatör, seçici belirteçler, Ori)
+3. Klonlama Stratejileri (Restriksiyon enzimleri, gen klonlama)
+4. Ekspresyon Sistemleri (Prokaryotik ve ökaryotik sistemler)
+5. Rekombinant Protein Üretimi ve Doğrulama
+
+CoreGen Biyoteknoloji
+Bilimin Işığında, Geleceğin İzindeyiz!`,
     price: "3.500 ₺",
-    features: ["Satın alma sonrası 7/24 erişim", "Online – Dijital Eğitim", "Plazmit Tasarım Temelleri", "Katılım Sertifikası"],
+    features: ["19-20 Kasım 2026 (20:00-23:00)", "Toplam 6 Saat Canlı Eğitim", "Plazmit Tasarım Temelleri", "Katılım Sertifikası"],
     paytrUrl: "https://www.paytr.com/link/8A4zgHl",
   },
   "proje-ve-egitim-danismanligi": {
-    title: "Proje ve Eğitim Danışmanlığı",
+    title: "Proje ve Bilimsel Danışmanlık",
     image: "/images/egitimler/proje-danismanlik.jpg",
     description: "Akademik ve bilimsel projeleriniz, TÜBİTAK başvurularınız ve özel eğitim yol haritalarınız için birebir profesyonel danışmanlık.",
-    rawContent: `Proje ve Eğitim Danışmanlığı
-Format: Birebir Çevrim İçi Görüşme ve Yol Haritası Planlaması
+    dateInfo: "Birebir Görüşme (1 Saat - Randevulu)",
+    rawContent: consultationNotice + `Proje ve Bilimsel Araştırma Danışmanlığı – Birebir Görüşme
+Bilimsel araştırmalarınızı planlamak, akademik çalışmalarınızı geliştirmek veya projelerinizi daha sistematik bir şekilde yürütmek için uzman desteği alın.
 
-Akademik ve bilimsel araştırma projeleriniz, TÜBİTAK/KOSGEB başvuru süreçleriniz, laboratuvar kurulum ve optimizasyon çalışmalarınız için birebir uzman danışmanlık desteği alabilirsiniz.`,
+Danışmanlık Kapsamı:
+- Bilimsel araştırma konusu ve araştırma sorusunun belirlenmesi
+- Literatür tarama stratejisinin oluşturulması
+- Makale hazırlama ve bilimsel yazım süreçlerine yönelik danışmanlık
+- Yüksek lisans ve doktora tez çalışmalarına yönelik bilimsel rehberlik
+- Araştırma projesi geliştirme, planlama ve TÜBİTAK destek programları danışmanlığı
+- Deney taslağı, deneysel çalışma planı ve yöntem seçimi
+- Veri analizi, istatistiksel değerlendirme, grafik ve tablo yorumlama
+
+Görüşme ve Hizmet Detayları:
+- Birebir (1:1) çevrim içi görüşme, her seans 1 saat sürmektedir.
+
+Önemli Bilgilendirme: Bu hizmet bilimsel danışmanlık ve akademik rehberliği kapsar. Tez veya projelerin adınıza yazılması hizmete dahil değildir.
+
+CoreGen Biyoteknoloji
+Bilimin Işığında, Geleceğin İzindeyiz!`,
     price: "1.500 ₺",
-    features: ["Birebir Görüşme", "Proje Danışmanlığı", "TÜBİTAK Yol Haritası", "Uzman Desteği"],
+    features: ["Birebir Görüşme (1'e 1)", "Her Seans 1 Saat", "TÜBİTAK & Proje Desteği", "Uzman Rehberliği"],
     paytrUrl: "https://www.paytr.com/link/j7ivdkf",
   },
   "kariyer-ve-egitim-danismanligi": {
     title: "Kariyer ve Eğitim Danışmanlığı",
     image: "/images/egitimler/kariyer-danismanlik.jpg",
     description: "Biyoteknoloji, moleküler biyoloji ve genetik alanlarında kariyer planlaması, lisansüstü hedef belirleme ve mentorluk desteği.",
-    rawContent: `Kariyer ve Eğitim Danışmanlığı
-Format: Birebir Mentörlük ve Kariyer Planlama Oturumu
+    dateInfo: "Birebir Görüşme (1 Saat - Randevulu)",
+    rawContent: consultationNotice + `Kariyer ve Eğitim Danışmanlığı – Birebir Görüşme
+Kariyer hedeflerinizi belirlemek, akademik yolculuğunuzu planlamak veya yurt dışındaki eğitim fırsatlarını değerlendirmek için profesyonel danışmanlık desteği alın.
 
-Biyoteknoloji, genetik ve yaşam bilimleri sektöründe kariyer hedefleyenler; lisansüstü eğitim (Yüksek Lisans / Doktora) planlaması yapanlar ve akademik yol haritasını çizenler için kişiselleştirilmiş mentorluk hizmetidir.`,
+Danışmanlık Kapsamı:
+- Kariyer planlama ve profesyonel yönlendirme
+- CV hazırlama, düzenleme ve geliştirme
+- Akademik kariyer planlaması, yüksek lisans ve doktora süreçleri
+- Yurt dışı üniversite, eğitim programları, burs ve akademik fırsatların araştırılması
+- Niyet mektubu (Motivation Letter) hazırlama desteği
+
+Görüşme ve Hizmet Detayları:
+- Birebir (1:1) çevrim içi görüşme, her seans 1 saat sürmektedir.
+
+CoreGen Biyoteknoloji
+Bilimin Işığında, Geleceğin İzindeyiz!`,
     price: "1.000 ₺",
-    features: ["Kariyer Planlaması", "Mentorluk", "Akademik Yönlendirme", "Özgeçmiş İncelemesi"],
+    features: ["Birebir Görüşme (1'e 1)", "Her Seans 1 Saat", "CV & Kariyer Planlaması", "Yurt Dışı Eğitim Rehberliği"],
     paytrUrl: "https://www.paytr.com/link/Dpw812Z",
   }
 };
@@ -146,7 +205,7 @@ export default function EgitimDetayPage() {
               </div>
 
               <span className="inline-block text-[11px] font-bold tracking-widest uppercase text-cyan-600 bg-cyan-50 px-3 py-1.5 rounded-full">
-                Sertifikalı Program / Danışmanlık
+                {egitim.dateInfo}
               </span>
 
               <div className="flex flex-wrap gap-4 border-b border-slate-100 pb-6">
@@ -154,12 +213,12 @@ export default function EgitimDetayPage() {
                   <Users className="w-4 h-4" /> Kontenjan Dolmak Üzere!
                 </div>
                 <div className="flex items-center gap-2 text-sm text-slate-600 bg-slate-50 px-4 py-2 rounded-xl font-semibold">
-                  <Calendar className="w-4 h-4 text-blue-500" /> Profesyonel İçerik
+                  <Calendar className="w-4 h-4 text-blue-500" /> {egitim.dateInfo}
                 </div>
               </div>
 
               <div className="prose prose-slate max-w-none">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">Eğitim Detayları & İçerik</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Ürün Açıklaması & Detaylar</h3>
                 <div className="text-slate-700 leading-relaxed text-sm bg-slate-50 p-6 rounded-2xl border border-slate-100 whitespace-pre-wrap font-medium">
                   {egitim.rawContent}
                 </div>

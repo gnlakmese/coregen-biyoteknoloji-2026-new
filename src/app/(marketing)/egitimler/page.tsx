@@ -6,25 +6,25 @@ import Link from "next/link";
 import { Users, ArrowRight, AlertCircle, PlayCircle, Radio, Megaphone, ShoppingCart } from "lucide-react";
 
 const mockDuyurular = [
-  "✦ Bu Ayın Özel Oturumu: Epigenetik Perspektif Eğitimine Kayıtlar Başladı!",
+  "✦ Bu Ayın Özel Oturumu: Epigenetik Perspektif Serisi Devam Ediyor!",
   "✦ CoreGen Eğitim Takvimi Güncellendi.",
-  "✦ BIF 101 ve Rekombinant Protein Eğitimleri Aktif!"
+  "✦ Birebir Danışmanlık Hizmetleri ile Kariyerinizi ve Projelerinizi Güçlendirin!"
 ];
 
 const mockEgitimler = [
   {
     id: "bif-101",
-    title: "BIF 101 Eğitimi",
-    description: "Temel Biyoinformatik ve Veri Tabanları eğitimi ile veri analizi dünyasına ilk adımınızı atın.",
+    title: "BIF101: NGS ve RNA-seq Veri Analizi Eğitim Programı",
+    description: "Ham dizileme verisinden biyolojik yoruma uzanan analiz süreçlerini öğrenin!",
     price: "4.000 ₺",
-    image: "/images/egitimler/bif-101.jpeg",
-    category: "Dijital Eğitim",
-    isDigital: true,
+    image: "/images/egitimler/bif-101.jpg",
+    category: "Canlı Eğitim",
+    isDigital: false,
     paytrUrl: "https://www.paytr.com/link/ppBeqgg",
   },
   {
     id: "biyoinformatik-101",
-    title: "Biyoinformatik 101: Temel Biyoinformatik ve Veri Tabanları",
+    title: "Biyoinformatik 101: Temel Biyoinformatik ve Veri Tabanları Video Eğitimi",
     description: "Biyoinformatiğe giriş ve temel veri analizi. NCBI, BLAST ve sekans hizalama yaklaşımlarıyla temel biyoinformatik okuryazarlığı.",
     price: "3.500 ₺",
     image: "/images/egitimler/Biyoinformatik-101.jpeg",
@@ -47,14 +47,14 @@ const mockEgitimler = [
     title: "Rekombinant Protein ve Plazmit Tasarımı Eğitimi",
     description: "Bir proteinin üretimi, doğru genetik tasarımla başlar. Rekombinant protein üretimi ve plazmit tasarımının temelleri.",
     price: "3.500 ₺",
-    image: "/images/egitimler/rekombinant-protein-egitimi.png",
-    category: "Dijital Eğitim",
-    isDigital: true,
+    image: "/images/egitimler/rekombinant-protein-egitimi.jpg",
+    category: "Canlı Eğitim",
+    isDigital: false,
     paytrUrl: "https://www.paytr.com/link/8A4zgHl", 
   },
   {
     id: "proje-ve-egitim-danismanligi",
-    title: "Proje ve Eğitim Danışmanlığı",
+    title: "Proje ve Bilimsel Danışmanlık",
     description: "Akademik ve bilimsel projeleriniz, TÜBİTAK başvurularınız ve özel eğitim yol haritalarınız için birebir profesyonel danışmanlık.",
     price: "1.500 ₺",
     image: "/images/egitimler/proje-danismanlik.jpg",
@@ -252,6 +252,10 @@ export default function EgitimlerPage() {
                 {egitim.category === "Danışmanlık" ? (
                   <div className="flex items-center gap-1.5 text-[10px] font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-2.5 py-1.5 rounded-lg mb-3 w-max border border-blue-100">
                     <Users className="w-3.5 h-3.5" /> Danışmanlık
+                  </div>
+                ) : egitim.category === "Canlı Eğitim" ? (
+                  <div className="flex items-center gap-1.5 text-[10px] font-extrabold tracking-wider uppercase text-emerald-700 bg-emerald-50 px-2.5 py-1.5 rounded-lg mb-3 w-max border border-emerald-100">
+                    <Radio className="w-3.5 h-3.5 animate-pulse" /> Canlı Eğitim
                   </div>
                 ) : (
                   <div className="flex items-center gap-1.5 text-[10px] font-extrabold tracking-wider uppercase text-purple-700 bg-purple-50 px-2.5 py-1.5 rounded-lg mb-3 w-max border border-purple-100">

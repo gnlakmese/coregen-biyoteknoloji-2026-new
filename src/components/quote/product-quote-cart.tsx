@@ -1,7 +1,8 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
+import { ShoppingCart, CheckCircle2, X } from "lucide-react";
 
 export interface ProductQuoteItem {
   id: string;
@@ -15,6 +16,7 @@ export interface ProductQuoteItem {
 
 const STORAGE_KEY = "coregen-product-quote-cart-v1";
 const EVENT_NAME = "coregen-product-quote-cart-change";
+const ADDED_EVENT_NAME = "coregen-product-quote-added";
 const DRAFT_KEY = "coregen-whatsapp-quote-draft";
 let memory = "[]";
 let storageWarning = false;
@@ -79,11 +81,16 @@ export function useProductQuoteCart() {
     addItem(item: ProductQuoteItem) {
       const current = parseCart(getSnapshot());
       const found = current.find(existing => existing.id === item.id);
+      const nextQuantity = normalizeQuantity((found?.quantity || 0) + normalizeQuantity(item.quantity));
+      const addedQuantity = nextQuantity - (found?.quantity || 0);
       writeCart(found
         ? current.map(existing => existing.id === item.id
-          ? { ...existing, ...item, quantity: normalizeQuantity(existing.quantity + normalizeQuantity(item.quantity)) }
+          ? { ...existing, ...item, quantity: nextQuantity }
           : existing)
-        : [...current, { ...item, quantity: normalizeQuantity(item.quantity) }]);
+        : [...current, { ...item, quantity: nextQuantity }]);
+      window.dispatchEvent(new CustomEvent(ADDED_EVENT_NAME, {
+        detail: { title: item.title, quantity: addedQuantity, storageWarning },
+      }));
     },
     updateQuantity(id: string, quantity: number) {
       writeCart(parseCart(getSnapshot()).map(item => item.id === id
@@ -124,11 +131,91 @@ export function readQuoteDraft(): string | null {
   } catch { return null; }
 }
 
+interface AddedProductNotice {
+  title: string;
+  quantity: number;
+  storageWarning: boolean;
+}
+
+// ProductCartLink mounts this once on each catalogue/category page.
+// Repeated additions reset the timer; navigation and unmount clean it up.
+export function ProductCartToast() {
+  const [notice, setNotice] = useState<AddedProductNotice | null>(null);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const onAdded = (event: Event) => {
+      const detail = (event as CustomEvent<AddedProductNotice>).detail;
+      if (!detail || typeof detail.title !== "string" ||
+          typeof detail.quantity !== "number" || !Number.isFinite(detail.quantity)) return;
+      if (timer.current) clearTimeout(timer.current);
+      setNotice(detail);
+      timer.current = setTimeout(() => {
+        setNotice(null);
+        timer.current = null;
+      }, 6000);
+    };
+    window.addEventListener(ADDED_EVENT_NAME, onAdded);
+    return () => {
+      window.removeEventListener(ADDED_EVENT_NAME, onAdded);
+      if (timer.current) clearTimeout(timer.current);
+    };
+  }, []);
+
+  const dismiss = () => {
+    if (timer.current) clearTimeout(timer.current);
+    timer.current = null;
+    setNotice(null);
+  };
+
+  return (
+    <div className="fixed bottom-4 left-4 right-4 z-[60] sm:left-auto sm:w-96">
+      <div role="status" aria-live="polite" aria-atomic="true" className="sr-only">
+        {notice ? (notice.quantity > 0
+          ? `${notice.title}: ${notice.quantity} adet teklif sepetine eklendi.`
+          : `${notice.title}: Sepetteki adet sınırına ulaşıldı.`) : ""}
+      </div>
+      {notice && (
+        <div className="rounded-2xl border border-pink-200 bg-white p-4 shadow-xl">
+          <div className="flex items-start gap-3">
+            <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-pink-600" aria-hidden="true" />
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-bold text-slate-900">
+                {notice.quantity > 0 ? "Sepete eklendi" : "Adet sınırına ulaşıldı"}
+              </p>
+              <p className="mt-1 break-words text-sm text-slate-600">
+                {notice.title}{notice.quantity > 0 ? ` · ${notice.quantity} adet` : ""}
+              </p>
+              {notice.storageWarning && <p className="mt-2 text-xs text-slate-600">Sepet kalıcı kaydedilemiyor. Sayfayı yenilemeyin.</p>}
+            </div>
+            <button type="button" onClick={dismiss} aria-label="Bildirimi kapat"
+              className="rounded-lg p-1 text-slate-500 hover:bg-slate-100 hover:text-slate-900">
+              <X className="h-5 w-5" aria-hidden="true" />
+            </button>
+          </div>
+          <Link href="/teklif-sepeti" onClick={dismiss}
+            className="mt-3 inline-flex items-center gap-2 rounded-xl bg-[#db2775] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#be185d]">
+            <ShoppingCart className="h-4 w-4" aria-hidden="true" /> Teklif Sepetime Git
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function ProductCartLink() {
   const { items } = useProductQuoteCart();
-  return <Link href="/teklif-sepeti" className="inline-flex items-center gap-2 rounded-xl bg-[#db2775] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#be185d]">
-    Teklif Sepetim ({items.length} ürün)
-  </Link>;
+  return <>
+    <Link href="/teklif-sepeti" aria-label={`Teklif Sepetim, ${items.length} farklı ürün`}
+      className="inline-flex items-center gap-2 rounded-xl bg-[#db2775] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#be185d]">
+      <ShoppingCart className="h-5 w-5" aria-hidden="true" />
+      <span>Teklif Sepetim</span>
+      <span className="inline-flex min-w-6 items-center justify-center rounded-full bg-white px-2 py-0.5 text-xs font-bold text-[#db2775]">
+        {items.length}
+      </span>
+    </Link>
+    <ProductCartToast />
+  </>;
 }
 
 export function ProductCartPanel() {

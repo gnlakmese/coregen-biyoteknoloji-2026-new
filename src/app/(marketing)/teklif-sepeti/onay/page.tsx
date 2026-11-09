@@ -1,15 +1,20 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+
+import { readQuoteDraft } from "@/components/quote/product-quote-cart";
 
 import { Button } from "@/components/ui/button";
 
 function QuoteConfirmationContent() {
   const searchParams = useSearchParams();
   const quoteNumber = searchParams.get("q");
+  const isWhatsapp = searchParams.get("kanal") === "whatsapp";
+  const [draftUrl, setDraftUrl] = useState<string | null>(null);
+  useEffect(() => { if (isWhatsapp) setDraftUrl(readQuoteDraft()); }, [isWhatsapp]);
 
   return (
     <div className="container flex min-h-[70vh] flex-col items-center justify-center gap-6 py-24 text-center">
@@ -19,10 +24,10 @@ function QuoteConfirmationContent() {
 
       <div className="space-y-3">
         <p className="font-mono text-xs uppercase tracking-[0.14em] text-brand-magenta">
-          Talebiniz Alındı
+          Teklif Talebi
         </p>
         <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Teşekkürler, teklif talebiniz iletildi
+          {isWhatsapp ? "WhatsApp mesajınızı göndererek tamamlayın" : "Teklif talebinizin durumu"}
         </h1>
         {quoteNumber && (
           <p className="font-mono text-sm text-muted-foreground">
@@ -30,12 +35,17 @@ function QuoteConfirmationContent() {
           </p>
         )}
         <p className="mx-auto max-w-md text-muted-foreground">
-          Ekibimiz talebinizi değerlendirip 24–48 saat içinde e-posta veya
-          telefon ile size dönüş yapacaktır.
+          {isWhatsapp
+            ? "WhatsApp’ta Gönder düğmesine basmanız gerekir. Bu sayfa mesajın gönderildiğini doğrulamaz. Sepetiniz korunur."
+            : "Talebinizin durumu hakkında bilgi almak için referans numaranızla bizimle iletişime geçebilirsiniz."}
         </p>
       </div>
 
+      {isWhatsapp && (draftUrl
+        ? <Button asChild><a href={draftUrl} target="_blank" rel="noopener noreferrer">WhatsApp’ı Aç</a></Button>
+        : <p className="text-sm text-muted-foreground">Mesaj taslağı bulunamadı veya süresi doldu. Formdan yeniden hazırlayabilirsiniz.</p>)}
       <div className="flex flex-col gap-3 sm:flex-row">
+        <Button variant="outline" asChild><Link href="/teklif-sepeti">Sepete Dön</Link></Button>
         <Button asChild>
           <Link href="/">
             Ana Sayfaya Dön

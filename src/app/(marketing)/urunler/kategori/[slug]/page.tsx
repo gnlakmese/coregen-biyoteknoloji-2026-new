@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { notFound, useParams } from "next/navigation";
-import { MessageCircle, FileText, CheckCircle2, ArrowLeft, ExternalLink, ShoppingBag, Store } from "lucide-react";
+import { notFound, redirect, useParams } from "next/navigation";
+import { MessageCircle, FileText, CheckCircle2, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { getProductCategoryBySlug, getProductsByCategory } from "@/content/products";
@@ -19,8 +19,26 @@ export default function CategoryDetailPage() {
   const isLabDevices = (category?.title || "").toLowerCase().includes("cihaz");
   const ikasStoreUrl = "https://8z6s1-coregenbiyoteknoloji.myikas.com/";
 
-  const { addItem, storageWarning } = useProductQuoteCart();
-  const [notice, setNotice] = useState("");
+  const { items, addItem, storageWarning } = useProductQuoteCart();
+  const [addedProducts, setAddedProducts] = useState<Record<string, boolean>>({});
+  const addedTimers = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
+
+  useEffect(() => {
+    setAddedProducts({});
+    return () => {
+      Object.values(addedTimers.current).forEach(clearTimeout);
+      addedTimers.current = {};
+    };
+  }, [params.slug]);
+
+  const showAdded = (id: string) => {
+    if (addedTimers.current[id]) clearTimeout(addedTimers.current[id]);
+    setAddedProducts(previous => ({ ...previous, [id]: true }));
+    addedTimers.current[id] = setTimeout(() => {
+      setAddedProducts(previous => ({ ...previous, [id]: false }));
+      delete addedTimers.current[id];
+    }, 2500);
+  };
   const [quantities, setQuantities] = useState<{ [key: string]: number }>(
     Object.fromEntries(rawProducts.map((p) => [p.id, 1]))
   );
@@ -30,6 +48,7 @@ export default function CategoryDetailPage() {
   };
 
   if (!category) notFound();
+  if (isLabDevices) redirect(ikasStoreUrl);
 
   return (
     <div className="min-h-screen bg-slate-50/50 pb-20">
@@ -51,48 +70,11 @@ export default function CategoryDetailPage() {
             </p>
           </div>
           <ProductCartLink />
-          <p role="status" aria-live="polite" className="text-sm text-slate-600">{notice}{storageWarning ? " Sepet bu tarayıcıda kalıcı kaydedilemiyor; sayfayı yenilemeyin." : ""}</p>
+          {storageWarning && <p role="status" className="text-sm text-slate-600">Sepet bu tarayıcıda kalıcı kaydedilemiyor; sayfayı yenilemeyin.</p>}
         </div>
       </section>
 
-      {/* EĞER "LABORATUVAR CİHAZLARI" İSE İKAS MAĞAZASINA YÖNLENDİR */}
-      {isLabDevices ? (
-        <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="rounded-3xl border border-slate-200 bg-white p-10 lg:p-16 text-center max-w-3xl mx-auto shadow-sm space-y-6">
-            <div className="w-20 h-20 bg-pink-50 text-pink-600 rounded-full flex items-center justify-center mx-auto border border-pink-100 shadow-inner">
-              <Store className="w-10 h-10" />
-            </div>
-            
-            <div className="space-y-3">
-              <h2 className="text-2xl font-extrabold text-slate-900">
-                Laboratuvar Cihazları İkas Mağazamızda!
-              </h2>
-              <p className="text-sm text-slate-600 leading-relaxed max-w-xl mx-auto">
-                Laboratuvar cihazlarımız güncel stoklar ve resmi e-ticaret altyapımızla satışa sunulmuştur. Tüm cihaz çeşitlerini incelemek için mağazamızı ziyaret edebilirsiniz.
-              </p>
-            </div>
-
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href={ikasStoreUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-pink-600 hover:bg-pink-700 text-white font-bold px-8 py-4 rounded-xl text-sm transition-all shadow-md cursor-pointer"
-              >
-                  <ShoppingBag className="w-5 h-5" /> İkas Mağazasında Görüntüle <ExternalLink className="w-4 h-4 ml-1" />
-              </a>
-
-              <Link
-                href="/urunler"
-                className="inline-flex items-center gap-2 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold px-6 py-4 rounded-xl text-sm transition-all shadow-sm"
-              >
-                <ArrowLeft className="w-4 h-4" /> Tüm Ürünlere Dön
-              </Link>
-            </div>
-          </div>
-        </section>
-      ) : (
-        /* DİĞER KATEGORİLER İÇİN ÜRÜN LİSTESİ VE TEKLİF SEPETİ SİSTEMİ */
+      {/* Ürün listesi ve teklif sepeti */}
         <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {rawProducts.length === 0 ? (
             <div className="rounded-2xl border border-slate-200 bg-white p-12 text-center">
@@ -108,6 +90,9 @@ export default function CategoryDetailPage() {
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {rawProducts.map((product) => {
                 const qty = quantities[product.id] || 1;
+                const cartQuantity = items.find(item => item.id === product.id)?.quantity || 0;
+                const justAdded = !!addedProducts[product.id] && cartQuantity > 0;
+                const atLimit = cartQuantity >= 999999;
                 const whatsappUrl = `https://wa.me/905522207270?text=${encodeURIComponent(
                   `Merhaba, ${qty} adet ${product.name} ürünü hakkında bilgi ve fiyat teklifi almak istiyorum.`
                 )}`;
@@ -161,6 +146,12 @@ export default function CategoryDetailPage() {
                     </div>
 
                     <div className="mt-6 pt-4 border-t border-slate-100 space-y-4">
+                      {cartQuantity > 0 && (
+                        <Link href="/teklif-sepeti" className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#db2775] hover:underline">
+                          <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
+                          Sepetinizde {cartQuantity} adet var · Sepeti Gör
+                        </Link>
+                      )}
                       {/* Manuel Adet Girişi */}
                       <div className="flex items-center justify-between">
                         <span className="text-sm font-medium text-slate-700">Adet:</span>
@@ -180,6 +171,8 @@ export default function CategoryDetailPage() {
                       <div className="flex items-center gap-3">
                         <button
                           type="button"
+                          disabled={atLimit}
+                          aria-label={`${product.name}: ${atLimit ? "Adet sınırına ulaşıldı" : `${qty} adet teklif sepetine ekle`}`}
                           onClick={() => {
                             addItem({
                               id: product.id,
@@ -189,12 +182,14 @@ export default function CategoryDetailPage() {
                               quantity: qty,
                               image: product.image,
                             });
-                            setNotice(`${product.name}: ${qty} adet sepete eklendi.`);
+                            showAdded(product.id);
                           }}
                           className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#db2775] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#be185d]"
                         >
-                          <FileText className="h-4 w-4" />
-                          Teklif Sepetine Ekle
+                          {justAdded
+                            ? <CheckCircle2 className="h-4 w-4 shrink-0" aria-hidden="true" />
+                            : <FileText className="h-4 w-4 shrink-0" aria-hidden="true" />}
+                          {atLimit ? "Adet Sınırına Ulaşıldı" : justAdded ? "Sepete Eklendi" : "Teklif Sepetine Ekle"}
                         </button>
 
                         <a
@@ -214,7 +209,6 @@ export default function CategoryDetailPage() {
             </div>
           )}
         </section>
-      )}
     </div>
   );
 }

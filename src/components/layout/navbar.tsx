@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Menu, Search, Dna, PlusCircle, User, MessageCircle } from "lucide-react";
+import { ChevronDown, Menu, Search, Dna, PlusCircle, User, MessageCircle, ShoppingCart } from "lucide-react";
+
+import { useProductQuoteCart } from "@/components/quote/product-quote-cart";
 
 import { MobileMenu } from "@/components/layout/mobile-menu";
 import { Button } from "@/components/ui/button";
@@ -13,6 +15,8 @@ import { serviceCategoryOutline } from "@/content/services";
 import { transitionBase } from "@/lib/motion";
 
 export function Navbar() {
+  const { items: productCartItems } = useProductQuoteCart();
+  const productCount = productCartItems.length;
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -293,6 +297,34 @@ export function Navbar() {
               <span>Giriş Yap / Üye Ol</span>
             </a>
           )}
+
+          {/* Ürün teklif sepeti: masaüstü ve mobilde görünür */}
+          <Link
+            href="/teklif-sepeti"
+            aria-label={`Teklif Sepeti, ${productCount} farklı ürün`}
+            title={`Teklif Sepeti (${productCount} ürün)`}
+            onClick={() => {
+              setOpenMenu(null);
+              setMobileOpen(false);
+            }}
+            className={`relative inline-flex shrink-0 items-center justify-center gap-2 rounded-xl border p-2.5 text-xs font-bold transition-colors ${
+              isHome && !scrolled
+                ? "bg-white/10 border-white/20 text-white hover:bg-white/20"
+                : "bg-pink-50 border-pink-200 text-pink-700 hover:bg-pink-100"
+            }`}
+          >
+            <ShoppingCart className="h-5 w-5" aria-hidden="true" />
+            <span className="hidden 2xl:inline">Teklif Sepeti</span>
+            <span
+              aria-hidden="true"
+              className="absolute -right-1.5 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-pink-600 px-1 text-[10px] font-bold leading-none text-white ring-2 ring-white"
+            >
+              {productCount > 99 ? "99+" : productCount}
+            </span>
+          </Link>
+          <span className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+            Teklif sepetinde {productCount} farklı ürün var.
+          </span>
 
           {/* TEKLİF İSTE -> WHATSAPP HATTINA YÖNLENDİRİLDİ */}
           <a 

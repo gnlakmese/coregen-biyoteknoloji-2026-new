@@ -1,3 +1,4 @@
+import { ProductCartLink } from "@/components/quote/product-quote-cart";
 import type { Metadata } from "next";
 
 import { Breadcrumb } from "@/components/ui/breadcrumb";
@@ -44,6 +45,7 @@ export default function CatalogPage() {
               </p>
             </div>
           </Reveal>
+          <ProductCartLink />
         </div>
       </section>
 

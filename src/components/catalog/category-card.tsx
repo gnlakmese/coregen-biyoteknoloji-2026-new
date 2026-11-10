@@ -11,12 +11,17 @@ const localIconMap: Record<string, any> = {
   Cpu,
 };
 
+const IKAS_STORE_URL = "https://8z6s1-coregenbiyoteknoloji.myikas.com/";
+
 export function CategoryCard({ category }: { category: any }) {
   const IconComponent = localIconMap[category.icon] || Boxes;
+  const isLabDevices = (category.title || "").toLowerCase().includes("cihaz");
+  const CardLink = isLabDevices ? "a" : Link;
+  const destination = isLabDevices ? IKAS_STORE_URL : category.href;
 
   return (
-    <Link
-      href={category.href}
+    <CardLink
+      href={destination}
       className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all hover:border-[#db2775] hover:shadow-md"
     >
       {/* Üst Kısım: Kare/Dikdörtgen Dengeli Görsel Alanı */}
@@ -45,13 +50,13 @@ export function CategoryCard({ category }: { category: any }) {
 
         <div className="mt-6 flex items-center justify-between pt-4 border-t border-slate-100">
           <span className="text-sm font-semibold text-[#db2775] group-hover:underline">
-            Kategoriyi İncele
+            {isLabDevices ? "Mağazaya Git" : "Kategoriyi İncele"}
           </span>
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-50 text-slate-400 transition-all group-hover:bg-[#db2775] group-hover:text-white">
             <ArrowRight className="h-4 w-4" />
           </div>
         </div>
       </div>
-    </Link>
+    </CardLink>
   );
 }

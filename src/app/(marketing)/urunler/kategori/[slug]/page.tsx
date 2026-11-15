@@ -1,3 +1,99 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { notFound, redirect, useParams } from "next/navigation";
+import { MessageCircle, FileText, CheckCircle2, ArrowLeft } from "lucide-react";
+import Link from "next/link";
+import { Breadcrumb } from "@/components/ui/breadcrumb";
+import { getProductCategoryBySlug, getProductsByCategory } from "@/content/products";
+import { useProductQuoteCart, ProductCartLink, normalizeQuantity } from "@/components/quote/product-quote-cart";
+
+export default function CategoryDetailPage() {
+  const params = useParams<{ slug: string }>();
+  const category = getProductCategoryBySlug(params.slug);
+  const rawProducts = getProductsByCategory(params.slug);
+
+
+  // Sadece "Laboratuvar Cihazları" kategorisi Shopify mağazasına yönlendirilecek
+  const isLabDevices = (category?.title || "").toLowerCase().includes("cihaz");
+  const ikasStoreUrl = "https://bn4idp-ih.myshopify.com/";
+
+  const { items, addItem, storageWarning } = useProductQuoteCart();
+  const [addedProducts, setAddedProducts] = useState<Record<string, boolean>>({});
+  const addedTimers = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
+
+  useEffect(() => {
+    setAddedProducts({});
+    return () => {
+      Object.values(addedTimers.current).forEach(clearTimeout);
+      addedTimers.current = {};
+    };
+  }, [params.slug]);
+
+  const showAdded = (id: string) => {
+    if (addedTimers.current[id]) clearTimeout(addedTimers.current[id]);
+    setAddedProducts(previous => ({ ...previous, [id]: true }));
+    addedTimers.current[id] = setTimeout(() => {
+      setAddedProducts(previous => ({ ...previous, [id]: false }));
+      delete addedTimers.current[id];
+    }, 2500);
+  };
+  const [quantities, setQuantities] = useState<{ [key: string]: number }>(
+    Object.fromEntries(rawProducts.map((p) => [p.id, 1]))
+  );
+
+  const handleQuantityChange = (id: string, val: number) => {
+    setQuantities((prev) => ({ ...prev, [id]: normalizeQuantity(val) }));
+  };
+
+  if (!category) notFound();
+  if (isLabDevices) redirect(ikasStoreUrl);
+
+  return (
+    <div className="min-h-screen bg-slate-50/50 pb-20">
+      {/* Üst Banner Alanı */}
+      <section className="border-b border-slate-200 bg-white pt-24 pb-12 lg:pt-28 lg:pb-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+          <Breadcrumb
+            items={[
+              { label: "Ürünler", href: "/urunler" },
+              { label: category.title },
+            ]}
+          />
+          <div className="max-w-3xl space-y-2">
+            <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+              {category.title}
+            </h1>
+            <p className="text-base text-slate-600">
+              {category.description || "Bu kategorideki profesyonel ürünleri inceleyip teklif sepetine ekleyebilir ve WhatsApp üzerinden hızlıca teklif talep edebilirsiniz."}
+            </p>
+          </div>
+          <ProductCartLink />
+          {storageWarning && <p role="status" className="text-sm text-slate-600">Sepet bu tarayıcıda kalıcı kaydedilemiyor; sayfayı yenilemeyin.</p>}
+        </div>
+      </section>
+
+      {/* Ürün listesi ve teklif sepeti */}
+        <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          {rawProducts.length === 0 ? (
+            <div className="rounded-2xl border border-slate-200 bg-white p-12 text-center">
+              <p className="text-slate-500">Bu kategoride henüz ürün bulunmuyor.</p>
+              <Link
+                href="/urunler"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#db2775] hover:underline"
+              >
+                <ArrowLeft className="h-4 w-4" /> Tüm Ürünlere Dön
+              </Link>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {rawProducts.map((product) => {
+                const qty = quantities[product.id] || 1;
+                const cartQuantity = items.find(item => item.id === product.id)?.quantity || 0;
+                const justAdded = !!addedProducts[product.id] && cartQuantity > 0;
+                const atLimit = cartQuantity >= 999999;
+                const whatsappUrl = `https://wa.me/905522207270?text=${encodeURIComponent(
                   `Merhaba, ${qty} adet ${product.name} ürünü hakkında bilgi ve fiyat teklifi almak istiyorum.`
                 )}`;
 

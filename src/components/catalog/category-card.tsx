@@ -11,13 +11,13 @@ const localIconMap: Record<string, any> = {
   Cpu,
 };
 
-const IKAS_STORE_URL = "https://8z6s1-coregenbiyoteknoloji.myikas.com/";
+const SHOPIFY_STORE_URL = "https://bn4idp-ih.myshopify.com/";
 
 export function CategoryCard({ category }: { category: any }) {
   const IconComponent = localIconMap[category.icon] || Boxes;
   const isLabDevices = (category.title || "").toLowerCase().includes("cihaz");
   const CardLink = isLabDevices ? "a" : Link;
-  const destination = isLabDevices ? IKAS_STORE_URL : category.href;
+  const destination = isLabDevices ? SHOPIFY_STORE_URL : category.href;
 
   return (
     <CardLink
